@@ -86,4 +86,12 @@ public abstract class OIGModel {
     public void setAlpha(double alpha) {
         this.alpha = alpha;
     }
+
+    public double getHP() {
+        return HP;
+    }
+
+    public void setHP(double HP) {
+        this.HP = HP;
+    }
 }

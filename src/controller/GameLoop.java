@@ -88,7 +88,16 @@ public class GameLoop extends Thread{
                 }
             }
         }
+        CheckObjectDeath();
         EpsilonBorderCollision();
+    }
+
+    private void CheckObjectDeath() {
+        for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
+            if (OIGModel.OIGs.get(i).getHP() <= 0){
+                GameManager.OIGDeath(OIGModel.OIGs.get(i));
+            }
+        }
     }
 
     private void EpsilonBorderCollision() {

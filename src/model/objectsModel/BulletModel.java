@@ -13,6 +13,7 @@ public class BulletModel extends OIGModel implements IsCircle, MoveAble {
         this.velocity = Utils.VectorWithSize(direction , Constants.BULLET_VELOCITY);
         this.acceleration = new Vector(0 ,0);
         this.id = id;
+        this.HP = 1;
     }
 
     @Override

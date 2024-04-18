@@ -1,5 +1,6 @@
 package model.logic;
 
+import controller.Constants;
 import controller.Controller;
 import controller.helper.Utils;
 import controller.helper.Vector;
@@ -35,6 +36,7 @@ public class CollisionHandler {
     public void EnemyBullet(EnemyModel enemy, BulletModel bullet) {
         collisionPoint = bullet.getPosition();
         Controller.removeOIG(bullet.getId());
+        enemy.setHP(enemy.getHP() - Constants.EPSILON_DAMAGE);
         new Impact(collisionPoint).MakeImpact();
     }
 
