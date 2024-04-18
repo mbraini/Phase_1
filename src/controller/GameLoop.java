@@ -133,25 +133,25 @@ public class GameLoop extends Thread{
         if (bullet.getPosition().x <= Constants.EPSILON_DIMENSION.width / 2d){
             ///////todo
             new FrameAnimation(Application.gameFrame ,0 ,0 ,0 ,Constants.FRAME_BULLET_RESIZE,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
-            Controller.removeOIG(bullet.getId());
+            bullet.setHP(-1);
             ///////todo
         }
         else if (bullet.getPosition().x >= Application.gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width / 2d){
             ///////todo
             new FrameAnimation(Application.gameFrame ,0 ,0 ,Constants.FRAME_BULLET_RESIZE ,0,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
-            Controller.removeOIG(bullet.getId());
+            bullet.setHP(-1);
             ///////todo
         }
         else if (bullet.getPosition().y <= Constants.EPSILON_DIMENSION.height / 2d){
             ///////todo
             new FrameAnimation(Application.gameFrame ,Constants.FRAME_BULLET_RESIZE ,0 ,0 ,0,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
-            Controller.removeOIG(bullet.getId());
+            bullet.setHP(-1);
             ///////todo
         }
         else if (bullet.getPosition().y >= Application.gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height / 2d){
             ///////todo
             new FrameAnimation(Application.gameFrame ,0 ,Constants.FRAME_BULLET_RESIZE ,0 ,0,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
-            Controller.removeOIG(bullet.getId());
+            bullet.setHP(-1);
             ///////todo
         }
     }

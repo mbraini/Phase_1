@@ -34,10 +34,8 @@ public class CollisionHandler {
     }
 
     public void EnemyBullet(EnemyModel enemy, BulletModel bullet) {
-        collisionPoint = bullet.getPosition();
-        Controller.removeOIG(bullet.getId());
+        bullet.setHP(-1);
         enemy.setHP(enemy.getHP() - Constants.EPSILON_DAMAGE);
-        new Impact(collisionPoint).MakeImpact();
     }
 
 
