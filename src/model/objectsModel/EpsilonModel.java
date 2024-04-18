@@ -1,12 +1,13 @@
 package model.objectsModel;
 
 import controller.Constants;
+import model.interfaces.ImpactAble;
 import model.interfaces.IsCircle;
 import model.interfaces.MoveAble;
 import controller.helper.Utils;
 import controller.helper.Vector;
 
-public class EpsilonModel extends OIGModel implements MoveAble, IsCircle {
+public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , ImpactAble {
     public EpsilonModel(Vector position , Vector velocity ,String id){
         this.position = position;
         this.velocity = velocity;

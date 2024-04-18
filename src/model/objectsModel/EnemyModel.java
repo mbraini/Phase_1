@@ -5,9 +5,10 @@ import controller.helper.Utils;
 import controller.helper.Vector;
 import model.interfaces.EpsilonGravity;
 import model.interfaces.HasVertices;
+import model.interfaces.ImpactAble;
 import model.interfaces.MoveAble;
 
-public abstract class EnemyModel extends OIGModel implements EpsilonGravity, MoveAble {
+public abstract class EnemyModel extends OIGModel implements EpsilonGravity, MoveAble , ImpactAble {
     @Override
     public void epsilonGravity() {
         Vector enemy = this.position;
