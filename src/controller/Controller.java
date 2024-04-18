@@ -11,6 +11,11 @@ public abstract class Controller {
         Spawn.SpawnEpsilon();
     }
 
+    public static void addOIG(OIGModel oigModel){
+        addOIGModel(oigModel);
+        addOIGView(oigModel);
+    }
+
     public static void addOIGView(OIGModel oigModel){
         if (oigModel instanceof EpsilonModel){
             EpsilonView epsilon = new EpsilonView(oigModel.getPosition() ,oigModel.getTheta() ,oigModel.getId());
@@ -29,6 +34,11 @@ public abstract class Controller {
 
     public static void addOIGModel(OIGModel oigModel){
         OIGModel.OIGs.add(oigModel);
+    }
+
+    public static void removeOIG(String id){
+        removeOIGModel(id);
+        removeOIGView(id);
     }
 
     public static void removeOIGModel(String id){

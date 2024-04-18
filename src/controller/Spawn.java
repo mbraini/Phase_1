@@ -19,8 +19,7 @@ public class Spawn {
         Vector position = new Vector(Constants.GAME_WIDTH / 2d   ,Constants.GAME_HEIGHT / 2d);
         Vector velocity = new Vector(-.5 ,-.5);
         EpsilonModel epsilon = new EpsilonModel(position ,velocity , Helper.RandomStringGenerator(Constants.ID_SIZE));
-        Controller.addOIGModel(epsilon);
-        Controller.addOIGView(epsilon);
+        Controller.addOIG(epsilon);
     }
 
     public static void SpawnEnemy(){
@@ -29,21 +28,18 @@ public class Spawn {
             Vector position = randomPosition();
             if (rand == 0){
                 TrigorathModel trigorath = new TrigorathModel(position ,Helper.RandomStringGenerator(Constants.ID_SIZE));
-                Controller.addOIGModel(trigorath);
-                Controller.addOIGView(trigorath);
+                Controller.addOIG(trigorath);
             }
             else {
                 SquarantineModel squarantine = new SquarantineModel(position ,Helper.RandomStringGenerator(Constants.ID_SIZE));
-                Controller.addOIGModel(squarantine);
-                Controller.addOIGView(squarantine);
+                Controller.addOIG(squarantine);
             }
         }
     }
 
     public static void SpawnBullet(Vector position ,Vector direction){
         BulletModel bullet = new BulletModel(position ,direction ,Helper.RandomStringGenerator(Constants.ID_SIZE));
-        Controller.addOIGModel(bullet);
-        Controller.addOIGView(bullet);
+        Controller.addOIG(bullet);
     }
 
     public static Vector randomPosition(){
