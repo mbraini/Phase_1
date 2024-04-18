@@ -1,4 +1,5 @@
 package controller.animations;
 
-public class Animation {
+public abstract class Animation {
+    public abstract void StartAnimation();
 }
