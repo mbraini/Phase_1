@@ -1,4 +1,4 @@
 package view.objectsView;
 
-public class EnemyView {
+public abstract class EnemyView extends OIGView{
 }
