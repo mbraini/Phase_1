@@ -16,6 +16,7 @@ public class SquarantineModel extends EnemyModel implements HasVertices, IsPolyg
         this.velocity = new Vector(0 ,0);
         this.acceleration = new Vector(0 ,0);
         this.id = id;
+        this.HP = 10;
         omega = Constants.ENEMY_ROTATION_SPEED;
         initVertices();
     }

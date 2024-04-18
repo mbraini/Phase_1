@@ -33,6 +33,7 @@ public class CollisionHandler {
     }
 
     public void EnemyBullet(EnemyModel enemy, BulletModel bullet) {
+        collisionPoint = bullet.getPosition();
         Controller.removeOIG(bullet.getId());
         new Impact(collisionPoint).MakeImpact();
     }

@@ -16,6 +16,7 @@ public class TrigorathModel extends EnemyModel implements HasVertices, IsPolygon
         this.velocity = new Vector(0 ,0);
         this.acceleration = new Vector(0 ,0);
         this.id = id;
+        this.HP = 15;
         omega = Constants.ENEMY_ROTATION_SPEED;
         initVertices();
     }

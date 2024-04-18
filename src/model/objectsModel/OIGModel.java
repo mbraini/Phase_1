@@ -12,6 +12,7 @@ public abstract class OIGModel {
     double omega;
     double alpha;
     String id;
+    double HP;
     public static ArrayList<OIGModel> OIGs = new ArrayList<>();
 
     public Vector getPosition() {

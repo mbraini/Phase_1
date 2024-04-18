@@ -13,6 +13,7 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
         this.velocity = velocity;
         this.acceleration = new Vector(0 ,0);
         this.id =  id;
+        this.HP = 100;
     }
 
     @Override
