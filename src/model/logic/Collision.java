@@ -45,11 +45,52 @@ public class Collision {
     }
 
     public static void CollisionResponse(OIGModel a, OIGModel b) {
-
+        if (a instanceof IsPolygon && b instanceof IsPolygon) {
+            OIGModel attacker = a, defender = b;
+            collisionPoint = FindCollisionPoint(a, b);
+            assert collisionPoint != null;
+            for (int i = 0; i < ((IsPolygon) b).getVertices().size(); i++) {
+                if (collisionPoint.Equals(((IsPolygon) b).getVertices().get(i))) {
+                    attacker = b;
+                    defender = a;
+                }
+            }
+            PullOut(attacker, defender);
+            new Impact(collisionPoint).MakeImpact();
+        }
+        else if ((a instanceof IsCircle && b instanceof IsPolygon) || (a instanceof  IsPolygon && b instanceof IsCircle)){
+            OIGModel defender;OIGModel attacker;
+            if (a instanceof IsPolygon){
+                defender = a;
+                attacker = b;
+            }
+            else {
+                defender = b;
+                attacker = a;
+            }
+            collisionPoint = FindCollisionPoint(attacker , defender);
+            assert collisionPoint != null;
+            PullOut(attacker, defender);
+            new Impact(collisionPoint).MakeImpact();
+        }
     }
 
     private static void PullOut(OIGModel attacker, OIGModel defender) {
-
+        if (attacker instanceof IsPolygon && defender instanceof IsPolygon) {
+            Vector attackerP = Utils.VectorAdd(Utils.ScalarInVector(-1, collisionPoint), attacker.getPosition());
+            attackerP = Utils.VectorWithSize(attackerP, 1);
+            while (IsColliding(attacker, defender)) {
+                attacker.setPosition(Utils.VectorAdd(attackerP, attacker.getPosition()));
+                ((HasVertices) attacker).MoveVertices(attackerP);
+            }
+        }
+        else if (attacker instanceof IsCircle && defender instanceof IsPolygon){
+            Vector attackerP = Utils.VectorAdd(Utils.ScalarInVector(-1, collisionPoint), attacker.getPosition());
+            attackerP = Utils.VectorWithSize(attackerP, 1);
+            while (IsColliding(attacker, defender)) {
+                attacker.setPosition(Utils.VectorAdd(attacker.getPosition() ,attackerP));
+            }
+        }
     }
 
     private static Vector FindCollisionPoint(OIGModel a, OIGModel b) {
