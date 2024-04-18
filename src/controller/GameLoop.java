@@ -83,7 +83,7 @@ public class GameLoop extends Thread{
                         ((EpsilonGravity) OIGModel.OIGs.get(j)).setVisibility(false);
                     }
                     /////////
-                    Collision.CollisionResponse(OIGModel.OIGs.get(i) ,OIGModel.OIGs.get(j));
+                    new Collision().CollisionResponse(OIGModel.OIGs.get(i) ,OIGModel.OIGs.get(j));
                     collisions.add(new Pair(i ,j));
                 }
             }

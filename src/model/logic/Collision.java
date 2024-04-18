@@ -1,6 +1,5 @@
 package model.logic;
 
-import controller.Application;
 import controller.Constants;
 import controller.helper.Helper;
 import controller.helper.Utils;
@@ -8,14 +7,15 @@ import controller.helper.Vector;
 import model.interfaces.HasVertices;
 import model.interfaces.IsCircle;
 import model.interfaces.IsPolygon;
+import model.objectsModel.BulletModel;
+import model.objectsModel.EnemyModel;
+import model.objectsModel.EpsilonModel;
 import model.objectsModel.OIGModel;
-import view.game.GameFrame;
-import view.game.WindowKill;
 
 import java.util.ArrayList;
 
 public class Collision {
-    static Vector collisionPoint;
+    Vector collisionPoint;
 
     public static boolean IsColliding(OIGModel a ,OIGModel b){
         if (a instanceof IsPolygon && b instanceof IsPolygon){
@@ -44,54 +44,33 @@ public class Collision {
         return false;
     }
 
-    public static void CollisionResponse(OIGModel a, OIGModel b) {
-        if (a instanceof IsPolygon && b instanceof IsPolygon) {
-            OIGModel attacker = a, defender = b;
-            collisionPoint = FindCollisionPoint(a, b);
-            assert collisionPoint != null;
-            for (int i = 0; i < ((IsPolygon) b).getVertices().size(); i++) {
-                if (collisionPoint.Equals(((IsPolygon) b).getVertices().get(i))) {
-                    attacker = b;
-                    defender = a;
-                }
-            }
-            PullOut(attacker, defender);
-            new Impact(collisionPoint).MakeImpact();
+    public void CollisionResponse(OIGModel a, OIGModel b) {
+        collisionPoint = FindCollisionPoint(a, b);
+        if (collisionPoint == null)
+            return;
+        CollisionHandler collisionHandler = new CollisionHandler(collisionPoint);
+
+        /////epsilon enemy
+        if (a instanceof EpsilonModel && b instanceof EnemyModel){
+            collisionHandler.EpsilonEnemy((EpsilonModel)a ,(EnemyModel) b);
         }
-        else if ((a instanceof IsCircle && b instanceof IsPolygon) || (a instanceof  IsPolygon && b instanceof IsCircle)){
-            OIGModel defender;OIGModel attacker;
-            if (a instanceof IsPolygon){
-                defender = a;
-                attacker = b;
-            }
-            else {
-                defender = b;
-                attacker = a;
-            }
-            collisionPoint = FindCollisionPoint(attacker , defender);
-            assert collisionPoint != null;
-            PullOut(attacker, defender);
-            new Impact(collisionPoint).MakeImpact();
+        else if (b instanceof EpsilonModel && a instanceof EnemyModel){
+            collisionHandler.EpsilonEnemy((EpsilonModel)b ,(EnemyModel) a);
+        }
+        /////enemy enemy
+        else if (a instanceof EnemyModel && b instanceof EnemyModel){
+            collisionHandler.EnemyEnemy((EnemyModel) a ,(EnemyModel) b);
+        }
+        /////enemy bullet
+        else if (a instanceof EnemyModel && b instanceof BulletModel){
+            collisionHandler.EnemyBullet((EnemyModel)a ,(BulletModel)b);
+        }
+        else if (b instanceof EnemyModel && a instanceof BulletModel){
+            collisionHandler.EnemyBullet((EnemyModel)b ,(BulletModel)a);
         }
     }
 
-    private static void PullOut(OIGModel attacker, OIGModel defender) {
-        if (attacker instanceof IsPolygon && defender instanceof IsPolygon) {
-            Vector attackerP = Utils.VectorAdd(Utils.ScalarInVector(-1, collisionPoint), attacker.getPosition());
-            attackerP = Utils.VectorWithSize(attackerP, 1);
-            while (IsColliding(attacker, defender)) {
-                attacker.setPosition(Utils.VectorAdd(attackerP, attacker.getPosition()));
-                ((HasVertices) attacker).MoveVertices(attackerP);
-            }
-        }
-        else if (attacker instanceof IsCircle && defender instanceof IsPolygon){
-            Vector attackerP = Utils.VectorAdd(Utils.ScalarInVector(-1, collisionPoint), attacker.getPosition());
-            attackerP = Utils.VectorWithSize(attackerP, 1);
-            while (IsColliding(attacker, defender)) {
-                attacker.setPosition(Utils.VectorAdd(attacker.getPosition() ,attackerP));
-            }
-        }
-    }
+
 
     private static Vector FindCollisionPoint(OIGModel a, OIGModel b) {
         if (a instanceof IsPolygon && b instanceof IsPolygon) {
@@ -107,9 +86,18 @@ public class Collision {
                 target = (IsPolygon) a;
             }
         }
-        else if (a instanceof IsCircle && b instanceof IsPolygon){
-            Vector direction = Utils.VectorWithSize(Utils.VectorAdd(Utils.ScalarInVector(-1 ,a.getPosition()) ,b.getPosition()) ,Constants.EPSILON_DIMENSION.width);
-            return Utils.VectorAdd(direction ,a.getPosition());
+        else if ((a instanceof IsCircle && b instanceof IsPolygon) || (a instanceof IsPolygon && b instanceof IsCircle)){
+            OIGModel polygon,circle;
+            if (a instanceof IsCircle){
+                circle = a;
+                polygon = b;
+            }
+            else {
+                circle = b;
+                polygon = a;
+            }
+            Vector direction = Utils.VectorWithSize(Utils.VectorAdd(Utils.ScalarInVector(-1 ,circle.getPosition()) ,polygon.getPosition()) ,Constants.EPSILON_DIMENSION.width);
+            return Utils.VectorAdd(direction ,circle.getPosition());
         }
         return null;
     }
