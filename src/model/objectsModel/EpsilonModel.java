@@ -7,10 +7,11 @@ import controller.helper.Utils;
 import controller.helper.Vector;
 
 public class EpsilonModel extends OIGModel implements MoveAble, IsCircle {
-    public EpsilonModel(Vector position , Vector velocity){
+    public EpsilonModel(Vector position , Vector velocity ,String id){
         this.position = position;
         this.velocity = velocity;
         this.acceleration = new Vector(0 ,0);
+        this.id =  id;
     }
 
     @Override

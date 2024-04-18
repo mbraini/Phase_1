@@ -17,6 +17,7 @@ public class Constants {
     public static final Dimension Squarantine_DIMENTION = new Dimension(50 ,50);
     public static final double BULLET_VELOCITY = 3;
     public static final double BULLET_DIAMETER = 10;
+    public static final int ID_SIZE = 10;
     public static Image epsilonImage;
     public static Image trigorathImage;
     public static Image squarantineImage;

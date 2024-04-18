@@ -2,6 +2,7 @@ package controller.helper;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Helper {
     public static ArrayList<Double> giveMaxMin(ArrayList<Double> a){
@@ -26,5 +27,11 @@ public class Helper {
         Vector a = Utils.ScalarInVector(0.5 ,Utils.VectorAdd(vert1 ,vert2));
         Vector aPoint = Utils.VectorAdd(Utils.ScalarInVector(-1 ,point) ,a);
         return Utils.VectorSize(Utils.CrossProduct(u ,aPoint));
+    }
+
+    public static String RandomStringGenerator(int n){
+        byte[] str = new byte[n];
+        new Random().nextBytes(str);
+        return new String(str);
     }
 }

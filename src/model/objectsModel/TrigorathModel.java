@@ -11,10 +11,11 @@ import java.util.ArrayList;
 public class TrigorathModel extends EnemyModel implements HasVertices, IsPolygon {
     public ArrayList<Vector> vertices;
     boolean epsilonGravityVisibility = true;
-    public TrigorathModel(Vector position){
+    public TrigorathModel(Vector position ,String id){
         this.position = position;
         this.velocity = new Vector(0 ,0);
         this.acceleration = new Vector(0 ,0);
+        this.id = id;
         omega = Constants.ENEMY_ROTATION_SPEED;
         initVertices();
     }

@@ -8,10 +8,11 @@ import model.interfaces.MoveAble;
 
 public class BulletModel extends OIGModel implements IsCircle, MoveAble {
 
-    public BulletModel(Vector position , Vector direction){
+    public BulletModel(Vector position , Vector direction ,String id){
         this.position = position;
         this.velocity = Utils.VectorWithSize(direction , Constants.BULLET_VELOCITY);
         this.acceleration = new Vector(0 ,0);
+        this.id = id;
     }
 
     @Override

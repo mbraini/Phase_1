@@ -3,7 +3,9 @@ package controller;
 import controller.Application;
 import controller.Constants;
 import controller.Controller;
+import controller.helper.Helper;
 import controller.helper.Vector;
+import jdk.jshell.execution.Util;
 import model.objectsModel.*;
 import view.objectsView.OIGView;
 
@@ -16,7 +18,7 @@ public class Spawn {
     public static void SpawnEpsilon(){
         Vector position = new Vector(Constants.GAME_WIDTH / 2d   ,Constants.GAME_HEIGHT / 2d);
         Vector velocity = new Vector(-.5 ,-.5);
-        EpsilonModel epsilon = new EpsilonModel(position ,velocity);
+        EpsilonModel epsilon = new EpsilonModel(position ,velocity , Helper.RandomStringGenerator(Constants.ID_SIZE));
         Controller.addOIGModel(epsilon);
         Controller.addOIGView(epsilon);
     }
@@ -26,12 +28,12 @@ public class Spawn {
             int rand = random.nextInt(2);
             Vector position = randomPosition();
             if (rand == 0){
-                TrigorathModel trigorath = new TrigorathModel(position);
+                TrigorathModel trigorath = new TrigorathModel(position ,Helper.RandomStringGenerator(Constants.ID_SIZE));
                 Controller.addOIGModel(trigorath);
                 Controller.addOIGView(trigorath);
             }
             else {
-                SquarantineModel squarantine = new SquarantineModel(position);
+                SquarantineModel squarantine = new SquarantineModel(position ,Helper.RandomStringGenerator(Constants.ID_SIZE));
                 Controller.addOIGModel(squarantine);
                 Controller.addOIGView(squarantine);
             }
@@ -39,7 +41,7 @@ public class Spawn {
     }
 
     public static void SpawnBullet(Vector position ,Vector direction){
-        BulletModel bullet = new BulletModel(position ,direction);
+        BulletModel bullet = new BulletModel(position ,direction ,Helper.RandomStringGenerator(Constants.ID_SIZE));
         Controller.addOIGModel(bullet);
         Controller.addOIGView(bullet);
     }
