@@ -2,6 +2,7 @@ package model.logic;
 
 import controller.Constants;
 import controller.Controller;
+import controller.GameState;
 import controller.helper.Utils;
 import controller.helper.Vector;
 import model.interfaces.HasVertices;
@@ -18,7 +19,14 @@ public class CollisionHandler {
         this.collisionPoint = collisionPoint;
     }
     public void EpsilonEnemy(EpsilonModel epsilon ,EnemyModel enemy){
-
+        for (int i = 0 ;i < ((IsPolygon)enemy).getVertices().size() ;i++){
+            if (Collision.IsInCircle(epsilon ,((IsPolygon)enemy).getVertices().get(i))){
+                GameState.hp -= 10;
+                break;
+            }
+        }
+        PullOut(epsilon ,enemy);
+        new Impact(collisionPoint).MakeImpact();
     }
 
     public void EnemyEnemy(EnemyModel a, EnemyModel b) {

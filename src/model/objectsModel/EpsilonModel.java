@@ -35,4 +35,9 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
     public double getRadios() {
         return Constants.EPSILON_DIMENSION.height / 2d;
     }
+
+    @Override
+    public Vector getCenter() {
+        return position;
+    }
 }

@@ -22,21 +22,21 @@ public class FrameAnimation extends Animation{
         this.gameFrame = gameFrame;
         this.time = time;
 
-        upAcceleration = 2 * up / (Math.pow(this.time ,2));
-        downAcceleration = 2 * down / (Math.pow(this.time ,2));
-        rightAcceleration = 2 * right / (Math.pow(this.time ,2));
-        leftAcceleration = 2 * left / (Math.pow(this.time ,2));
-        this.gameFrame.setUpDownV(this.time * upAcceleration ,this.time * downAcceleration);
-        this.gameFrame.setLeftRightV(this.time * rightAcceleration ,this.time * leftAcceleration);
+        upAcceleration = -2 * up / (Math.pow(this.time ,2));
+        downAcceleration = -2 * down / (Math.pow(this.time ,2));
+        rightAcceleration = -2 * right / (Math.pow(this.time ,2));
+        leftAcceleration = -2 * left / (Math.pow(this.time ,2));
+        this.gameFrame.setUpDownV(-this.time * upAcceleration ,-this.time * downAcceleration);
+        this.gameFrame.setLeftRightV(-this.time * rightAcceleration ,-this.time * leftAcceleration);
         timeCheck = 0;
         timer = new Timer(Constants.FRAME_ANIMATION_REFRESH_RATE, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameFrame.setUpDownV(gameFrame.getUpDownV().x + upAcceleration ,gameFrame.getUpDownV().y + downAcceleration);
-                gameFrame.setLeftRightV(gameFrame.getLeftRightV().x + rightAcceleration ,gameFrame.getLeftRightV().y + leftAcceleration);
+                gameFrame.setUpDownV(gameFrame.getUpDownV().x + upAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE ,gameFrame.getUpDownV().y + downAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE);
+                gameFrame.setLeftRightV(gameFrame.getLeftRightV().x + rightAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE ,gameFrame.getLeftRightV().y + leftAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE);
 
-                gameFrame.setUpDownP(gameFrame.getUpDownP().x + gameFrame.getUpDownV().x ,gameFrame.getUpDownP().y + gameFrame.getUpDownV().y);
-                gameFrame.setLeftRightP(gameFrame.getLeftRightP().x + gameFrame.getLeftRightV().x ,gameFrame.getLeftRightP().y + gameFrame.getLeftRightV().y);
+                gameFrame.setUpDownP((2 * gameFrame.getUpDownV().x - upAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2 ,(2 * gameFrame.getUpDownV().y - downAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2);
+                gameFrame.setLeftRightP((2 * gameFrame.getLeftRightV().x - rightAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2 ,(2 * gameFrame.getLeftRightV().y - leftAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2);
 
                 gameFrame.UpAddSize((int) gameFrame.getUpDownP().x);
                 gameFrame.DownAddSize((int) gameFrame.getUpDownP().y);
@@ -58,10 +58,6 @@ public class FrameAnimation extends Animation{
 
     @Override
     public void StartAnimation() {
-        upAcceleration = -Constants.FRAME_ANIMATION_REFRESH_RATE * upAcceleration / time;
-        downAcceleration = -Constants.FRAME_ANIMATION_REFRESH_RATE * downAcceleration / time;
-        rightAcceleration = -Constants.FRAME_ANIMATION_REFRESH_RATE * rightAcceleration / time;
-        leftAcceleration = -Constants.FRAME_ANIMATION_REFRESH_RATE * leftAcceleration / time;
         timer.start();
     }
 }

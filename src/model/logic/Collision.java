@@ -210,4 +210,11 @@ public class Collision {
         }
         return inside;
     }
+
+    public static boolean IsInCircle(IsCircle circle ,Vector a){
+        double distance = Utils.VectorSize(Utils.VectorAdd(circle.getCenter() ,Utils.ScalarInVector(-1 ,a)));
+        if (distance <= circle.getRadios())
+            return true;
+        return false;
+    }
 }

@@ -32,7 +32,7 @@ public class Constants {
     public static final int DASH_TIMER_TICK = 10;
     public static final double e = 1;
     public static final double AIMING_PAUSE_TIME = 100;
-    public static final int FRAME_ANIMATION_REFRESH_RATE = 10;
-    public static final int FRAME_BULLET_RESIZE = 30;
-    public static final int FRAME_BULLET_RESIZE_TIME = 150;
+    public static final int FRAME_ANIMATION_REFRESH_RATE = 3;
+    public static final int FRAME_BULLET_RESIZE = 50;
+    public static final int FRAME_BULLET_RESIZE_TIME = 50;
 }

@@ -26,4 +26,9 @@ public class BulletModel extends OIGModel implements IsCircle, MoveAble {
     public double getRadios() {
         return Constants.BULLET_DIAMETER / 2;
     }
+
+    @Override
+    public Vector getCenter() {
+        return position;
+    }
 }
