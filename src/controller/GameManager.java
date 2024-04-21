@@ -29,6 +29,10 @@ public class GameManager {
 
 
     static void CheckNewWave(){
+        if (GameState.wave == 3){
+            Controller.EndTheGame();
+            return;
+        }
         int count = 0;
         for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
             if (OIGModel.OIGs.get(i) instanceof EnemyModel){

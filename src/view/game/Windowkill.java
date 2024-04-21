@@ -3,6 +3,7 @@ import controller.*;
 import controller.actionlisteners.EpsilonAiming;
 import controller.actionlisteners.EpsilonMovement;
 import view.PIG;
+import view.menu.MainFrame;
 import view.objectsView.OIGView;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -14,7 +15,6 @@ public class WindowKill extends PIG {
     static GameLoop gameLoop;
     static GameState gameState;
     static Shop shop;
-    static double shootTimer;
 
     public WindowKill(){
         this.setLayout(null);
@@ -30,7 +30,7 @@ public class WindowKill extends PIG {
 
     @Override
     public void end() {
-
+        Application.gameFrame.dispose();
     }
 
     @Override
@@ -53,7 +53,6 @@ public class WindowKill extends PIG {
                 if (e.getKeyChar() == 'p' && !GameState.isPause){
                     shop = new Shop();
                     GameFrame.gamePanel.add(shop);
-                    gameLoop.interrupt();
                     GameState.isPause = true;
                     GameFrame.windowKill.setVisible(false);
                 }
@@ -70,9 +69,10 @@ public class WindowKill extends PIG {
             }
         });
         GameFrame.windowKill.addMouseListener(new EpsilonAiming());
+        GameFrame.windowKill.setFocusable(true);
         GameFrame.windowKill.grabFocus();
-        gameLoop = new GameLoop();
         gameState = new GameState();
+        gameLoop = new GameLoop();
         gameLoop.start();
     }
 

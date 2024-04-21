@@ -2,7 +2,11 @@ package controller;
 
 import controller.animations.GameStartAnimation;
 import model.objectsModel.*;
+import view.game.GameFrame;
+import view.menu.MainFrame;
 import view.objectsView.*;
+
+import java.util.ArrayList;
 
 public abstract class Controller {
 
@@ -65,5 +69,25 @@ public abstract class Controller {
 
     public static void SpawnEnemyReq(){
         Spawn.SpawnEnemy();
+    }
+
+    public static void EndTheGame() {
+        Controller.ResetModel();
+        GameFrame.windowKill.end();
+        Controller.ResetView();
+        Controller.ResetController();
+        Application.mainFrame = new MainFrame();
+    }
+
+    private static void ResetController() {
+        GameState.isOver = false;
+    }
+
+    private static void ResetView() {
+        OIGView.OIGs = new ArrayList<>();
+    }
+
+    private static void ResetModel() {
+        OIGModel.OIGs = new ArrayList<>();
     }
 }

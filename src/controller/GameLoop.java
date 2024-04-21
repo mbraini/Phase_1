@@ -18,6 +18,10 @@ import java.util.ArrayList;
 
 public class GameLoop extends Thread{
 
+    public GameLoop (){
+        super();
+    }
+
     @Override
     public void run() {
         long lastTime = System.nanoTime();
@@ -25,7 +29,8 @@ public class GameLoop extends Thread{
         double ns = 1000000000 / amountOfTicks;
         double deltaView = 0;
         double deltaModel = 0;
-        while (!GameState.isPause){
+        while (!GameState.isPause && !GameState.isOver){
+            System.out.println("HEOLO");
             long now = System.nanoTime();
             deltaView += (now - lastTime) / ns;
             deltaModel += (now - lastTime) / ns;

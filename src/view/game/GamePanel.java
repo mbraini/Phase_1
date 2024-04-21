@@ -14,12 +14,12 @@ public class GamePanel extends PIG {
 
     @Override
     public void start() {
-
+        this.setVisible(true);
     }
 
     @Override
     public void end() {
-
+        this.setVisible(false);
     }
 
     @Override

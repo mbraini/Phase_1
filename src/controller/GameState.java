@@ -18,6 +18,7 @@ public class GameState extends JPanel{
     JLabel xpL;
     JLabel waveL;
     public static boolean isPause = false;
+    public static boolean isOver = false;
     public GameState(){
         this.setLayout(null);
         this.setBounds(0,0, Constants.GAME_WIDTH, Constants.GAME_HEIGHT / 10);
