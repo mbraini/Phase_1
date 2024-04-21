@@ -18,7 +18,6 @@ public class GameManager {
     }
 
     public static void EnemyOnDeath(EnemyModel enemy){
-        CheckNewWave();
         //////////////// Spawn Collectables //////////////// todo
 
         //////////////////////////////////////////////////// todo
@@ -36,7 +35,7 @@ public class GameManager {
                 count++;
             }
         }
-        if (count == 1)
+        if (count <= 0)
             Spawn.SpawnEnemy();
     }
 

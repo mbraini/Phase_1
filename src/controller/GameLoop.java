@@ -90,6 +90,11 @@ public class GameLoop extends Thread{
         }
         CheckObjectDeath();
         EpsilonBorderCollision();
+        CheckRequests();
+    }
+
+    private void CheckRequests() {
+        GameManager.CheckNewWave();
     }
 
     private void CheckObjectDeath() {

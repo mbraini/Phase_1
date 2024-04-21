@@ -76,4 +76,7 @@ public class WindowKill extends PIG {
         gameLoop.start();
     }
 
+    public void AddSize(int x, int y) {
+        this.setBounds(this.getX() ,this.getY() ,this.getWidth() + x ,this.getHeight() + y);
+    }
 }

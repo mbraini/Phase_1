@@ -41,24 +41,28 @@ public class GameFrame extends JFrame {
 
     public void UpAddSize(int size){
         this.setBounds(this.getX() ,this.getY() - size ,this.getWidth() ,this.getHeight() + size);
+        windowKill.AddSize(0 ,size);
         this.revalidate();
         this.repaint();
     }
 
     public void RightAddSize(int size){
         this.setBounds(this.getX() ,this.getY() ,this.getWidth() + size ,this.getHeight());
+        windowKill.AddSize(size ,0);
         this.revalidate();
         this.repaint();
     }
 
     public void DownAddSize(int size){
         this.setBounds(this.getX() ,this.getY() ,this.getWidth() ,this.getHeight() + size);
+        windowKill.AddSize(0 ,size);
         this.revalidate();
         this.repaint();
     }
 
     public void LeftAddSize(int size){
         this.setBounds(this.getX() - size ,this.getY() ,this.getWidth() + size ,this.getHeight());
+        windowKill.AddSize(size ,0);
         this.revalidate();
         this.repaint();
     }

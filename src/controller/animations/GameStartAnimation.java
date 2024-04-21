@@ -32,7 +32,6 @@ public class GameStartAnimation extends Animation{
                 Application.gameFrame.UpAddSize(-2);
                 if (Application.gameFrame.getWidth() - Constants.barD.width == 600){
                     OIGModel.OIGs.get(0).setVelocity(0 ,0);
-                    Spawn.SpawnEnemy();
                     gameStartAnimation.removeActionListener(this);
                 }
             }
