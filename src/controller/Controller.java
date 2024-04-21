@@ -62,4 +62,8 @@ public abstract class Controller {
     public static void gameStartAnimation() {
         (new GameStartAnimation()).StartAnimation();
     }
+
+    public static void SpawnEnemyReq(){
+        Spawn.SpawnEnemy();
+    }
 }

@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class Spawn {
     static final Random random = new Random();
-    public static int enemyCount = 3;
+    public static int enemyCount;
 
     public static void SpawnEpsilon(){
         Vector position = new Vector(Constants.GAME_WIDTH / 2d   ,Constants.GAME_HEIGHT / 2d);
@@ -23,6 +23,9 @@ public class Spawn {
     }
 
     public static void SpawnEnemy(){
+        if (Constants.GAME_DIFFICULTY.equals("HARD")){
+            enemyCount = (int)(4 + GameState.wave);
+        }
         for (int i = 0 ;i < enemyCount ;i++){
             int rand = random.nextInt(2);
             Vector position = randomPosition();
@@ -35,6 +38,7 @@ public class Spawn {
                 Controller.addOIG(squarantine);
             }
         }
+        GameState.wave++;
     }
 
     public static void SpawnBullet(Vector position ,Vector direction){
