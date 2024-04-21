@@ -2,6 +2,7 @@ package controller;
 
 import controller.animations.GameStartAnimation;
 import model.objectsModel.*;
+import view.game.EndGame;
 import view.game.GameFrame;
 import view.menu.MainFrame;
 import view.objectsView.*;
@@ -12,6 +13,9 @@ public abstract class Controller {
 
 
     public static void startGame() {
+        Controller.ResetModel();
+        Controller.ResetView();
+        Controller.ResetController();
         Spawn.SpawnEpsilon();
     }
 
@@ -72,11 +76,13 @@ public abstract class Controller {
     }
 
     public static void EndTheGame() {
-        Controller.ResetModel();
+        EndController();
         GameFrame.windowKill.end();
-        Controller.ResetView();
-        Controller.ResetController();
-        Application.mainFrame = new MainFrame();
+        GameFrame.endGame.setVisible(true);
+    }
+
+    private static void EndController() {
+        GameState.isOver = true;
     }
 
     private static void ResetController() {

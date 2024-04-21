@@ -30,7 +30,6 @@ public class GameLoop extends Thread{
         double deltaView = 0;
         double deltaModel = 0;
         while (!GameState.isPause && !GameState.isOver){
-            System.out.println("HEOLO");
             long now = System.nanoTime();
             deltaView += (now - lastTime) / ns;
             deltaModel += (now - lastTime) / ns;

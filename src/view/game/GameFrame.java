@@ -14,6 +14,7 @@ public class GameFrame extends JFrame {
 
     public static GamePanel gamePanel;
     public static WindowKill windowKill;
+    public static EndGame endGame;
 
 
     public GameFrame(){
@@ -33,8 +34,10 @@ public class GameFrame extends JFrame {
         this.setContentPane(gamePanel);
 
         windowKill = new WindowKill();
+        endGame = new EndGame();
 
         gamePanel.add(windowKill);
+        gamePanel.add(endGame);
 
         this.setVisible(true);
     }

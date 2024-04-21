@@ -30,7 +30,7 @@ public class WindowKill extends PIG {
 
     @Override
     public void end() {
-        Application.gameFrame.dispose();
+        this.setVisible(false);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class WindowKill extends PIG {
         }
     }
 
-    public static void startGame(){
+    public void startGame(){
         Controller.startGame();
         GameFrame.windowKill.setVisible(true);
         Controller.gameStartAnimation();
