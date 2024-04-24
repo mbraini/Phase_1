@@ -17,5 +17,7 @@ public class SquarantineView extends EnemyView{
         g2d.rotate(-theta ,position.getX() ,position.getY());
         g2d.drawImage(Constants.squarantineImage ,(int) position.x - Constants.Squarantine_DIMENTION.width / 2  ,(int) position.y - Constants.Squarantine_DIMENTION.height / 2 ,Constants.Squarantine_DIMENTION.width ,Constants.Squarantine_DIMENTION.height ,null);
         g2d.rotate(theta ,position.getX() ,position.getY());
+        g2d.setColor(Color.YELLOW);
+        g2d.drawString("a" ,(int) position.x ,(int) position.y);
     }
 }

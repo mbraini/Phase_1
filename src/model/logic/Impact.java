@@ -20,11 +20,9 @@ public class Impact {
         for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
             if (OIGModel.OIGs.get(i) instanceof ImpactAble) {
                 Vector direction;
-                if (OIGModel.OIGs.get(i) instanceof EpsilonGravity) {
-                    ((EpsilonGravity) OIGModel.OIGs.get(i)).setVisibility(false);
-                }
                 direction = Utils.VectorAdd(Utils.ScalarInVector(-1, collisionPoint), OIGModel.OIGs.get(i).getPosition());
                 distance = Utils.VectorSize(direction);
+                System.out.println(distance);
                 //////////////////todo
                 if (distance >= 500) {
                     return;

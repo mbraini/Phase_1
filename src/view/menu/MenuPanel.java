@@ -53,7 +53,7 @@ public class MenuPanel extends PIG {
                 }
                 Application.mainFrame.dispose();
                 Application.gameFrame = new GameFrame();
-                GameFrame.windowKill.startGame();
+                GameFrame.windowKill.start();
             }
         });
     }

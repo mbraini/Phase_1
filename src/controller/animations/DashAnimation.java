@@ -1,6 +1,7 @@
 package controller.animations;
 
 import controller.Constants;
+import controller.actionlisteners.EpsilonMovement;
 import controller.helper.Utils;
 import controller.helper.Vector;
 import model.interfaces.EpsilonGravity;
@@ -27,8 +28,14 @@ public class DashAnimation extends Animation implements ActionListener{
     public void StartAnimation() {
         if (dashes.containsKey(oigModel)){
             (dashes.get(oigModel)).stop();
-            oigModel.setAcceleration(0 ,0);
+            (dashes.get(oigModel)).removeActionListener(this);
             dashes.remove(oigModel);
+        }
+        if (oigModel instanceof EpsilonGravity) {
+            ((EpsilonGravity) oigModel).setVisibility(false);
+        }
+        if (oigModel instanceof EpsilonModel){
+            EpsilonMovement.hasControl = false;
         }
         oigModel.setVelocity(direction);
         oigModel.setAcceleration(direction);
@@ -53,15 +60,17 @@ public class DashAnimation extends Animation implements ActionListener{
             if (oigModel instanceof EpsilonGravity)
                 ((EpsilonGravity) oigModel).setVisibility(true);
             oigModel.setAcceleration(0 ,0);
-            setVelocities(oigModel);
+            setEpsilon(oigModel);
             timer.stop();
             timer.removeActionListener(this);
         }
     }
 
-    private void setVelocities(OIGModel oigModel) {
+    private void setEpsilon(OIGModel oigModel) {
         if (oigModel instanceof EpsilonModel){
+            oigModel.setAcceleration(0 ,0);
             oigModel.setVelocity(0 ,0);
+            EpsilonMovement.hasControl = true;
         }
     }
 }

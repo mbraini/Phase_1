@@ -28,7 +28,7 @@ public class Constants {
     public static final double ENEMY_LINEAR_SPEED = 0.7;
     public static final double ENEMY_ROTATION_SPEED = 0.03;
     public static final double DASH_ACCELERATION = 0.2;
-    public static final int DASH_TIME = 200;
+    public static final int DASH_TIME = 100;
     public static final int DASH_TIMER_TICK = 10;
     public static final double e = 1;
     public static final double AIMING_PAUSE_TIME = 100;

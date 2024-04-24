@@ -5,6 +5,7 @@ import controller.Constants;
 import controller.Spawn;
 import model.objectsModel.EpsilonModel;
 import model.objectsModel.OIGModel;
+import view.game.GameFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -30,8 +31,9 @@ public class GameStartAnimation extends Animation{
                 Application.gameFrame.DownAddSize(-2);
                 Application.gameFrame.LeftAddSize(-2);
                 Application.gameFrame.UpAddSize(-2);
-                if (Application.gameFrame.getWidth() - Constants.barD.width == 600){
+                if (Application.gameFrame.getWidth() - Constants.barD.width == 200){
                     OIGModel.OIGs.get(0).setVelocity(0 ,0);
+                    GameFrame.windowKill.startGame();
                     gameStartAnimation.removeActionListener(this);
                 }
             }

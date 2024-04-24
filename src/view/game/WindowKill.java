@@ -25,7 +25,9 @@ public class WindowKill extends PIG {
 
     @Override
     public void start() {
-
+        Controller.startGame();
+        GameFrame.windowKill.setVisible(true);
+        Controller.gameStartAnimation();
     }
 
     @Override
@@ -43,9 +45,6 @@ public class WindowKill extends PIG {
     }
 
     public void startGame(){
-        Controller.startGame();
-        GameFrame.windowKill.setVisible(true);
-        Controller.gameStartAnimation();
         GameFrame.windowKill.addKeyListener(new EpsilonMovement());
         GameFrame.windowKill.addKeyListener(new KeyListener() {
             @Override

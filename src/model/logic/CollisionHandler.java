@@ -26,6 +26,8 @@ public class CollisionHandler {
             }
         }
         PullOut(epsilon ,enemy);
+        epsilon.setVelocity(0 ,0);
+        epsilon.setAcceleration(0 ,0);
         new Impact(collisionPoint).MakeImpact();
     }
 
@@ -53,6 +55,7 @@ public class CollisionHandler {
             attackerP = Utils.VectorWithSize(attackerP, 1);
             while (Collision.IsColliding(attacker, defender)) {
                 attacker.setPosition(Utils.VectorAdd(attackerP, attacker.getPosition()));
+                collisionPoint = Utils.VectorAdd(collisionPoint ,attackerP);
                 ((HasVertices) attacker).MoveVertices(attackerP);
             }
         }
@@ -61,6 +64,7 @@ public class CollisionHandler {
             attackerP = Utils.VectorWithSize(attackerP, 1);
             while (Collision.IsColliding(attacker, defender)) {
                 attacker.setPosition(Utils.VectorAdd(attacker.getPosition() ,attackerP));
+                collisionPoint = Utils.VectorAdd(collisionPoint ,attackerP);
             }
         }
     }
