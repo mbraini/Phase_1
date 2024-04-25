@@ -1,14 +1,17 @@
 package model.objectsModel;
 
 import controller.Constants;
+import controller.Controller;
+import controller.animations.DashAnimation;
 import controller.helper.Utils;
 import controller.helper.Vector;
+import model.interfaces.Ability;
 import model.interfaces.HasVertices;
 import model.interfaces.IsPolygon;
 
 import java.util.ArrayList;
 
-public class SquarantineModel extends EnemyModel implements HasVertices, IsPolygon {
+public class SquarantineModel extends EnemyModel implements HasVertices, IsPolygon , Ability {
     ArrayList<Vector> vertices;
     boolean epsilonGravityVisibility = true;
     public SquarantineModel(Vector position ,String id){
@@ -57,5 +60,15 @@ public class SquarantineModel extends EnemyModel implements HasVertices, IsPolyg
     @Override
     public void setVisibility(boolean visibility) {
         epsilonGravityVisibility = visibility;
+    }
+
+    @Override
+    public void epsilonGravity() {
+        ability();
+    }
+
+    @Override
+    public void ability() {
+        new DashAnimation(this ,Utils.VectorAdd(Utils.ScalarInVector(-1 ,position) , Controller.getEpsilon().getPosition()) ,600 ,100).StartAnimation();
     }
 }
