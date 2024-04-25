@@ -24,7 +24,7 @@ public class Spawn {
 
     public static void SpawnEnemy(){
         if (Constants.GAME_DIFFICULTY.equals("HARD")){
-            enemyCount = 1;
+            enemyCount = (int) 3;
         }
         for (int i = 0 ;i < enemyCount ;i++){
             int rand = random.nextInt(2);
