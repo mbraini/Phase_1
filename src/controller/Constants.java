@@ -25,7 +25,7 @@ public class Constants {
     public static Image empower;
     public static Image heal;
     public static Image banish;
-    public static final double ENEMY_LINEAR_SPEED = 0.7;
+    public static final double ENEMY_LINEAR_SPEED = 0.1;
     public static final double ENEMY_ROTATION_SPEED = 0.03;
     public static final double DASH_ACCELERATION = 0.2;
     public static final int DASH_TIME = 100;
