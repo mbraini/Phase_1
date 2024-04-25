@@ -7,7 +7,7 @@ public class Constants {
     public static final int GAME_WIDTH = 700;
     public static final double EPSILON_ACCELERATION = 0.0015;
     public static final double EPSILON_DECELERATION = 0.002;
-    public static final double EPSILON_MAX_SPEED = 0.8;
+    public static final double EPSILON_MAX_SPEED = 0.5;
     public static final int FPS = 10;
     public static final int UPS = 10;
     public static final int EPSILON_DECELERATION_TIME = 10;

@@ -11,14 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 public class EpsilonMovement implements KeyListener {
-    boolean up = false;
-    boolean down = false;
-    boolean left = false;
-    boolean right = false;
+    HashSet<Integer> keys = new HashSet<>();
     Timer upTimer;
     Timer downTimer;
     Timer leftTimer;
@@ -37,24 +35,26 @@ public class EpsilonMovement implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == 37){
-            left = true;
-            direction.setX(-1);
+        keys.add(e.getKeyCode());
+        direction.setX(0);
+        direction.setY(0);
+        if (keys.contains(37)){
+            direction.setX(-1 + direction.getX());
         }
-        if (e.getKeyCode() == 38){
-            up = true;
-            direction.setY(-1);
+        if (keys.contains(38)){
+            direction.setY(-1 + direction.getY());
         }
-        if (e.getKeyCode() == 39){
-            right = true;
-            direction.setX(1);
+        if (keys.contains(39)){
+            direction.setX(1 + direction.getX());
         }
-        if (e.getKeyCode() == 40){
-            down = true;
-            direction.setY(1);
+        if (keys.contains(40)){
+            direction.setY(1 + direction.getY());
         }
         if (direction.Equals(new Vector(0 ,0))) {
             epsilon.setAcceleration(0 ,0);
+            if ((keys.contains(37) && keys.contains(39)) || (keys.contains(38) && keys.contains(40))){
+                epsilon.setVelocity(0 ,0);
+            }
             return;
         }
         epsilon.setAcceleration(Utils.VectorWithSize(direction ,Constants.EPSILON_ACCELERATION));
@@ -62,9 +62,8 @@ public class EpsilonMovement implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        keys.remove(e.getKeyCode());
         if (e.getKeyCode() == 37){
-            left = false;
-            direction.setX(0);
             epsilon.getAcceleration().setX(Constants.EPSILON_DECELERATION);
             leftTimer = new Timer((int)(-epsilon.getVelocity().x / Constants.EPSILON_DECELERATION), new ActionListener() {
                 @Override
@@ -77,8 +76,6 @@ public class EpsilonMovement implements KeyListener {
             leftTimer.start();
         }
         if (e.getKeyCode() == 38){
-            up = false;
-            direction.setY(0);
             epsilon.getAcceleration().setY(Constants.EPSILON_DECELERATION);
             upTimer = new Timer((int)(-epsilon.getVelocity().y / Constants.EPSILON_DECELERATION), new ActionListener() {
                 @Override
@@ -91,9 +88,6 @@ public class EpsilonMovement implements KeyListener {
             upTimer.start();
         }
         if (e.getKeyCode() == 39){
-            System.out.println("HI");
-            right = false;
-            direction.setX(0);
             epsilon.getAcceleration().setX(-Constants.EPSILON_DECELERATION);
             rightTimer = new Timer((int)(epsilon.getVelocity().x / Constants.EPSILON_DECELERATION), new ActionListener() {
                 @Override
@@ -106,8 +100,6 @@ public class EpsilonMovement implements KeyListener {
             rightTimer.start();
         }
         if (e.getKeyCode() == 40){
-            down = false;
-            direction.setY(0);
             epsilon.getAcceleration().setY(-Constants.EPSILON_DECELERATION);
             downTimer = new Timer((int)(epsilon.getVelocity().y / Constants.EPSILON_DECELERATION), new ActionListener() {
                 @Override
