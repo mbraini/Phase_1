@@ -5,8 +5,8 @@ import java.awt.*;
 public class Constants {
     public static final int GAME_HEIGHT = 700;
     public static final int GAME_WIDTH = 700;
-    public static final double EPSILON_ACCELERATION = 0.1;
-    public static final double EPSILON_DECELERATION = 0.1;
+    public static final double EPSILON_ACCELERATION = 0.01;
+    public static final double EPSILON_DECELERATION = 0.01;
     public static final int FPS = 10;
     public static final int UPS = 10;
     public static final double EPSILON_MAX_SPEED = 6;
