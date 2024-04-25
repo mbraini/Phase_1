@@ -29,6 +29,6 @@ public abstract class EnemyModel extends OIGModel implements EpsilonGravity, Mov
         setPosition(position.x + xMoved ,position.y + yMoved);
         theta += omega;
         if (this instanceof HasVertices)
-            ((HasVertices) this).UpdateVertices();
+            ((HasVertices) this).UpdateVertices(xMoved ,yMoved ,omega);
     }
 }

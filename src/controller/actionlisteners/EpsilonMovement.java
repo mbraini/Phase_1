@@ -18,7 +18,6 @@ public class EpsilonMovement implements KeyListener {
     static Timer DownTimer;
     static Timer RightTimer;
     static Timer LeftTimer;
-    public static boolean hasControl = true;
     static Set<Integer> pressedKeys;
     static boolean block = false;
     public EpsilonMovement(){
@@ -32,11 +31,6 @@ public class EpsilonMovement implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println(hasControl);
-        if (!hasControl){
-            pressedKeys = new HashSet<>();
-            return;
-        }
         if (!block) {
             instantMovement(e.getKeyCode());
             pressedKeys.add(e.getKeyCode());

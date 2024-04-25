@@ -15,62 +15,50 @@ import java.util.HashMap;
 
 public class DashAnimation extends Animation implements ActionListener{
     OIGModel oigModel;
-    Timer timer;
     Vector direction;
+    int time;
+    double distance;
+    Timer timer;
     static HashMap<OIGModel ,Timer> dashes = new HashMap<>();
 
-    public DashAnimation(OIGModel oigModel , Vector direction) {
+    public DashAnimation(OIGModel oigModel, Vector direction, int time, double distance) {
         this.oigModel = oigModel;
-        this.direction = Utils.VectorWithSize(direction ,Constants.DASH_ACCELERATION);
+        this.direction = Utils.VectorWithSize(direction ,1);
+        this.time = time;
+        this.distance = distance;
     }
 
     @Override
     public void StartAnimation() {
         if (dashes.containsKey(oigModel)){
-            (dashes.get(oigModel)).stop();
-            (dashes.get(oigModel)).removeActionListener(this);
+            StopTimer(dashes.get(oigModel));
             dashes.remove(oigModel);
         }
-        if (oigModel instanceof EpsilonGravity) {
+        /////////////////////////////Calculation
+        double a = (2 * distance) / Math.pow(time ,2);
+        oigModel.setVelocity(Utils.ScalarInVector(time * a ,direction));
+        oigModel.setAcceleration(Utils.ScalarInVector(-a ,direction));
+        //////////////////////////////
+        if (oigModel instanceof EpsilonGravity)
             ((EpsilonGravity) oigModel).setVisibility(false);
-        }
-        if (oigModel instanceof EpsilonModel){
-            EpsilonMovement.hasControl = false;
-        }
-        oigModel.setVelocity(direction);
-        oigModel.setAcceleration(direction);
-        double delta = Constants.DASH_TIMER_TICK * Constants.DASH_ACCELERATION / (Constants.DASH_TIME);
-        direction = Utils.VectorWithSize(direction ,-delta);
-        timer = new Timer(Constants.DASH_TIMER_TICK, this);
+        timer = new Timer(time, this);
+
         dashes.put(oigModel ,timer);
+
         timer.start();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (Utils.VectorSize(oigModel.getVelocity()) == 0){
-            oigModel.setVelocity(direction);
-        }
-        if (Utils.VectorSize(oigModel.getAcceleration()) == 0){
-            oigModel.setAcceleration(direction);
-        }
-        oigModel.setAcceleration(Utils.VectorAdd(oigModel.getAcceleration() ,direction));
-        oigModel.setVelocity(Utils.VectorWithSize(oigModel.getVelocity() ,Constants.ENEMY_LINEAR_SPEED));
-        if (Utils.VectorSize(oigModel.getAcceleration()) >= Constants.DASH_ACCELERATION / 5 && Utils.DotProduct(oigModel.getAcceleration() ,direction) > 0){
-            if (oigModel instanceof EpsilonGravity)
-                ((EpsilonGravity) oigModel).setVisibility(true);
-            oigModel.setAcceleration(0 ,0);
-            setEpsilon(oigModel);
-            timer.stop();
-            timer.removeActionListener(this);
-        }
+        StopTimer(timer);
     }
 
-    private void setEpsilon(OIGModel oigModel) {
-        if (oigModel instanceof EpsilonModel){
-            oigModel.setAcceleration(0 ,0);
-            oigModel.setVelocity(0 ,0);
-            EpsilonMovement.hasControl = true;
-        }
+    void StopTimer(Timer timer){
+        if (oigModel instanceof EpsilonGravity)
+            ((EpsilonGravity) oigModel).setVisibility(true);
+        oigModel.setAcceleration(0 ,0);
+        oigModel.setVelocity(0 ,0);
+        timer.removeActionListener(this);
+        timer.stop();
     }
 }

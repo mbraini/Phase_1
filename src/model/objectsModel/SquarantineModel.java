@@ -30,9 +30,9 @@ public class SquarantineModel extends EnemyModel implements HasVertices, IsPolyg
     }
 
     @Override
-    public void UpdateVertices() {
+    public void UpdateVertices(double xMoved ,double yMoved ,double theta) {
         for (int i = 0 ;i < vertices.size() ;i++){
-            vertices.set(i ,new Vector(vertices.get(i).getX() + velocity.x ,vertices.get(i).getY() + velocity.y));
+            vertices.set(i ,new Vector(vertices.get(i).getX() + xMoved ,vertices.get(i).getY() + yMoved));
             vertices.set(i , Utils.RotateByTheta(vertices.get(i) ,position ,omega));
         }
     }

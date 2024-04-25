@@ -22,13 +22,12 @@ public class Impact {
                 Vector direction;
                 direction = Utils.VectorAdd(Utils.ScalarInVector(-1, collisionPoint), OIGModel.OIGs.get(i).getPosition());
                 distance = Utils.VectorSize(direction);
-                System.out.println(distance);
                 //////////////////todo
                 if (distance >= 500) {
                     return;
                 }
                 //////////////////todo
-                new DashAnimation(OIGModel.OIGs.get(i), direction).StartAnimation();
+                new DashAnimation(OIGModel.OIGs.get(i), direction ,Constants.DASH_TIME ,100).StartAnimation();
             }
         }
     }
