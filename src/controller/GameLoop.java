@@ -105,6 +105,7 @@ public class GameLoop extends Thread{
         for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
             if (OIGModel.OIGs.get(i).getHP() <= 0){
                 GameManager.OIGDeath(OIGModel.OIGs.get(i));
+                return;
             }
         }
     }

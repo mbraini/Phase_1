@@ -2,6 +2,7 @@ package controller;
 
 import model.logic.Impact;
 import model.objectsModel.BulletModel;
+import model.objectsModel.CollectiveModel;
 import model.objectsModel.EnemyModel;
 import model.objectsModel.OIGModel;
 
@@ -14,12 +15,15 @@ public class GameManager {
         if (oigModel instanceof BulletModel){
             BulletOnDeath((BulletModel) oigModel);
         }
+        if (oigModel instanceof CollectiveModel){
+            CollectiveOnDeath((CollectiveModel) oigModel);
+        }
         Controller.removeOIG(oigModel.getId());
     }
 
     public static void EnemyOnDeath(EnemyModel enemy){
         //////////////// Spawn Collectables //////////////// todo
-
+        Spawn.SpawnCollective(enemy);
         //////////////////////////////////////////////////// todo
     }
 
@@ -27,6 +31,12 @@ public class GameManager {
         new Impact(bullet.getPosition()).MakeImpact();
     }
 
+    public static void CollectiveOnDeath(CollectiveModel collective){
+        GameState.xp += collective.getValue();
+        /////todo animation
+
+        /////todo
+    }
 
     static void CheckNewWave(){
         if (GameState.wave == 3){

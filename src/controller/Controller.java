@@ -38,6 +38,9 @@ public abstract class Controller {
         else if (oigModel instanceof BulletModel){
             OIGView.OIGs.add(new BulletView(oigModel.getPosition() ,oigModel.getTheta() ,oigModel.getId()));
         }
+        else if (oigModel instanceof CollectiveModel){
+            OIGView.OIGs.add(new CollectiveView(oigModel.getPosition() ,oigModel.getId()));
+        }
     }
 
     public static void addOIGModel(OIGModel oigModel){

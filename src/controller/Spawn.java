@@ -38,7 +38,7 @@ public class Spawn {
                 Controller.addOIG(squarantine);
             }
         }
-        GameState.wave++;
+//        GameState.wave++;
     }
 
     public static void SpawnBullet(Vector position ,Vector direction){
@@ -64,4 +64,22 @@ public class Spawn {
         return new Vector(x ,y);
     }
 
+    public static void SpawnCollective(EnemyModel enemy) {
+        int count = 0;
+        int value = 0;
+        if (enemy instanceof TrigorathModel) {
+            count = 2;
+            value = 5;
+        }
+        else if (enemy instanceof SquarantineModel) {
+            count = 1;
+            value = 5;
+        }
+        for (int i = 0 ;i < count ;i++){
+            double rx = random.nextInt((int) enemy.getPosition().x - Constants.COLLECTIVE_BOX_DIMENSION.width / 2 ,(int) enemy.getPosition().x + Constants.COLLECTIVE_BOX_DIMENSION.width / 2);
+            double ry = random.nextInt((int) enemy.getPosition().y - Constants.COLLECTIVE_BOX_DIMENSION.height / 2 ,(int) enemy.getPosition().y + Constants.COLLECTIVE_BOX_DIMENSION.height / 2);
+            CollectiveModel collective = new CollectiveModel(new Vector(rx ,ry) ,Helper.RandomStringGenerator(Constants.ID_SIZE) ,value);
+            Controller.addOIG(collective);
+        }
+    }
 }

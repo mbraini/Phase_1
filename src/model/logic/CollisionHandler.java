@@ -8,10 +8,7 @@ import controller.helper.Vector;
 import model.interfaces.HasVertices;
 import model.interfaces.IsCircle;
 import model.interfaces.IsPolygon;
-import model.objectsModel.BulletModel;
-import model.objectsModel.EnemyModel;
-import model.objectsModel.EpsilonModel;
-import model.objectsModel.OIGModel;
+import model.objectsModel.*;
 
 public class CollisionHandler {
     Vector collisionPoint;
@@ -67,5 +64,9 @@ public class CollisionHandler {
                 collisionPoint = Utils.VectorAdd(collisionPoint ,attackerP);
             }
         }
+    }
+
+    public void EpsilonCollective(EpsilonModel epsilon, CollectiveModel collective) {
+        collective.setHP(-1);
     }
 }

@@ -26,6 +26,7 @@ public class Constants {
     public static Image heal;
     public static Image banish;
     public static final double ENEMY_LINEAR_SPEED = 0.2;
+    public static final double COLLECTIVE_RADIOS = 10;
     public static final double ENEMY_ROTATION_SPEED = 0.03;
     public static final int DASH_TIME = 300;
     public static final double e = 1;
@@ -33,5 +34,6 @@ public class Constants {
     public static final int FRAME_ANIMATION_REFRESH_RATE = 10;
     public static final int FRAME_BULLET_RESIZE = 50;
     public static final int FRAME_BULLET_RESIZE_TIME = 50;
+    public static final Dimension COLLECTIVE_BOX_DIMENSION = new Dimension(100 ,100);
     public static final String GAME_DIFFICULTY = "HARD";
 }

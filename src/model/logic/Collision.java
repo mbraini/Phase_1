@@ -7,10 +7,7 @@ import controller.helper.Vector;
 import model.interfaces.HasVertices;
 import model.interfaces.IsCircle;
 import model.interfaces.IsPolygon;
-import model.objectsModel.BulletModel;
-import model.objectsModel.EnemyModel;
-import model.objectsModel.EpsilonModel;
-import model.objectsModel.OIGModel;
+import model.objectsModel.*;
 
 import java.util.ArrayList;
 
@@ -68,6 +65,13 @@ public class Collision {
         else if (b instanceof EnemyModel && a instanceof BulletModel){
             collisionHandler.EnemyBullet((EnemyModel)b ,(BulletModel)a);
         }
+        /////Collectives
+        else if (a instanceof EpsilonModel && b instanceof CollectiveModel){
+            collisionHandler.EpsilonCollective((EpsilonModel) a ,(CollectiveModel) b);
+        }
+        else if (b instanceof EpsilonModel && a instanceof CollectiveModel){
+            collisionHandler.EpsilonCollective((EpsilonModel) b ,(CollectiveModel) a);
+        }
     }
 
 
@@ -98,6 +102,14 @@ public class Collision {
             }
             Vector direction = Utils.VectorWithSize(Utils.VectorAdd(Utils.ScalarInVector(-1 ,circle.getPosition()) ,polygon.getPosition()) ,Constants.EPSILON_DIMENSION.width);
             return Utils.VectorAdd(direction ,circle.getPosition());
+        }
+        else if (a instanceof IsCircle && b instanceof IsCircle){
+            double ra = ((IsCircle) a).getRadios();
+            double rb = ((IsCircle) a).getRadios();
+            Vector v1 = Utils.ScalarInVector(rb ,a.getPosition());
+            Vector v2 = Utils.ScalarInVector(ra ,b.getPosition());
+            Vector v3 = Utils.VectorAdd(v1 ,v2);
+            return Utils.VectorWithSize(v3 ,1d / (ra + rb));
         }
         return null;
     }
