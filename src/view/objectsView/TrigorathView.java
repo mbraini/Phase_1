@@ -17,7 +17,5 @@ public class TrigorathView extends EnemyView{
         g2d.rotate(-theta ,position.getX() ,position.getY());
         g2d.drawImage(Constants.trigorathImage ,(int) position.x - Constants.TRIGORATH_DIMENTION.width / 2 ,(int) position.y - (Constants.TRIGORATH_DIMENTION.height * 2) / 3 ,Constants.TRIGORATH_DIMENTION.width ,Constants.TRIGORATH_DIMENTION.height ,null);
         g2d.rotate(theta ,position.getX() ,position.getY());
-        g2d.setColor(Color.YELLOW);
-        g2d.drawString("a" ,(int) position.x ,(int) position.y);
     }
 }

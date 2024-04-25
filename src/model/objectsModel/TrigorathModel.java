@@ -70,11 +70,32 @@ public class TrigorathModel extends EnemyModel implements HasVertices, IsPolygon
     public void ability() {
         double distance = Utils.VectorSize(Utils.VectorAdd(Utils.ScalarInVector(-1 ,position) , Controller.getEpsilon().getPosition()));
         /////////////todo
-        if (distance <= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width){
-            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED / 4d);
+        if (distance >= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width + 160){
+            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED * 1.6);
         }
-        if (distance <= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width + 50){
-            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED / 3d);
+        if (distance >= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width + 280){
+            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED * 1.4);
+        }
+        else if (distance >= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width + 240){
+            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED * 1.2);
+        }
+        else if (distance >= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width + 200){
+            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED * 1.1);
+        }
+        else if (distance >= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width + 160){
+            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED);
+        }
+        else if (distance <= Constants.TRIGORATH_DIMENTION.width * 2 / 3d + Constants.EPSILON_DIMENSION.width / 2d + 40){
+            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED * 0.3);
+        }
+        else if (distance <= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width + 80){
+            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED * 0.5);
+        }
+        else if (distance <= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width + 120){
+            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED * 0.8);
+        }
+        else if (distance <= Constants.TRIGORATH_DIMENTION.width + Constants.EPSILON_DIMENSION.width + 160){
+            velocity = Utils.VectorWithSize(velocity ,Constants.ENEMY_LINEAR_SPEED * 0.9);
         }
         ////////////todo
     }
