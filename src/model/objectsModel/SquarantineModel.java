@@ -64,7 +64,8 @@ public class SquarantineModel extends EnemyModel implements HasVertices, IsPolyg
 
     @Override
     public void epsilonGravity() {
-        ability();
+        if (getVisibility())
+            ability();
     }
 
     @Override

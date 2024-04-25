@@ -26,7 +26,11 @@ public class Constants {
     public static Image heal;
     public static Image banish;
     public static final double ENEMY_LINEAR_SPEED = 0.2;
-    public static final double COLLECTIVE_RADIOS = 10;
+    public static final double COLLECTIVE_RADIOS = 5;
+    public static final int COLLECTIVE_FADE = 7000;
+    public static final double COLLECTIVE_VELOCITY = 0.4;
+    public static final int COLLECTIVE_ABILITY_ACTIVATION_RADIOS = 100;
+
     public static final double ENEMY_ROTATION_SPEED = 0.03;
     public static final int DASH_TIME = 300;
     public static final double e = 1;

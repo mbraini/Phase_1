@@ -57,8 +57,10 @@ public class TrigorathModel extends EnemyModel implements HasVertices, IsPolygon
 
     @Override
     public void epsilonGravity() {
-        super.epsilonGravity();
-        ability();
+        if (getVisibility()) {
+            super.epsilonGravity();
+            ability();
+        }
     }
 
     @Override

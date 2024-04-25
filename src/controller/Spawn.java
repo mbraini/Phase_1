@@ -78,7 +78,7 @@ public class Spawn {
         for (int i = 0 ;i < count ;i++){
             double rx = random.nextInt((int) enemy.getPosition().x - Constants.COLLECTIVE_BOX_DIMENSION.width / 2 ,(int) enemy.getPosition().x + Constants.COLLECTIVE_BOX_DIMENSION.width / 2);
             double ry = random.nextInt((int) enemy.getPosition().y - Constants.COLLECTIVE_BOX_DIMENSION.height / 2 ,(int) enemy.getPosition().y + Constants.COLLECTIVE_BOX_DIMENSION.height / 2);
-            CollectiveModel collective = new CollectiveModel(new Vector(rx ,ry) ,Helper.RandomStringGenerator(Constants.ID_SIZE) ,value);
+            CollectiveModel collective = new CollectiveModel(new Vector(rx ,ry) ,Helper.RandomStringGenerator(Constants.ID_SIZE) ,value ,GameState.time);
             Controller.addOIG(collective);
         }
     }

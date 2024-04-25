@@ -55,14 +55,11 @@ public class GameLoop extends Thread{
     }
 
     void UpdateModel(){
-        EpsilonModel epsilon = (EpsilonModel) OIGModel.OIGs.get(0);
         for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
             if (OIGModel.OIGs.get(i) instanceof MoveAble)
                 ((MoveAble) OIGModel.OIGs.get(i)).move();
             if (OIGModel.OIGs.get(i) instanceof EpsilonGravity) {
-                if (((EpsilonGravity) OIGModel.OIGs.get(i)).getVisibility()) {
-                    ((EpsilonGravity) OIGModel.OIGs.get(i)).epsilonGravity();
-                }
+                ((EpsilonGravity) OIGModel.OIGs.get(i)).epsilonGravity();
             }
             if (OIGModel.OIGs.get(i) instanceof BulletModel){
                 BulletBorderCollision((BulletModel) OIGModel.OIGs.get(i));
@@ -79,14 +76,6 @@ public class GameLoop extends Thread{
                 if (Pair.Contains(collisions ,pair))
                     continue;
                 if (Collision.IsColliding(OIGModel.OIGs.get(i) ,OIGModel.OIGs.get(j))){
-                    ////////
-                    if (OIGModel.OIGs.get(i) instanceof EpsilonGravity){
-                        ((EpsilonGravity) OIGModel.OIGs.get(i)).setVisibility(false);
-                    }
-                    if (OIGModel.OIGs.get(j) instanceof EpsilonGravity){
-                        ((EpsilonGravity) OIGModel.OIGs.get(j)).setVisibility(false);
-                    }
-                    /////////
                     new Collision().CollisionResponse(OIGModel.OIGs.get(i) ,OIGModel.OIGs.get(j));
                     collisions.add(new Pair(i ,j));
                 }
