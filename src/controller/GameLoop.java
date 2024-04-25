@@ -115,25 +115,21 @@ public class GameLoop extends Thread{
         if (epsilon.getPosition().x <= Constants.EPSILON_DIMENSION.width / 2d){
             epsilon.setPosition(Constants.EPSILON_DIMENSION.width / 2d + 1 ,epsilon.getPosition().getY());
             direction.setX(1);
-            EpsilonMovement.StopTimers();
             new Impact(new Vector(Constants.EPSILON_DIMENSION.width / 2d ,epsilon.getPosition().y)).MakeImpact();
         }
         else if (epsilon.getPosition().x >= Application.gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width / 2d){
             epsilon.setPosition(Application.gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width / 2d - 1 ,epsilon.getPosition().getY());
             direction.setX(-1);
-            EpsilonMovement.StopTimers();
             new Impact(new Vector(Application.gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width / 2d ,epsilon.getPosition().y)).MakeImpact();
         }
         else if (epsilon.getPosition().y <= Constants.EPSILON_DIMENSION.height / 2d){
             epsilon.setPosition(epsilon.getPosition().getX() ,Constants.EPSILON_DIMENSION.height / 2d + 1);
             direction.setY(1);
-            EpsilonMovement.StopTimers();
             new Impact(new Vector(epsilon.getPosition().x ,Constants.EPSILON_DIMENSION.height / 2d)).MakeImpact();
         }
         else if (epsilon.getPosition().y >= Application.gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height / 2d){
             epsilon.setPosition(epsilon.getPosition().getX() ,Application.gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height / 2d - 1);
             direction.setY(-1);
-            EpsilonMovement.StopTimers();
             new Impact(new Vector(epsilon.getPosition().x ,Application.gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height / 2d)).MakeImpact();
         }
     }

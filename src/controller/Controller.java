@@ -96,4 +96,8 @@ public abstract class Controller {
     private static void ResetModel() {
         OIGModel.OIGs = new ArrayList<>();
     }
+
+    public static EpsilonModel getEpsilon() {
+        return (EpsilonModel)OIGModel.OIGs.get(0);
+    }
 }

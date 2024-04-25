@@ -45,7 +45,7 @@ public class WindowKill extends PIG {
     }
 
     public void startGame(){
-        GameFrame.windowKill.addKeyListener(new EpsilonMovement());
+        GameFrame.windowKill.addKeyListener(new EpsilonMovement(Controller.getEpsilon()));
         GameFrame.windowKill.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {

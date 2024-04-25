@@ -19,8 +19,8 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
     @Override
     public void move() {
         velocity = Utils.VectorAdd(velocity ,Utils.ScalarInVector(Constants.UPS ,acceleration));
-        double xMoved = ((2 * velocity.x - acceleration.x) / 2) * Constants.UPS;
-        double yMoved = ((2 * velocity.y - acceleration.y) / 2) * Constants.UPS;
+        double xMoved = ((2 * velocity.x - acceleration.x * Constants.UPS) / 2) * Constants.UPS;
+        double yMoved = ((2 * velocity.y - acceleration.y * Constants.UPS) / 2) * Constants.UPS;
         setPosition(position.x + xMoved ,position.y + yMoved);
         checkMaxSpeed();
     }

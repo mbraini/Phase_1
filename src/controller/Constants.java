@@ -5,11 +5,11 @@ import java.awt.*;
 public class Constants {
     public static final int GAME_HEIGHT = 700;
     public static final int GAME_WIDTH = 700;
-    public static final double EPSILON_ACCELERATION = 0.01;
-    public static final double EPSILON_DECELERATION = 0.01;
+    public static final double EPSILON_ACCELERATION = 0.0015;
+    public static final double EPSILON_DECELERATION = 0.002;
+    public static final double EPSILON_MAX_SPEED = 0.8;
     public static final int FPS = 10;
     public static final int UPS = 10;
-    public static final double EPSILON_MAX_SPEED = 6;
     public static final int EPSILON_DECELERATION_TIME = 10;
     public static final Dimension barD = new Dimension(14,38);
     public static final Dimension EPSILON_DIMENSION = new Dimension(25 ,25);
