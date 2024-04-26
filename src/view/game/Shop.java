@@ -1,9 +1,8 @@
 package view.game;
 
-import controller.Application;
-import controller.Constants;
-import controller.GameLoop;
-import controller.GameState;
+import controller.*;
+import view.Abilities.Banish;
+import view.Abilities.RegularAbility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -141,8 +140,7 @@ public class Shop extends JPanel {
         third.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("BANISH");
-
+                RegularAbility.sendRequest(RegularAbilities.banish);
             }
 
             @Override

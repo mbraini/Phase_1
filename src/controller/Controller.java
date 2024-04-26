@@ -2,16 +2,22 @@ package controller;
 
 import controller.animations.GameStartAnimation;
 import model.objectsModel.*;
+import view.Abilities.Banish;
+import view.Abilities.RegularAbility;
 import view.game.EndGame;
 import view.game.GameFrame;
 import view.menu.MainFrame;
 import view.objectsView.*;
 
 import java.util.ArrayList;
-
+public enum RegularAbilities{
+    banish,
+    empower,
+    heal,
+}
 public abstract class Controller {
 
-
+    public static RegularAbilities regularAbility;
     public static void startGame() {
         Controller.ResetModel();
         Controller.ResetView();
@@ -102,5 +108,18 @@ public abstract class Controller {
 
     public static EpsilonModel getEpsilon() {
         return (EpsilonModel)OIGModel.OIGs.get(0);
+    }
+    public static void CheckRegularAbilities(){
+        switch (regularAbility) {
+            case banish:
+                new Banish().performAbility();
+                break;
+            case empower:
+                /////
+                break;
+            case heal:
+                //////
+                break;
+        }
     }
 }
