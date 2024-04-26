@@ -1,20 +1,20 @@
 package view.Abilities;
 
 import controller.Controller;
-import controller.RegularAbilities;
+import controller.RegularAbilitiesEnum;
 
 public abstract class RegularAbility extends Ability{
 
-    public static void sendRequest(RegularAbilities regularAbility){
+    public static void sendRequest(RegularAbilitiesEnum regularAbility){
         switch (regularAbility){
             case heal:
-                Controller.regularAbility = RegularAbilities.heal;
+                Controller.regularAbility = RegularAbilitiesEnum.heal;
                 break;
             case banish:
-                Controller.regularAbility = RegularAbilities.banish;
+                Controller.regularAbility = RegularAbilitiesEnum.banish;
                 break;
             case empower:
-                Controller.regularAbility = RegularAbilities.empower;
+                Controller.regularAbility = RegularAbilitiesEnum.empower;
                 break;
         }
     }

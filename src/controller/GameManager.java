@@ -18,7 +18,7 @@ public class GameManager {
         if (oigModel instanceof CollectiveModel){
             CollectiveOnDeath((CollectiveModel) oigModel);
         }
-        Controller.removeOIG(oigModel.getId());
+        Controller.removeRequest(oigModel);
     }
 
     public static void EnemyOnDeath(EnemyModel enemy){

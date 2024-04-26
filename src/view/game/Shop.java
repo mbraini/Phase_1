@@ -1,7 +1,6 @@
 package view.game;
 
 import controller.*;
-import view.Abilities.Banish;
 import view.Abilities.RegularAbility;
 
 import javax.swing.*;
@@ -140,7 +139,7 @@ public class Shop extends JPanel {
         third.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                RegularAbility.sendRequest(RegularAbilities.banish);
+                RegularAbility.sendRequest(RegularAbilitiesEnum.banish);
             }
 
             @Override

@@ -19,6 +19,7 @@ public class Spawn {
         Vector position = new Vector(Constants.GAME_WIDTH / 2d   ,Constants.GAME_HEIGHT / 2d);
         Vector velocity = new Vector(-.5 ,-.5);
         EpsilonModel epsilon = new EpsilonModel(position ,velocity , Helper.RandomStringGenerator(Constants.ID_SIZE));
+//        Controller.addRequest(epsilon);
         Controller.addOIG(epsilon);
     }
 
@@ -31,11 +32,11 @@ public class Spawn {
             Vector position = randomPosition();
             if (rand == 0){
                 TrigorathModel trigorath = new TrigorathModel(position ,Helper.RandomStringGenerator(Constants.ID_SIZE));
-                Controller.addOIG(trigorath);
+                Controller.addRequest(trigorath);
             }
             else {
                 SquarantineModel squarantine = new SquarantineModel(position ,Helper.RandomStringGenerator(Constants.ID_SIZE));
-                Controller.addOIG(squarantine);
+                Controller.addRequest(squarantine);
             }
         }
         GameState.wave++;
@@ -43,7 +44,7 @@ public class Spawn {
 
     public static void SpawnBullet(Vector position ,Vector direction){
         BulletModel bullet = new BulletModel(position ,direction ,Helper.RandomStringGenerator(Constants.ID_SIZE));
-        Controller.addOIG(bullet);
+        Controller.addRequest(bullet);
     }
 
     public static Vector randomPosition(){
@@ -79,7 +80,7 @@ public class Spawn {
             double rx = random.nextInt((int) enemy.getPosition().x - Constants.COLLECTIVE_BOX_DIMENSION.width / 2 ,(int) enemy.getPosition().x + Constants.COLLECTIVE_BOX_DIMENSION.width / 2);
             double ry = random.nextInt((int) enemy.getPosition().y - Constants.COLLECTIVE_BOX_DIMENSION.height / 2 ,(int) enemy.getPosition().y + Constants.COLLECTIVE_BOX_DIMENSION.height / 2);
             CollectiveModel collective = new CollectiveModel(new Vector(rx ,ry) ,Helper.RandomStringGenerator(Constants.ID_SIZE) ,value ,GameState.time);
-            Controller.addOIG(collective);
+            Controller.addRequest(collective);
         }
     }
 }

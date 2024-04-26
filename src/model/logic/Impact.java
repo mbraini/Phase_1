@@ -27,6 +27,8 @@ public class Impact {
                     return;
                 }
                 //////////////////todo
+                if (distance == 0)
+                    return;
                 new DashAnimation(OIGModel.OIGs.get(i), direction ,Constants.DASH_TIME ,100).StartAnimation();
             }
         }

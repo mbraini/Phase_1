@@ -46,7 +46,7 @@ public class CollectiveModel extends OIGModel implements IsCircle , Ability , Ep
     @Override
     public void ability() {
         if ((GameState.time - time) * 1000 >= Constants.COLLECTIVE_FADE){
-            Controller.removeOIG(id);
+            Controller.removeRequest(this);
         }
     }
 

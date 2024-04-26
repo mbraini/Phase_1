@@ -84,6 +84,10 @@ public class GameLoop extends Thread{
         CheckObjectDeath();
         EpsilonBorderCollision();
         CheckRequests();
+        //////reqs
+        Controller.CheckRegularAbilities();
+        Controller.CheckAddOrRemoveObjectRequest();
+        //////
     }
 
     private void CheckRequests() {
