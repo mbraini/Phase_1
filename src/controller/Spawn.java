@@ -24,7 +24,7 @@ public class Spawn {
 
     public static void SpawnEnemy(){
         if (Constants.GAME_DIFFICULTY.equals("HARD")){
-            enemyCount = (int) 1;
+            enemyCount = (int) 4;
         }
         for (int i = 0 ;i < enemyCount ;i++){
             int rand = random.nextInt(2);
@@ -38,7 +38,7 @@ public class Spawn {
                 Controller.addOIG(squarantine);
             }
         }
-//        GameState.wave++;
+        GameState.wave++;
     }
 
     public static void SpawnBullet(Vector position ,Vector direction){

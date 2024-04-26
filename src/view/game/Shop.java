@@ -142,6 +142,7 @@ public class Shop extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("BANISH");
+
             }
 
             @Override

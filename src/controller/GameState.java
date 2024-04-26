@@ -45,7 +45,7 @@ public class GameState extends JPanel{
     }
 
     public void setTime(double time) {
-        this.time = time;
+        GameState.time = time;
     }
 
     public double getXp() {
@@ -53,7 +53,7 @@ public class GameState extends JPanel{
     }
 
     public void setXp(double xp) {
-        this.xp = xp;
+        GameState.xp = xp;
     }
 
     public double getHp() {
@@ -61,7 +61,7 @@ public class GameState extends JPanel{
     }
 
     public void setHp(double hp) {
-        this.hp = hp;
+        GameState.hp = hp;
     }
 
     public double getWave() {
@@ -69,7 +69,7 @@ public class GameState extends JPanel{
     }
 
     public void setWave(double wave) {
-        this.wave = wave;
+        GameState.wave = wave;
     }
 
     void InitTime(){

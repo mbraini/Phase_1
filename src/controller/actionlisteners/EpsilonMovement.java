@@ -51,10 +51,6 @@ public class EpsilonMovement implements KeyListener {
             direction.setY(1 + direction.getY());
         }
         if (direction.Equals(new Vector(0 ,0))) {
-            epsilon.setAcceleration(0 ,0);
-            if ((keys.contains(37) && keys.contains(39)) || (keys.contains(38) && keys.contains(40))){
-                epsilon.setVelocity(0 ,0);
-            }
             return;
         }
         epsilon.setAcceleration(Utils.VectorWithSize(direction ,Constants.EPSILON_ACCELERATION));
