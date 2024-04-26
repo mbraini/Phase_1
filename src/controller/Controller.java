@@ -4,6 +4,7 @@ import controller.animations.GameStartAnimation;
 import model.objectsModel.*;
 import view.Abilities.Banish;
 import view.Abilities.Empower;
+import view.Abilities.Heal;
 import view.game.GameFrame;
 import view.objectsView.*;
 
@@ -115,7 +116,7 @@ public abstract class Controller {
                     new Empower().performAbility();
                     break;
                 case heal:
-                    //////
+                    new Heal().performAbility();
                     break;
             }
         }

@@ -79,7 +79,10 @@ public class Shop extends JPanel {
         first.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("HEAL");
+                if (GameState.xp >= 50) {
+                    RegularAbility.sendRequest(RegularAbilitiesEnum.heal);
+                    GameState.xp -= 50;
+                }
             }
 
             @Override
@@ -109,7 +112,10 @@ public class Shop extends JPanel {
         second.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                RegularAbility.sendRequest(RegularAbilitiesEnum.empower);
+                if (GameState.xp >= 75) {
+                    RegularAbility.sendRequest(RegularAbilitiesEnum.empower);
+                    GameState.xp -= 75;
+                }
             }
 
             @Override
@@ -139,7 +145,10 @@ public class Shop extends JPanel {
         third.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                RegularAbility.sendRequest(RegularAbilitiesEnum.banish);
+                if (GameState.xp >= 100) {
+                    RegularAbility.sendRequest(RegularAbilitiesEnum.banish);
+                    GameState.xp -= 100;
+                }
             }
 
             @Override
