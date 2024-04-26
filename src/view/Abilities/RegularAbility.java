@@ -8,13 +8,13 @@ public abstract class RegularAbility extends Ability{
     public static void sendRequest(RegularAbilitiesEnum regularAbility){
         switch (regularAbility){
             case heal:
-                Controller.regularAbility = RegularAbilitiesEnum.heal;
+                Controller.regularAbilityRequest(RegularAbilitiesEnum.heal);
                 break;
             case banish:
-                Controller.regularAbility = RegularAbilitiesEnum.banish;
+                Controller.regularAbilityRequest(RegularAbilitiesEnum.banish);
                 break;
             case empower:
-                Controller.regularAbility = RegularAbilitiesEnum.empower;
+                Controller.regularAbilityRequest(RegularAbilitiesEnum.empower);
                 break;
         }
     }

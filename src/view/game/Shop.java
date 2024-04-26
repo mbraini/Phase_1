@@ -109,7 +109,7 @@ public class Shop extends JPanel {
         second.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("EMPOWER");
+                RegularAbility.sendRequest(RegularAbilitiesEnum.empower);
             }
 
             @Override

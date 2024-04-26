@@ -3,6 +3,7 @@ package controller;
 import controller.animations.GameStartAnimation;
 import model.objectsModel.*;
 import view.Abilities.Banish;
+import view.Abilities.Empower;
 import view.game.GameFrame;
 import view.objectsView.*;
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public abstract class Controller {
     private static ArrayList<OIGModel> addedObjects = new ArrayList<>();
     private static ArrayList<OIGModel> removedObjects = new ArrayList<>();
-    public static RegularAbilitiesEnum regularAbility;
+    public static ArrayList<RegularAbilitiesEnum> regularAbility = new ArrayList<>();
     public static void startGame() {
         Controller.ResetModel();
         Controller.ResetView();
@@ -103,20 +104,22 @@ public abstract class Controller {
         return (EpsilonModel)OIGModel.OIGs.get(0);
     }
     public static void CheckRegularAbilities(){
-        if (regularAbility == null)
+        if (regularAbility.isEmpty())
             return;
-        switch (regularAbility) {
-            case banish:
-                new Banish().performAbility();
-                break;
-            case empower:
-                /////
-                break;
-            case heal:
-                //////
-                break;
+        for (int i = 0 ;i < regularAbility.size() ;i++) {
+            switch (regularAbility.get(i)) {
+                case banish:
+                    new Banish().performAbility();
+                    break;
+                case empower:
+                    new Empower().performAbility();
+                    break;
+                case heal:
+                    //////
+                    break;
+            }
         }
-        regularAbility = null;
+        regularAbility = new ArrayList<>();
     }
 
     public static void CheckAddOrRemoveObjectRequest(){
@@ -140,6 +143,9 @@ public abstract class Controller {
 
     public static void removeRequest(OIGModel oigModel){
         removedObjects.add(oigModel);
+    }
+    public static void regularAbilityRequest(RegularAbilitiesEnum regularAbilitiesEnum){
+        regularAbility.add(regularAbilitiesEnum);
     }
 
 }

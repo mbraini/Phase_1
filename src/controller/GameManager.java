@@ -33,9 +33,6 @@ public class GameManager {
 
     public static void CollectiveOnDeath(CollectiveModel collective){
         GameState.xp += collective.getValue();
-        /////todo animation
-
-        /////todo
     }
 
     static void CheckNewWave(){
