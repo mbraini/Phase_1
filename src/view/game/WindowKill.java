@@ -1,6 +1,7 @@
 package view.game;
 import controller.*;
 import controller.actionlisteners.EpsilonAiming;
+import controller.actionlisteners.EpsilonCirculation;
 import controller.actionlisteners.EpsilonMovement;
 import controller.helper.Vector;
 import view.PIG;
@@ -70,6 +71,7 @@ public class WindowKill extends PIG {
             }
         });
         GameFrame.windowKill.addMouseListener(new EpsilonAiming());
+        GameFrame.windowKill.addMouseMotionListener(new EpsilonCirculation());
         GameFrame.windowKill.setFocusable(true);
         GameFrame.windowKill.grabFocus();
         gameState = new GameState();

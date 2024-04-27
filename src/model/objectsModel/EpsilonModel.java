@@ -62,6 +62,7 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
     @Override
     public void UpdateVertices(double xMoved ,double yMoved ,double theta) {
         for (int i = 0 ;i < vertices.size() ;i++){
+            vertices.get(i).setTheta(vertices.get(i).getTheta() + theta);
             vertices.get(i).Update();
         }
     }
@@ -74,5 +75,9 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
     }
     public ArrayList<EpsilonVertex> getVertices(){
         return vertices;
+    }
+    public void Rotate(double theta){
+        UpdateVertices(0 ,0 ,theta - this.theta);
+        this.theta = theta;
     }
 }

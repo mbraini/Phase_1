@@ -10,8 +10,6 @@ import java.awt.*;
 
 public class EpsilonVertex extends OIGModel implements IsCircle {
     EpsilonModel epsilon;
-    double theta;
-    Vector position;
     public EpsilonVertex(EpsilonModel epsilon ,double theta){
         this.epsilon = epsilon;
         this.theta = theta;
