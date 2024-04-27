@@ -8,6 +8,7 @@ public class MainFrame extends JFrame {
     public static MainPanel mainPanel;
     public static MenuPanel menuPanel;
     public static SettingsPanel settingsPanel;
+    public static SkillTreePanel skillTreePanel;
     public MainFrame(){
         this.setLayout(null);
         this.setResizable(false);
@@ -20,9 +21,11 @@ public class MainFrame extends JFrame {
 
         menuPanel = new MenuPanel();
         settingsPanel = new SettingsPanel();
+        skillTreePanel = new SkillTreePanel();
 
         mainPanel.add(menuPanel);
         mainPanel.add(settingsPanel);
+        mainPanel.add(skillTreePanel);
 
         this.setVisible(true);
     }

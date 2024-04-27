@@ -63,6 +63,13 @@ public class MenuPanel extends PIG {
                 MainFrame.settingsPanel.start();
             }
         });
+        skillTree.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                end();
+                MainFrame.skillTreePanel.start();
+            }
+        });
     }
 
     private void initExit(){

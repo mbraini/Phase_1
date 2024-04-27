@@ -11,9 +11,9 @@ public class Shop extends JPanel {
     JButton next;
     JButton previous;
     JButton back;
-    JPanel first;
-    JPanel second;
-    JPanel third;
+    JPanel banish;
+    JPanel empower;
+    JPanel heal;
     JLabel hp;
     JLabel xp;
     JLabel wave;
@@ -63,20 +63,20 @@ public class Shop extends JPanel {
     }
 
     private void initContainers() {
-        first = new JPanel();
-        second = new JPanel();
-        third = new JPanel();
-        first.setOpaque(false);
-        second.setOpaque(false);
-        third.setOpaque(false);
-        this.add(first);
-        this.add(second);
-        this.add(third);
+        banish = new JPanel();
+        empower = new JPanel();
+        heal = new JPanel();
+        banish.setOpaque(false);
+        empower.setOpaque(false);
+        heal.setOpaque(false);
+        this.add(banish);
+        this.add(empower);
+        this.add(heal);
     }
 
     private void initHeal() {
-        first.setBounds(getWidth() / 10 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2);
-        first.addMouseListener(new MouseListener() {
+        banish.setBounds(getWidth() / 10 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2);
+        banish.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (GameState.xp >= 50) {
@@ -108,8 +108,8 @@ public class Shop extends JPanel {
     }
 
     private void initEmpower() {
-        second.setBounds(getWidth() / 10 * 4 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2);
-        second.addMouseListener(new MouseListener() {
+        empower.setBounds(getWidth() / 10 * 4 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2);
+        empower.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (GameState.xp >= 75) {
@@ -141,8 +141,8 @@ public class Shop extends JPanel {
     }
 
     private void initBanish() {
-        third.setBounds(getWidth() / 10 * 7 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2);
-        third.addMouseListener(new MouseListener() {
+        heal.setBounds(getWidth() / 10 * 7 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2);
+        heal.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (GameState.xp >= 100) {
