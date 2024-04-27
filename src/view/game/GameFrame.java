@@ -2,6 +2,8 @@ package view.game;
 
 import controller.Constants;
 import controller.helper.Vector;
+import model.objectsModel.EpsilonModel;
+import model.objectsModel.OIGModel;
 
 import javax.swing.*;
 
@@ -45,6 +47,7 @@ public class GameFrame extends JFrame {
     public void UpAddSize(int size){
         this.setBounds(this.getX() ,this.getY() - size ,this.getWidth() ,this.getHeight() + size);
         windowKill.AddSize(0 ,size);
+        setOIGs(0 ,size);
         this.revalidate();
         this.repaint();
     }
@@ -52,6 +55,7 @@ public class GameFrame extends JFrame {
     public void RightAddSize(int size){
         this.setBounds(this.getX() ,this.getY() ,this.getWidth() + size ,this.getHeight());
         windowKill.AddSize(size ,0);
+        setOIGs(size ,0);
         this.revalidate();
         this.repaint();
     }
@@ -116,5 +120,12 @@ public class GameFrame extends JFrame {
 
     public void setLeftRightP(double x ,double y) {
         this.leftRightP = new Vector(x ,y);
+    }
+    public void setOIGs(int x ,int y){
+        for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
+            OIGModel.OIGs.get(i).setPosition(OIGModel.OIGs.get(i).getPosition().x + x ,OIGModel.OIGs.get(i).getPosition().y + y);
+            if (OIGModel.OIGs.get(i) instanceof EpsilonModel)
+                ((EpsilonModel) OIGModel.OIGs.get(i)).UpdateVertices(x ,y ,0);
+        }
     }
 }

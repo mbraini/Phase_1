@@ -62,6 +62,8 @@ public class CollisionHandler {
             while (Collision.IsColliding(attacker, defender)) {
                 attacker.setPosition(Utils.VectorAdd(attacker.getPosition() ,attackerP));
                 collisionPoint = Utils.VectorAdd(collisionPoint ,attackerP);
+                if (attacker instanceof EpsilonModel)
+                    ((EpsilonModel) attacker).UpdateVertices(attackerP.x ,attackerP.y ,0);
             }
         }
     }
