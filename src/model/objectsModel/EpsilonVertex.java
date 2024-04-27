@@ -1,4 +1,4 @@
-package view.objectsView;
+package model.objectsModel;
 
 import controller.Constants;
 import controller.helper.Utils;
@@ -8,7 +8,7 @@ import model.objectsModel.EpsilonModel;
 
 import java.awt.*;
 
-public class EpsilonVertex implements IsCircle {
+public class EpsilonVertex extends OIGModel implements IsCircle {
     EpsilonModel epsilon;
     double theta;
     Vector position;
@@ -16,6 +16,7 @@ public class EpsilonVertex implements IsCircle {
         this.epsilon = epsilon;
         this.theta = theta;
         this.position = new Vector();
+        this.HP = 1;
     }
     @Override
     public double getRadios() {
@@ -24,7 +25,7 @@ public class EpsilonVertex implements IsCircle {
 
     @Override
     public Vector getCenter() {
-        return null;
+        return position;
     }
     public void draw(Graphics2D g2d){
         g2d.fillOval((int) position.x - Constants.EPSILON_VERTICES_RADIOS ,(int) position.y - Constants.EPSILON_VERTICES_RADIOS ,Constants.EPSILON_VERTICES_RADIOS * 2 ,Constants.EPSILON_VERTICES_RADIOS * 2);

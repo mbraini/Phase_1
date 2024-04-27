@@ -22,6 +22,12 @@ public class CollisionHandler {
                 break;
             }
         }
+        for (int i = 0 ;i < Controller.getEpsilonVertices().size() ;i++){
+            if (Collision.IsColliding(Controller.getEpsilonVertices().get(i) ,enemy)){
+                enemy.setHP(enemy.getHP() - Constants.MELEI_ATTACK);
+                break;
+            }
+        }
         PullOut(epsilon ,enemy);
         epsilon.setVelocity(0 ,0);
         epsilon.setAcceleration(0 ,0);

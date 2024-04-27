@@ -151,7 +151,7 @@ public class Collision {
                 return false;
         }
         ArrayList<Double> polygonVerticesDistance = new ArrayList<>();
-        Vector center = ((OIGModel)circle).getPosition();
+        Vector center = circle.getCenter();
         for (int i = 0 ;i < polygon.getVertices().size() ;i++){
             polygonVerticesDistance.add(Utils.VectorSize(Utils.VectorAdd(center ,Utils.ScalarInVector(-1 ,polygon.getVertices().get(i)))));
         }
@@ -186,7 +186,7 @@ public class Collision {
 
     private static ArrayList<Double> GiveCircleProj(IsCircle circle ,Vector normal ,Vector origin){
         ArrayList<Double> answer = new ArrayList<>();
-        Vector position = ((OIGModel)circle).getPosition();
+        Vector position = circle.getCenter();
         double r = circle.getRadios();
         Vector point1 = Utils.VectorAdd(position ,Utils.VectorWithSize(normal ,r));
         Vector point2 = Utils.VectorAdd(position ,Utils.VectorWithSize(normal ,-r));

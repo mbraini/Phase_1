@@ -2,14 +2,12 @@ package model.objectsModel;
 
 import controller.Configs;
 import controller.Constants;
-import controller.helper.Helper;
 import model.interfaces.HasVertices;
 import model.interfaces.ImpactAble;
 import model.interfaces.IsCircle;
 import model.interfaces.MoveAble;
 import controller.helper.Utils;
 import controller.helper.Vector;
-import view.objectsView.EpsilonVertex;
 
 import java.util.ArrayList;
 

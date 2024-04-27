@@ -3,6 +3,7 @@ package view.objectsView;
 import controller.Constants;
 import controller.Controller;
 import controller.helper.Vector;
+import model.objectsModel.EpsilonVertex;
 
 import java.awt.*;
 import java.util.ArrayList;
