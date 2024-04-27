@@ -111,20 +111,20 @@ public class GameLoop extends Thread{
             direction.setX(1);
             new Impact(new Vector(Constants.EPSILON_DIMENSION.width / 2d ,epsilon.getPosition().y)).MakeImpact();
         }
-        else if (epsilon.getPosition().x >= Application.gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width / 2d){
-            epsilon.setPosition(Application.gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width / 2d - 1 ,epsilon.getPosition().getY());
+        else if (epsilon.getPosition().x >= GameFrame.windowKill.getWidth() - Constants.EPSILON_DIMENSION.width / 2d){
+            epsilon.setPosition(GameFrame.windowKill.getWidth() - Constants.EPSILON_DIMENSION.width / 2d - 1 ,epsilon.getPosition().getY());
             direction.setX(-1);
-            new Impact(new Vector(Application.gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width / 2d ,epsilon.getPosition().y)).MakeImpact();
+            new Impact(new Vector(GameFrame.windowKill.getWidth() - Constants.EPSILON_DIMENSION.width / 2d ,epsilon.getPosition().y)).MakeImpact();
         }
         else if (epsilon.getPosition().y <= Constants.EPSILON_DIMENSION.height / 2d){
             epsilon.setPosition(epsilon.getPosition().getX() ,Constants.EPSILON_DIMENSION.height / 2d + 1);
             direction.setY(1);
             new Impact(new Vector(epsilon.getPosition().x ,Constants.EPSILON_DIMENSION.height / 2d)).MakeImpact();
         }
-        else if (epsilon.getPosition().y >= Application.gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height / 2d){
-            epsilon.setPosition(epsilon.getPosition().getX() ,Application.gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height / 2d - 1);
+        else if (epsilon.getPosition().y >= GameFrame.windowKill.getHeight() - Constants.EPSILON_DIMENSION.height / 2d){
+            epsilon.setPosition(epsilon.getPosition().getX() ,GameFrame.windowKill.getHeight() - Constants.EPSILON_DIMENSION.height / 2d - 1);
             direction.setY(-1);
-            new Impact(new Vector(epsilon.getPosition().x ,Application.gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height / 2d)).MakeImpact();
+            new Impact(new Vector(epsilon.getPosition().x ,GameFrame.windowKill.getHeight() - Constants.EPSILON_DIMENSION.height / 2d)).MakeImpact();
         }
     }
 
