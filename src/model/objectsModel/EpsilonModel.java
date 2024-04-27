@@ -9,11 +9,12 @@ import model.interfaces.IsCircle;
 import model.interfaces.MoveAble;
 import controller.helper.Utils;
 import controller.helper.Vector;
+import view.objectsView.EpsilonVertex;
 
 import java.util.ArrayList;
 
 public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , ImpactAble , HasVertices {
-    public static ArrayList<Vector> vertices = new ArrayList<>();
+    public static ArrayList<EpsilonVertex> vertices = new ArrayList<>();
     public EpsilonModel(Vector position , Vector velocity ,String id){
         this.position = position;
         this.velocity = velocity;
@@ -55,27 +56,25 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
         if (Configs.VERTICES == 0)
             return;
         double theta = 2 * Math.PI / Configs.VERTICES;
-        Vector origin = new Vector(getCenter().x ,getPosition().y - getRadios() - Constants.EPSILON_VERTICES_RADIOS);
         for (int i = 0; i < Configs.VERTICES ;i++){
-            vertices.add(Utils.RotateByTheta(origin ,getCenter(),theta * i));
+            vertices.add(new EpsilonVertex(this ,theta * i));
         }
     }
 
     @Override
     public void UpdateVertices(double xMoved ,double yMoved ,double theta) {
         for (int i = 0 ;i < vertices.size() ;i++){
-            vertices.set(i ,new Vector(vertices.get(i).getX() + xMoved ,vertices.get(i).getY() + yMoved));
-            vertices.set(i , Utils.RotateByTheta(vertices.get(i) ,position ,omega));
+            vertices.get(i).Update();
         }
     }
 
     @Override
     public void MoveVertices(Vector trans) {
         for (int i = 0 ;i < vertices.size() ;i++){
-            vertices.set(i ,Utils.VectorAdd(vertices.get(i) ,trans));
+            vertices.get(i).Update();
         }
     }
-    public ArrayList<Vector> getVertices(){
+    public ArrayList<EpsilonVertex> getVertices(){
         return vertices;
     }
 }

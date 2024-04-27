@@ -147,7 +147,7 @@ public abstract class Controller {
         regularAbility.add(regularAbilitiesEnum);
     }
 
-    public static ArrayList<Vector> getEpsilonVertices() {
+    public static ArrayList<EpsilonVertex> getEpsilonVertices() {
         return getEpsilon().getVertices();
     }
 }
