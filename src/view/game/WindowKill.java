@@ -2,6 +2,7 @@ package view.game;
 import controller.*;
 import controller.actionlisteners.EpsilonAiming;
 import controller.actionlisteners.EpsilonMovement;
+import controller.helper.Vector;
 import view.PIG;
 import view.menu.MainFrame;
 import view.objectsView.OIGView;
@@ -10,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class WindowKill extends PIG {
     static GameLoop gameLoop;

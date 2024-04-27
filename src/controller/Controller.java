@@ -1,5 +1,6 @@
 package controller;
 import controller.animations.GameStartAnimation;
+import controller.helper.Vector;
 import model.objectsModel.*;
 import view.Abilities.*;
 import view.game.GameFrame;
@@ -146,4 +147,7 @@ public abstract class Controller {
         regularAbility.add(regularAbilitiesEnum);
     }
 
+    public static ArrayList<Vector> getEpsilonVertices() {
+        return getEpsilon().getVertices();
+    }
 }
