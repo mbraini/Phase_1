@@ -56,6 +56,13 @@ public class MenuPanel extends PIG {
                 GameFrame.windowKill.start();
             }
         });
+        settings.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                end();
+                MainFrame.settingsPanel.start();
+            }
+        });
     }
 
     private void initExit(){

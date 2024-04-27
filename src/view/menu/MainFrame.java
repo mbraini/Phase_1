@@ -7,6 +7,7 @@ import javax.swing.*;
 public class MainFrame extends JFrame {
     public static MainPanel mainPanel;
     public static MenuPanel menuPanel;
+    public static SettingsPanel settingsPanel;
     public MainFrame(){
         this.setLayout(null);
         this.setResizable(false);
@@ -18,8 +19,10 @@ public class MainFrame extends JFrame {
         this.setContentPane(mainPanel);
 
         menuPanel = new MenuPanel();
+        settingsPanel = new SettingsPanel();
 
         mainPanel.add(menuPanel);
+        mainPanel.add(settingsPanel);
 
         this.setVisible(true);
     }

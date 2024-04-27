@@ -1,10 +1,7 @@
 package controller;
-
 import controller.animations.GameStartAnimation;
 import model.objectsModel.*;
-import view.Abilities.Banish;
-import view.Abilities.Empower;
-import view.Abilities.Heal;
+import view.Abilities.*;
 import view.game.GameFrame;
 import view.objectsView.*;
 
