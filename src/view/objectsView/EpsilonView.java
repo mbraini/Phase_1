@@ -17,7 +17,9 @@ public class EpsilonView extends OIGView {
 
     @Override
     public void draw(Graphics2D g2d) {
+        g2d.rotate(-theta ,position.getX() ,position.getY());
         g2d.drawImage(Constants.epsilonImage ,(int) position.getX() - Constants.EPSILON_DIMENSION.width / 2 ,(int) position.getY() - Constants.EPSILON_DIMENSION.height / 2,Constants.EPSILON_DIMENSION.width ,Constants.EPSILON_DIMENSION.height ,null);
+        g2d.rotate(theta ,position.getX() ,position.getY());
         ArrayList<EpsilonVertex> vertices = Controller.getEpsilonVertices();
         g2d.setColor(Color.WHITE);
         for (int i = 0 ;i < vertices.size() ;i++){

@@ -16,6 +16,28 @@ public class GameStartAnimation extends Animation{
 
     @Override
     public void StartAnimation(){
-        new FrameAnimation(Application.gameFrame ,-250 ,-250 ,-250 ,-250 ,1000).StartAnimation();
+        gameStartAnimation = new Timer(10, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                ////////////////////////////todo
+                for (int i = 0; i < OIGModel.OIGs.size() ; i++){
+                    if (OIGModel.OIGs.get(i) instanceof EpsilonModel){
+                        ((EpsilonModel) OIGModel.OIGs.get(i)).setPosition(((EpsilonModel) OIGModel.OIGs.get(i)).getPosition().x - 2 ,((EpsilonModel) OIGModel.OIGs.get(i)).getPosition().y - 2);
+                    }
+                }
+                ////////////////////////////todo
+                Application.gameFrame.RightAddSize(-2);
+                Application.gameFrame.DownAddSize(-2);
+                Application.gameFrame.LeftAddSize(-2);
+                Application.gameFrame.UpAddSize(-2);
+                if (Application.gameFrame.getWidth() - Constants.barD.width == 500){
+                    OIGModel.OIGs.get(0).setVelocity(0 ,0);
+                    GameFrame.windowKill.startGame();
+                    gameStartAnimation.removeActionListener(this);
+                }
+            }
+        });
+        gameStartAnimation.start();
     }
 }

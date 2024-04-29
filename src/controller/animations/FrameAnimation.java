@@ -48,7 +48,7 @@ public class FrameAnimation extends Animation{
                     gameFrame.setLeftRightV(0 ,0);
                     gameFrame.setUpDownP(0 ,0);
                     gameFrame.setLeftRightP(0 ,0);
-                    if (GameState.time <= 1000){
+                    if (GameState.time <= 1){
                         GameFrame.windowKill.startGame();
                     }
                     timer.stop();

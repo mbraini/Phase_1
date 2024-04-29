@@ -47,7 +47,6 @@ public class GameFrame extends JFrame {
     public void UpAddSize(int size){
         this.setBounds(this.getX() ,this.getY() - size ,this.getWidth() ,this.getHeight() + size);
         windowKill.AddSize(0 ,size);
-        setOIGs(0 ,size);
         this.revalidate();
         this.repaint();
     }
@@ -55,7 +54,6 @@ public class GameFrame extends JFrame {
     public void RightAddSize(int size){
         this.setBounds(this.getX() ,this.getY() ,this.getWidth() + size ,this.getHeight());
         windowKill.AddSize(size ,0);
-        setOIGs(size ,0);
         this.revalidate();
         this.repaint();
     }
