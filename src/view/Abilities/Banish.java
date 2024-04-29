@@ -19,7 +19,7 @@ public class Banish extends RegularAbility{
                 double distance = Utils.VectorSize(direction);
                 if (distance == 0 || distance>= 800)
                     continue;
-                new DashAnimation(OIGModel.OIGs.get(i), direction , Constants.DASH_TIME * 3 ,400).StartAnimation();
+                new DashAnimation(OIGModel.OIGs.get(i), direction , Constants.DASH_TIME * 3 ,400 ,Math.PI * 8).StartAnimation();
             }
         }
     }

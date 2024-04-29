@@ -16,6 +16,7 @@ public abstract class EnemyModel extends OIGModel implements EpsilonGravity, Mov
         Vector way = Utils.VectorAdd(epsilon ,Utils.ScalarInVector(-1 ,enemy));
         way = Utils.VectorWithSize(way ,1);
         this.velocity = Utils.ScalarInVector(Constants.ENEMY_LINEAR_SPEED,way);
+        this.omega = Constants.ENEMY_ROTATION_SPEED;
     }
 
     @Override
@@ -26,8 +27,11 @@ public abstract class EnemyModel extends OIGModel implements EpsilonGravity, Mov
         double xMoved = ((2 * velocity.x - acceleration.x * Constants.UPS) / 2) * Constants.UPS;
         double yMoved = ((2 * velocity.y - acceleration.y * Constants.UPS) / 2) * Constants.UPS;
         setPosition(position.x + xMoved ,position.y + yMoved);
-        theta += omega;
+
+        omega += alpha * Constants.UPS;
+        double thetaMoved = ((2 * omega - alpha * Constants.UPS) / 2) * Constants.UPS;
+        theta = theta + thetaMoved;
         if (this instanceof HasVertices)
-            ((HasVertices) this).UpdateVertices(xMoved ,yMoved ,omega);
+            ((HasVertices) this).UpdateVertices(xMoved ,yMoved ,thetaMoved);
     }
 }

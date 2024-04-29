@@ -32,7 +32,7 @@ public class Constants {
     public static final double COLLECTIVE_VELOCITY = 0.6;
     public static final int COLLECTIVE_ABILITY_ACTIVATION_RADIOS = 100;
 
-    public static final double ENEMY_ROTATION_SPEED = 0.03;
+    public static final double ENEMY_ROTATION_SPEED = Math.PI * 2 / 1000;
     public static final int DASH_TIME = 400;
     public static final double e = 1;
     public static final double AIMING_PAUSE_TIME = 100;

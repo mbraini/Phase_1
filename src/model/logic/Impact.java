@@ -6,6 +6,7 @@ import controller.helper.Utils;
 import controller.helper.Vector;
 import model.interfaces.EpsilonGravity;
 import model.interfaces.ImpactAble;
+import model.objectsModel.EpsilonModel;
 import model.objectsModel.OIGModel;
 
 public class Impact {
@@ -29,7 +30,10 @@ public class Impact {
                 //////////////////todo
                 if (distance == 0)
                     return;
-                new DashAnimation(OIGModel.OIGs.get(i), direction ,Constants.DASH_TIME ,100).StartAnimation();
+                if (!(OIGModel.OIGs.get(i) instanceof EpsilonModel))
+                    new DashAnimation(OIGModel.OIGs.get(i), direction ,Constants.DASH_TIME  ,100 ,Math.PI).StartAnimation();
+                else
+                    new DashAnimation(OIGModel.OIGs.get(i), direction ,Constants.DASH_TIME ,100 ,0).StartAnimation();
             }
         }
     }
