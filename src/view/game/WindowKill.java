@@ -75,7 +75,7 @@ public class WindowKill extends PIG {
         GameFrame.windowKill.setFocusable(true);
         GameFrame.windowKill.grabFocus();
         gameState = new GameState();
-        gameLoop = new GameLoop();
+        gameLoop = new GameLoop(Application.gameFrame);
         gameLoop.start();
     }
 

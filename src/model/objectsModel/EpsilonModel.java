@@ -51,6 +51,7 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
     }
 
     void initVertices(){
+        vertices = new ArrayList<>();
         if (Configs.VERTICES == 0)
             return;
         double theta = 2 * Math.PI / Configs.VERTICES;

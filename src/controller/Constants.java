@@ -33,12 +33,11 @@ public class Constants {
     public static final int COLLECTIVE_ABILITY_ACTIVATION_RADIOS = 100;
 
     public static final double ENEMY_ROTATION_SPEED = Math.PI * 2 / 1000;
-    public static final int DASH_TIME = 400;
-    public static final double e = 1;
+    public static final int DASH_TIME = 500;
     public static final double AIMING_PAUSE_TIME = 100;
     public static final int FRAME_ANIMATION_REFRESH_RATE = 10;
     public static final int FRAME_BULLET_RESIZE = 50;
-    public static final int FRAME_BULLET_RESIZE_TIME = 50;
+    public static final int FRAME_BULLET_RESIZE_TIME = 200;
     public static final Dimension COLLECTIVE_BOX_DIMENSION = new Dimension(100 ,100);
     public static final int EPSILON_VERTICES_RADIOS = 3;
     public static final String GAME_DIFFICULTY = "HARD";

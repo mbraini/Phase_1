@@ -17,9 +17,11 @@ import view.objectsView.OIGView;
 import java.util.ArrayList;
 
 public class GameLoop extends Thread{
+    GameFrame gameFrame;
 
-    public GameLoop (){
+    public GameLoop (GameFrame gameFrame){
         super();
+        this.gameFrame = gameFrame;
     }
 
     @Override
@@ -88,6 +90,13 @@ public class GameLoop extends Thread{
         Controller.CheckRegularAbilities();
         Controller.CheckAddOrRemoveObjectRequest();
         //////
+        //////frame resize
+        FrameResize();
+        //////
+    }
+
+    private void FrameResize() {
+
     }
 
     private void CheckRequests() {

@@ -30,7 +30,6 @@ public class GameState extends JPanel{
             }
         });
         time = 0;
-        xp = 0;
         hp = 100;
         wave = 1;
         InitTime();

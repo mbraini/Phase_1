@@ -2,6 +2,7 @@ package controller.animations;
 
 import controller.Constants;
 import controller.GameState;
+import controller.helper.Vector;
 import view.game.GameFrame;
 
 import javax.swing.*;
@@ -32,22 +33,14 @@ public class FrameAnimation extends Animation{
         timer = new Timer(Constants.FRAME_ANIMATION_REFRESH_RATE, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameFrame.setUpDownV(gameFrame.getUpDownV().x + upAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE ,gameFrame.getUpDownV().y + downAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE);
-                gameFrame.setLeftRightV(gameFrame.getLeftRightV().x + rightAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE ,gameFrame.getLeftRightV().y + leftAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE);
-
-                gameFrame.setUpDownP((2 * gameFrame.getUpDownV().x - upAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2 ,(2 * gameFrame.getUpDownV().y - downAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2);
-                gameFrame.setLeftRightP((2 * gameFrame.getLeftRightV().x - rightAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2 ,(2 * gameFrame.getLeftRightV().y - leftAcceleration * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2);
-
-                gameFrame.UpAddSize((int) gameFrame.getUpDownP().x);
-                gameFrame.DownAddSize((int) gameFrame.getUpDownP().y);
-                gameFrame.RightAddSize((int) gameFrame.getLeftRightP().x);
-                gameFrame.LeftAddSize((int) gameFrame.getLeftRightP().y);
+                gameFrame.move();
+                gameFrame.Update();
                 timeCheck +=  Constants.FRAME_ANIMATION_REFRESH_RATE;
                 if (timeCheck >= time){
+                    gameFrame.setUpDownA(0 ,0);
+                    gameFrame.setLeftRightA(0 ,0);
                     gameFrame.setUpDownV(0 ,0);
                     gameFrame.setLeftRightV(0 ,0);
-                    gameFrame.setUpDownP(0 ,0);
-                    gameFrame.setLeftRightP(0 ,0);
                     if (GameState.time <= 1){
                         GameFrame.windowKill.startGame();
                     }
@@ -61,6 +54,8 @@ public class FrameAnimation extends Animation{
 
     @Override
     public void StartAnimation() {
+        gameFrame.setUpDownA(new Vector(upAcceleration ,downAcceleration));
+        gameFrame.setLeftRightA(new Vector(rightAcceleration ,leftAcceleration));
         timer.start();
     }
 }

@@ -31,7 +31,7 @@ public class Shop extends JPanel {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == 'p' && GameState.isPause){
-                    WindowKill.gameLoop = new GameLoop();
+                    WindowKill.gameLoop = new GameLoop(Application.gameFrame);
                     WindowKill.shop.setVisible(false);
                     GameFrame.gamePanel.remove(WindowKill.shop);
                     GameState.isPause = false;
@@ -231,7 +231,7 @@ public class Shop extends JPanel {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                WindowKill.gameLoop = new GameLoop();
+                WindowKill.gameLoop = new GameLoop(Application.gameFrame);
                 WindowKill.shop.setVisible(false);
                 GameFrame.gamePanel.remove(WindowKill.shop);
                 GameState.isPause = false;
