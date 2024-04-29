@@ -48,6 +48,7 @@ public class WindowKill extends PIG {
     }
 
     public void startGame(){
+        GameFrame.windowKill.setFocusable(true);
         GameFrame.windowKill.addKeyListener(new EpsilonMovement(Controller.getEpsilon()));
         GameFrame.windowKill.addKeyListener(new KeyListener() {
             @Override
@@ -72,7 +73,6 @@ public class WindowKill extends PIG {
         });
         GameFrame.windowKill.addMouseListener(new EpsilonAiming());
         GameFrame.windowKill.addMouseMotionListener(new EpsilonCirculation());
-        GameFrame.windowKill.setFocusable(true);
         GameFrame.windowKill.grabFocus();
         gameState = new GameState();
         gameLoop = new GameLoop(Application.gameFrame);

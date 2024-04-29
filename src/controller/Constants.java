@@ -11,7 +11,7 @@ public class Constants {
     public static final int FPS = 10;
     public static final int UPS = 10;
     public static final int EPSILON_DECELERATION_TIME = 10;
-    public static final Dimension barD = new Dimension(14,38);
+    public static final Dimension barD = new Dimension(14,37);
     public static final Dimension EPSILON_DIMENSION = new Dimension(25 ,25);
     public static final Dimension TRIGORATH_DIMENTION = new Dimension(50 ,50);
     public static final Dimension Squarantine_DIMENTION = new Dimension(50 ,50);
@@ -20,6 +20,7 @@ public class Constants {
     public static final int ID_SIZE = 10;
     public static final double EPSILON_DAMAGE = 5;
     public static final int MELEI_ATTACK = 5;
+    public static final Dimension MINIMUM_FRAME_DIMENSION = new Dimension(200 ,200);
     public static Image epsilonImage;
     public static Image trigorathImage;
     public static Image squarantineImage;
@@ -38,6 +39,7 @@ public class Constants {
     public static final int FRAME_ANIMATION_REFRESH_RATE = 10;
     public static final int FRAME_BULLET_RESIZE = 50;
     public static final int FRAME_BULLET_RESIZE_TIME = 200;
+    public static final double FRAME_PRESSURE_VELOCITY = 0.01;
     public static final Dimension COLLECTIVE_BOX_DIMENSION = new Dimension(100 ,100);
     public static final int EPSILON_VERTICES_RADIOS = 3;
     public static final String GAME_DIFFICULTY = "HARD";

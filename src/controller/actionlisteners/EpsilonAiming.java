@@ -27,6 +27,11 @@ public class EpsilonAiming implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
         if ((GameState.time - timer) * 1000 >= Constants.AIMING_PAUSE_TIME){
             timer = GameState.time;
             EpsilonModel epsilon = Controller.getEpsilon();
@@ -45,11 +50,6 @@ public class EpsilonAiming implements MouseListener {
                 Spawn.SpawnBullet(position ,direction2);
             }
         }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
     }
 
     @Override

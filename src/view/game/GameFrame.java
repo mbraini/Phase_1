@@ -9,6 +9,7 @@ import model.objectsModel.EpsilonModel;
 import model.objectsModel.OIGModel;
 
 import javax.swing.*;
+import java.awt.event.*;
 
 public class GameFrame extends JFrame implements MoveAble {
 
@@ -24,6 +25,7 @@ public class GameFrame extends JFrame implements MoveAble {
     public static GamePanel gamePanel;
     public static WindowKill windowKill;
     public static EndGame endGame;
+    private boolean isResizing;
 
 
     public GameFrame(){
@@ -35,8 +37,7 @@ public class GameFrame extends JFrame implements MoveAble {
 
         positionInit = new Vector(getLocation().getX() ,getLocation().y);
         dimentionInit = new Vector(getSize().width ,getSize().height);
-
-        System.out.println(positionInit.x + " " + positionInit.y);
+        isResizing = false;
 
         upDownA = new Vector(0 ,0);
         leftRightA = new Vector(0 ,0);
@@ -56,34 +57,6 @@ public class GameFrame extends JFrame implements MoveAble {
         gamePanel.add(endGame);
 
         this.setVisible(true);
-    }
-
-    public void UpAddSize(int size){
-        this.setBounds(this.getX() ,this.getY() - size ,this.getWidth() ,this.getHeight() + size);
-        windowKill.AddSize(0 ,size);
-        this.revalidate();
-        this.repaint();
-    }
-
-    public void RightAddSize(int size){
-        this.setBounds(this.getX() ,this.getY() ,this.getWidth() + size ,this.getHeight());
-        windowKill.AddSize(size ,0);
-        this.revalidate();
-        this.repaint();
-    }
-
-    public void DownAddSize(int size){
-        this.setBounds(this.getX() ,this.getY() ,this.getWidth() ,this.getHeight() + size);
-        windowKill.AddSize(0 ,size);
-        this.revalidate();
-        this.repaint();
-    }
-
-    public void LeftAddSize(int size){
-        this.setBounds(this.getX() - size ,this.getY() ,this.getWidth() + size ,this.getHeight());
-        windowKill.AddSize(size ,0);
-        this.revalidate();
-        this.repaint();
     }
 
     public Vector getUpDownV() {
@@ -156,12 +129,12 @@ public class GameFrame extends JFrame implements MoveAble {
         upDownA = new Vector(x ,y);
     }
 
-    public void setOIGs(int x , int y){
-        for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
-            OIGModel.OIGs.get(i).setPosition(OIGModel.OIGs.get(i).getPosition().x + x ,OIGModel.OIGs.get(i).getPosition().y + y);
-            if (OIGModel.OIGs.get(i) instanceof EpsilonModel)
-                ((EpsilonModel) OIGModel.OIGs.get(i)).UpdateVertices(x ,y ,0);
-        }
+    public boolean isResizing() {
+        return isResizing;
+    }
+
+    public void setResizing(boolean resizing) {
+        isResizing = resizing;
     }
 
     @Override
@@ -172,14 +145,17 @@ public class GameFrame extends JFrame implements MoveAble {
         Vector upDownMoved = new Vector((2 * getUpDownV().x - upDownA.x * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2 ,(2 * getUpDownV().y - upDownA.y * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2);
         Vector leftRightMoved = new Vector((2 * getLeftRightV().x - leftRightA.x * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2 ,(2 * getLeftRightV().y - leftRightA.y * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2);
 
-        setUpDownP(Utils.VectorAdd(upDownMoved ,getUpDownP()));
-        setLeftRightP(Utils.VectorAdd(leftRightMoved ,getLeftRightP()));
+        if (windowKill.getHeight() > Constants.MINIMUM_FRAME_DIMENSION.height)
+            setUpDownP(Utils.VectorAdd(upDownMoved ,getUpDownP()));
+        if (windowKill.getWidth() > Constants.MINIMUM_FRAME_DIMENSION.width)
+            setLeftRightP(Utils.VectorAdd(leftRightMoved ,getLeftRightP()));
     }
 
     public void Update(){
         setLocation((int)(positionInit.x - leftRightP.getY()) ,(int)(positionInit.y - upDownP.x));
         setSize((int)(dimentionInit.x + leftRightP.x + leftRightP.y) ,(int) (dimentionInit.y + upDownP.x + upDownP.y));
         UpdateWindowKill();
+        revalidate();
     }
 
     private void UpdateWindowKill() {

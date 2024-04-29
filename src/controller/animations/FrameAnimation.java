@@ -17,7 +17,6 @@ public class FrameAnimation extends Animation{
     double rightAcceleration;
     double leftAcceleration;
     Timer timer;
-    double timeCheck;
 
     public FrameAnimation(GameFrame gameFrame , double up ,double down ,double right ,double left ,double time){
         this.gameFrame = gameFrame;
@@ -29,24 +28,19 @@ public class FrameAnimation extends Animation{
         leftAcceleration = -2 * left / (Math.pow(this.time ,2));
         this.gameFrame.setUpDownV(-this.time * upAcceleration ,-this.time * downAcceleration);
         this.gameFrame.setLeftRightV(-this.time * rightAcceleration ,-this.time * leftAcceleration);
-        timeCheck = 0;
-        timer = new Timer(Constants.FRAME_ANIMATION_REFRESH_RATE, new ActionListener() {
+        timer = new Timer(Constants.FRAME_BULLET_RESIZE_TIME, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameFrame.move();
-                gameFrame.Update();
-                timeCheck +=  Constants.FRAME_ANIMATION_REFRESH_RATE;
-                if (timeCheck >= time){
-                    gameFrame.setUpDownA(0 ,0);
-                    gameFrame.setLeftRightA(0 ,0);
-                    gameFrame.setUpDownV(0 ,0);
-                    gameFrame.setLeftRightV(0 ,0);
-                    if (GameState.time <= 1){
-                        GameFrame.windowKill.startGame();
-                    }
-                    timer.stop();
-                    timer.removeActionListener(this);
+                gameFrame.setUpDownA(0 ,0);
+                gameFrame.setLeftRightA(0 ,0);
+                gameFrame.setUpDownV(0 ,0);
+                gameFrame.setLeftRightV(0 ,0);
+                if (GameState.time <= 1){
+                    GameFrame.windowKill.startGame();
                 }
+                gameFrame.setResizing(false);
+                timer.stop();
+                timer.removeActionListener(this);
             }
         });
     }
@@ -56,6 +50,7 @@ public class FrameAnimation extends Animation{
     public void StartAnimation() {
         gameFrame.setUpDownA(new Vector(upAcceleration ,downAcceleration));
         gameFrame.setLeftRightA(new Vector(rightAcceleration ,leftAcceleration));
+        gameFrame.setResizing(true);
         timer.start();
     }
 }

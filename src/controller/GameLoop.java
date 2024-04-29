@@ -91,12 +91,21 @@ public class GameLoop extends Thread{
         Controller.CheckAddOrRemoveObjectRequest();
         //////
         //////frame resize
+        FramePressure();
         FrameResize();
         //////
     }
 
-    private void FrameResize() {
+    private void FramePressure() {
+        if (!gameFrame.isResizing()){
+            gameFrame.setUpDownV(-Constants.FRAME_PRESSURE_VELOCITY ,-Constants.FRAME_PRESSURE_VELOCITY);
+            gameFrame.setLeftRightV(-Constants.FRAME_PRESSURE_VELOCITY ,-Constants.FRAME_PRESSURE_VELOCITY);
+        }
+    }
 
+    private void FrameResize() {
+        gameFrame.move();
+        gameFrame.Update();
     }
 
     private void CheckRequests() {
