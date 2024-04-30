@@ -27,8 +27,12 @@ public class Application implements Runnable {
 
     private void getAudios() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         Constants.backGroundSound = "src/controller/SoundEffects/Song.wav";
+        Constants.BulletFiredSound = "src/controller/SoundEffects/Bullet Fired.wav";
+        Constants.waveSpawnSound = "src/controller/SoundEffects/Wave Spawn.wav";
         Sound sound = new Sound(Constants.backGroundSound);
-        sound.loop(Constants.backGroundSound);
+        Sound.volumeUp();
+        Sound.volumeDown();
+        sound.loop();
     }
 
     void getImages(){

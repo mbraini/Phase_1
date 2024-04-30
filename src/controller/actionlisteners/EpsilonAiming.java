@@ -3,6 +3,7 @@ package controller.actionlisteners;
 import controller.Constants;
 import controller.Controller;
 import controller.GameState;
+import controller.SoundEffects.Sound;
 import controller.Spawn;
 import controller.helper.Helper;
 import controller.helper.Utils;
@@ -10,11 +11,14 @@ import controller.helper.Vector;
 import model.objectsModel.EpsilonModel;
 import model.objectsModel.OIGModel;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelListener;
+import java.io.IOException;
 
 public class EpsilonAiming implements MouseListener {
 
@@ -48,6 +52,16 @@ public class EpsilonAiming implements MouseListener {
                 if (i / 2 == 1)
                     constant -= 1;
                 Spawn.SpawnBullet(position ,direction2);
+            }
+            try {
+                Sound sound = new Sound(Constants.BulletFiredSound);
+                sound.play();
+            } catch (UnsupportedAudioFileException ex) {
+                throw new RuntimeException(ex);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            } catch (LineUnavailableException ex) {
+                throw new RuntimeException(ex);
             }
         }
     }

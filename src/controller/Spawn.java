@@ -3,12 +3,16 @@ package controller;
 import controller.Application;
 import controller.Constants;
 import controller.Controller;
+import controller.SoundEffects.Sound;
 import controller.helper.Helper;
 import controller.helper.Vector;
 import jdk.jshell.execution.Util;
 import model.objectsModel.*;
 import view.objectsView.OIGView;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.util.Random;
 
 public class Spawn {
@@ -24,6 +28,16 @@ public class Spawn {
     }
 
     public static void SpawnEnemy(){
+        try {
+            Sound sound = new Sound(Constants.waveSpawnSound);
+            sound.play();
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
         if (Constants.GAME_DIFFICULTY.equals("HARD")){
             enemyCount = (int) 2;
         }

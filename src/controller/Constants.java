@@ -46,4 +46,6 @@ public class Constants {
     public static final int EPSILON_VERTICES_RADIOS = 3;
     public static final String GAME_DIFFICULTY = "HARD";
     public static String backGroundSound;
+    public static String BulletFiredSound;
+    public static String waveSpawnSound;
 }

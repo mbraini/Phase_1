@@ -88,7 +88,7 @@ public class SettingsPanel extends PIG {
     }
 
     private void initSensitivitySlider() {
-        sensitivitySlider = new JSlider(1 ,4);
+        sensitivitySlider = new JSlider(1 ,3);
         sensitivitySlider.setBounds(Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 9 * 5 ,Constants.GAME_WIDTH / 5 * 3 ,Constants.GAME_HEIGHT / 9);
         sensitivitySlider.setPaintTicks(true);
         sensitivitySlider.setMinorTickSpacing(1);
@@ -96,6 +96,7 @@ public class SettingsPanel extends PIG {
         sensitivitySlider.setMajorTickSpacing(1);
         sensitivitySlider.setPaintLabels(true);
         sensitivitySlider.setFont(new Font("MV Boli" ,Font.PLAIN ,15));
+        sensitivitySlider.setValue(Configs.SENSITIVITY);
 
         this.add(sensitivitySlider);
     }
@@ -109,6 +110,7 @@ public class SettingsPanel extends PIG {
         difficultySlider.setMajorTickSpacing(1);
         difficultySlider.setPaintLabels(true);
         difficultySlider.setFont(new Font("MV Boli" ,Font.PLAIN ,15));
+        difficultySlider.setValue(Configs.DIFFICULTY);
 
         this.add(difficultySlider);
     }
@@ -122,7 +124,7 @@ public class SettingsPanel extends PIG {
         soundSlider.setMajorTickSpacing(1);
         soundSlider.setPaintLabels(true);
         soundSlider.setFont(new Font("MV Boli" ,Font.PLAIN ,15));
-
+        soundSlider.setValue(Configs.SOUND);
         this.add(soundSlider);
     }
 
