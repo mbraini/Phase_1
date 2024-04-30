@@ -45,4 +45,5 @@ public class Constants {
     public static final Dimension COLLECTIVE_BOX_DIMENSION = new Dimension(100 ,100);
     public static final int EPSILON_VERTICES_RADIOS = 3;
     public static final String GAME_DIFFICULTY = "HARD";
+    public static String backGroundSound;
 }

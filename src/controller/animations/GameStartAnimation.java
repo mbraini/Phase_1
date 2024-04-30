@@ -36,7 +36,6 @@ public class GameStartAnimation extends Animation{
         });
         epsilonTaker.start();
         frameAnimation = new FrameAnimation(Application.gameFrame ,-250 ,-250 ,-250 ,-250 ,1000);
-        frameAnimation.StartAnimation();
     }
     public void centerEpsilon(){
         Vector now = epsilon.getPosition();

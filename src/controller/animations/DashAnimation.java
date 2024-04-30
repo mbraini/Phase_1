@@ -41,9 +41,9 @@ public class DashAnimation extends Animation implements ActionListener{
         oigModel.setVelocity(Utils.ScalarInVector(time * a ,direction));
         oigModel.setAcceleration(Utils.ScalarInVector(-a ,direction));
 
-        double alpha = (2 * theta) / Math.pow(time ,2);
-        oigModel.setOmega(time * alpha);
-        oigModel.setAlpha(-alpha);
+//        double alpha = (2 * theta) / Math.pow(time ,2);
+//        oigModel.setOmega(time * alpha);
+//        oigModel.setAlpha(-alpha);
         //////////////////////////////
         if (oigModel instanceof EpsilonGravity)
             ((EpsilonGravity) oigModel).setVisibility(false);
@@ -65,8 +65,8 @@ public class DashAnimation extends Animation implements ActionListener{
         oigModel.setAcceleration(0 ,0);
         oigModel.setVelocity(0 ,0);
 
-        oigModel.setAlpha(0);
-        oigModel.setOmega(0);
+//        oigModel.setAlpha(0);
+//        oigModel.setOmega(0);
 
         timer.removeActionListener(this);
         timer.stop();

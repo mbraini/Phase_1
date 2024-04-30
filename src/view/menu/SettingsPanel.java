@@ -2,6 +2,7 @@ package view.menu;
 
 import controller.Configs;
 import controller.Constants;
+import controller.SoundEffects.Sound;
 import view.PIG;
 
 import javax.swing.*;
@@ -46,7 +47,17 @@ public class SettingsPanel extends PIG {
         soundSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
+                if (Configs.SOUND == 0){
+                    Sound.volumeMute();
+                }
+                if (soundSlider.getValue() - Configs.SOUND > 0)
+                    Sound.volumeUp();
+                else if (soundSlider.getValue() - Configs.SOUND < 0)
+                    Sound.volumeDown();
                 Configs.SOUND = soundSlider.getValue();
+                if (Configs.SOUND == 0){
+                    Sound.volumeMute();
+                }
             }
         });
         difficultySlider.addChangeListener(new ChangeListener() {
@@ -103,12 +114,12 @@ public class SettingsPanel extends PIG {
     }
 
     private void initSoundSlider() {
-        soundSlider = new JSlider(0 ,100);
+        soundSlider = new JSlider(0 ,10);
         soundSlider.setBounds(Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 9 ,Constants.GAME_WIDTH / 5 * 3 ,Constants.GAME_HEIGHT / 9);
         soundSlider.setPaintTicks(true);
         soundSlider.setMinorTickSpacing(1);
         soundSlider.setPaintTrack(true);
-        soundSlider.setMajorTickSpacing(10);
+        soundSlider.setMajorTickSpacing(1);
         soundSlider.setPaintLabels(true);
         soundSlider.setFont(new Font("MV Boli" ,Font.PLAIN ,15));
 

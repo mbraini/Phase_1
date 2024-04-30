@@ -1,10 +1,13 @@
 package controller;
 
+import controller.SoundEffects.Sound;
 import view.menu.MainFrame;
 import view.game.GameFrame;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
 import java.io.File;
+import java.io.IOException;
 
 public class Application implements Runnable {
     public static MainFrame mainFrame;
@@ -13,7 +16,19 @@ public class Application implements Runnable {
     @Override
     public void run() {
         getImages();
+        try {
+            getAudios();
+        }
+        catch (Exception e){
+            System.out.println("OH NO");
+        }
         mainFrame = new MainFrame();
+    }
+
+    private void getAudios() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+        Constants.backGroundSound = "src/controller/SoundEffects/Song.wav";
+        Sound sound = new Sound(Constants.backGroundSound);
+        sound.loop(Constants.backGroundSound);
     }
 
     void getImages(){
