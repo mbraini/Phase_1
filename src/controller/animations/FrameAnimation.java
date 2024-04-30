@@ -28,16 +28,12 @@ public class FrameAnimation extends Animation{
         leftAcceleration = -2 * left / (Math.pow(this.time ,2));
         this.gameFrame.setUpDownV(-this.time * upAcceleration ,-this.time * downAcceleration);
         this.gameFrame.setLeftRightV(-this.time * rightAcceleration ,-this.time * leftAcceleration);
-        timer = new Timer(Constants.FRAME_BULLET_RESIZE_TIME, new ActionListener() {
+        timer = new Timer((int) this.time, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gameFrame.setUpDownA(0 ,0);
                 gameFrame.setLeftRightA(0 ,0);
-//                gameFrame.setUpDownV(-Constants.FRAME_PRESSURE_VELOCITY ,-Constants.FRAME_PRESSURE_VELOCITY);
-//                gameFrame.setLeftRightV(-Constants.FRAME_PRESSURE_VELOCITY ,-Constants.FRAME_PRESSURE_VELOCITY);
-                if (GameState.time <= 1){
-                    GameFrame.windowKill.startGame();
-                }
+                gameFrame.setLeftRightV(-Constants.FRAME_PRESSURE_VELOCITY ,-Constants.FRAME_PRESSURE_VELOCITY);
                 gameFrame.setResizing(false);
                 timer.stop();
                 timer.removeActionListener(this);
@@ -52,5 +48,11 @@ public class FrameAnimation extends Animation{
         gameFrame.setLeftRightA(new Vector(rightAcceleration ,leftAcceleration));
         gameFrame.setResizing(true);
         timer.start();
+    }
+
+    public boolean isDone(){
+        if (gameFrame.isResizing())
+            return false;
+        return true;
     }
 }
