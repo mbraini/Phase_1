@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class WindowKill extends PIG {
     static GameLoop gameLoop;
+    static FrameResizeThread frameResizeThread;
     static GameState gameState;
     static Shop shop;
 
@@ -30,6 +31,8 @@ public class WindowKill extends PIG {
     public void start() {
         Controller.startGame();
         GameFrame.windowKill.setVisible(true);
+        frameResizeThread = new FrameResizeThread(Application.gameFrame);
+        frameResizeThread.start();
         Controller.gameStartAnimation();
     }
 
@@ -79,7 +82,4 @@ public class WindowKill extends PIG {
         gameLoop.start();
     }
 
-    public void AddSize(int x, int y) {
-        this.setBounds(this.getX() ,this.getY() ,this.getWidth() + x ,this.getHeight() + y);
-    }
 }

@@ -68,10 +68,6 @@ public class GameLoop extends Thread{
             }
         }
 
-        //////frame resize
-        FramePressure();
-        FrameResize();
-        //////
 
         /////
         ArrayList<Pair> collisions = new ArrayList<>();
@@ -95,18 +91,6 @@ public class GameLoop extends Thread{
         Controller.CheckRegularAbilities();
         Controller.CheckAddOrRemoveObjectRequest();
         //////
-    }
-
-    private void FramePressure() {
-        if (!gameFrame.isResizing()){
-            gameFrame.setUpDownV(-Constants.FRAME_PRESSURE_VELOCITY ,-Constants.FRAME_PRESSURE_VELOCITY);
-            gameFrame.setLeftRightV(-Constants.FRAME_PRESSURE_VELOCITY ,-Constants.FRAME_PRESSURE_VELOCITY);
-        }
-    }
-
-    private void FrameResize() {
-        gameFrame.move();
-        gameFrame.Update();
     }
 
     private void CheckRequests() {

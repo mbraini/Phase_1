@@ -32,6 +32,7 @@ public class Shop extends JPanel {
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == 'p' && GameState.isPause){
                     WindowKill.gameLoop = new GameLoop(Application.gameFrame);
+                    WindowKill.frameResizeThread = new FrameResizeThread(Application.gameFrame);
                     WindowKill.shop.setVisible(false);
                     GameFrame.gamePanel.remove(WindowKill.shop);
                     GameState.isPause = false;
@@ -39,6 +40,7 @@ public class Shop extends JPanel {
                     GameFrame.windowKill.setFocusable(true);
                     GameFrame.windowKill.grabFocus();
                     WindowKill.gameLoop.start();
+                    WindowKill.frameResizeThread.start();
                 }
             }
 

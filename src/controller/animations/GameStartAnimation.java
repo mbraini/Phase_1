@@ -29,14 +29,14 @@ public class GameStartAnimation extends Animation{
             public void actionPerformed(ActionEvent e) {
                 centerEpsilon();
                 if (frameAnimation.isDone()){
+                    GameFrame.windowKill.startGame();
                     epsilonTaker.stop();
                 }
             }
         });
         epsilonTaker.start();
-        frameAnimation = new FrameAnimation(Application.gameFrame ,-250 ,-250 ,-250 ,-250 ,2000);
+        frameAnimation = new FrameAnimation(Application.gameFrame ,-250 ,-250 ,-250 ,-250 ,1000);
         frameAnimation.StartAnimation();
-        GameFrame.windowKill.startGame();
     }
     public void centerEpsilon(){
         Vector now = epsilon.getPosition();
