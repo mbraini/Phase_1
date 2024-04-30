@@ -35,7 +35,7 @@ public class GameManager {
         GameState.xp += collective.getValue();
     }
 
-    static void CheckNewWave(){
+    public static void CheckNewWave(){
         if (GameState.wave == 3){
             Controller.EndTheGame();
             return;

@@ -17,7 +17,7 @@ public class Spawn {
 
     public static void SpawnEpsilon(){
         Vector position = new Vector(Constants.GAME_WIDTH / 2d   ,Constants.GAME_HEIGHT / 2d);
-        Vector velocity = new Vector(-.5 ,-.5);
+        Vector velocity = new Vector(0 ,0);
         EpsilonModel epsilon = new EpsilonModel(position ,velocity , Helper.RandomStringGenerator(Constants.ID_SIZE));
 //        Controller.addRequest(epsilon);
         Controller.addOIG(epsilon);
@@ -25,7 +25,7 @@ public class Spawn {
 
     public static void SpawnEnemy(){
         if (Constants.GAME_DIFFICULTY.equals("HARD")){
-            enemyCount = (int) 4;
+            enemyCount = (int) 2;
         }
         for (int i = 0 ;i < enemyCount ;i++){
             int rand = random.nextInt(2);
@@ -48,18 +48,18 @@ public class Spawn {
     }
 
     public static Vector randomPosition(){
-        int x = random.nextInt(-Constants.Squarantine_DIMENTION.width ,Application.gameFrame.getWidth() + Constants.TRIGORATH_DIMENTION.width);
+        int x = random.nextInt(-Constants.ENEMY_SPAWN_MARGIN ,Application.gameFrame.getWidth() + Constants.ENEMY_SPAWN_MARGIN);
         int y = 0;
-        if (x < 0 || x > Application.gameFrame.getWidth()){
-            y = random.nextInt(-Constants.Squarantine_DIMENTION.height ,Application.gameFrame.getHeight() + Constants.TRIGORATH_DIMENTION.height);
+        if (x < -Constants.ENEMY_SPAWN_MARGIN || x > Application.gameFrame.getWidth() + Constants.ENEMY_SPAWN_MARGIN){
+            y = random.nextInt(-Constants.ENEMY_SPAWN_MARGIN ,Application.gameFrame.getHeight() + Constants.ENEMY_SPAWN_MARGIN);
         }
         else {
             int rand = random.nextInt(2);
             if (rand == 0){
-                y = random.nextInt(-Constants.Squarantine_DIMENTION.height ,0);
+                y = random.nextInt(-Constants.ENEMY_SPAWN_MARGIN ,0);
             }
             else {
-                y = random.nextInt(Application.gameFrame.getHeight() ,Application.gameFrame.getHeight() + Constants.TRIGORATH_DIMENTION.height);
+                y = random.nextInt(Application.gameFrame.getHeight() + Constants.ENEMY_SPAWN_MARGIN ,Application.gameFrame.getHeight() + Constants.ENEMY_SPAWN_MARGIN + Constants.TRIGORATH_DIMENTION.height);
             }
         }
         return new Vector(x ,y);

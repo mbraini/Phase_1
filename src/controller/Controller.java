@@ -79,7 +79,7 @@ public abstract class Controller {
     public static void EndTheGame() {
         EndController();
         GameFrame.windowKill.end();
-        GameFrame.endGame.setVisible(true);
+        GameFrame.endGame.start();
     }
 
     private static void EndController() {

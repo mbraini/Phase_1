@@ -3,6 +3,7 @@ package view.game;
 import controller.Application;
 import controller.Constants;
 import controller.GameState;
+import view.PIG;
 import view.menu.MainFrame;
 
 import javax.swing.*;
@@ -10,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class EndGame extends JPanel {
+public class EndGame extends PIG {
     JLabel xp;
     JButton menu;
     public EndGame(){
@@ -53,4 +54,16 @@ public class EndGame extends JPanel {
         this.add(menu);
     }
 
+    @Override
+    public void start() {
+        this.setVisible(true);
+        Application.gameFrame.setSize(getSize());
+        Application.gameFrame.revalidate();
+        Application.gameFrame.setLocationRelativeTo(null);
+    }
+
+    @Override
+    public void end() {
+        this.setVisible(false);
+    }
 }

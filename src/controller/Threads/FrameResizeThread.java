@@ -1,5 +1,7 @@
-package controller;
+package controller.Threads;
 
+import controller.Constants;
+import controller.GameState;
 import view.game.GameFrame;
 
 public class FrameResizeThread extends Thread{

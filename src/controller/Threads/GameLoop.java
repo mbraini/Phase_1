@@ -1,5 +1,9 @@
-package controller;
+package controller.Threads;
 
+import controller.Constants;
+import controller.Controller;
+import controller.GameManager;
+import controller.GameState;
 import controller.animations.FrameAnimation;
 import controller.helper.Pair;
 import controller.helper.Vector;

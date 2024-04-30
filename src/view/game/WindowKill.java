@@ -1,18 +1,15 @@
 package view.game;
 import controller.*;
+import controller.Threads.FrameResizeThread;
+import controller.Threads.GameLoop;
 import controller.actionlisteners.EpsilonAiming;
 import controller.actionlisteners.EpsilonCirculation;
 import controller.actionlisteners.EpsilonMovement;
-import controller.helper.Vector;
 import view.PIG;
-import view.menu.MainFrame;
 import view.objectsView.OIGView;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
 public class WindowKill extends PIG {
     static GameLoop gameLoop;

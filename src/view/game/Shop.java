@@ -1,6 +1,8 @@
 package view.game;
 
 import controller.*;
+import controller.Threads.FrameResizeThread;
+import controller.Threads.GameLoop;
 import view.Abilities.RegularAbility;
 
 import javax.swing.*;

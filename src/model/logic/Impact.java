@@ -24,7 +24,7 @@ public class Impact {
                 direction = Utils.VectorAdd(Utils.ScalarInVector(-1, collisionPoint), OIGModel.OIGs.get(i).getPosition());
                 distance = Utils.VectorSize(direction);
                 //////////////////todo
-                if (distance >= 500) {
+                if (distance >= Constants.IMPACT_AREA) {
                     return;
                 }
                 //////////////////todo
