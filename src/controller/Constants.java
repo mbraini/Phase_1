@@ -39,7 +39,7 @@ public class Constants {
     public static final int FRAME_ANIMATION_REFRESH_RATE = 10;
     public static final int FRAME_BULLET_RESIZE = 50;
     public static final int FRAME_BULLET_RESIZE_TIME = 200;
-    public static final double FRAME_PRESSURE_VELOCITY = 0.01;
+    public static final double FRAME_PRESSURE_VELOCITY = 0.02;
     public static final Dimension COLLECTIVE_BOX_DIMENSION = new Dimension(100 ,100);
     public static final int EPSILON_VERTICES_RADIOS = 3;
     public static final String GAME_DIFFICULTY = "HARD";

@@ -33,8 +33,8 @@ public class FrameAnimation extends Animation{
             public void actionPerformed(ActionEvent e) {
                 gameFrame.setUpDownA(0 ,0);
                 gameFrame.setLeftRightA(0 ,0);
-                gameFrame.setUpDownV(0 ,0);
-                gameFrame.setLeftRightV(0 ,0);
+//                gameFrame.setUpDownV(-Constants.FRAME_PRESSURE_VELOCITY ,-Constants.FRAME_PRESSURE_VELOCITY);
+//                gameFrame.setLeftRightV(-Constants.FRAME_PRESSURE_VELOCITY ,-Constants.FRAME_PRESSURE_VELOCITY);
                 if (GameState.time <= 1){
                     GameFrame.windowKill.startGame();
                 }

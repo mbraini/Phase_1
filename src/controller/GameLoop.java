@@ -68,6 +68,11 @@ public class GameLoop extends Thread{
             }
         }
 
+        //////frame resize
+        FramePressure();
+        FrameResize();
+        //////
+
         /////
         ArrayList<Pair> collisions = new ArrayList<>();
         for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
@@ -89,10 +94,6 @@ public class GameLoop extends Thread{
         //////reqs
         Controller.CheckRegularAbilities();
         Controller.CheckAddOrRemoveObjectRequest();
-        //////
-        //////frame resize
-        FramePressure();
-        FrameResize();
         //////
     }
 
@@ -149,25 +150,26 @@ public class GameLoop extends Thread{
     private void BulletBorderCollision(BulletModel bullet){
         if (bullet.getPosition().x <= Constants.EPSILON_DIMENSION.width / 2d){
             ///////todo
-            new FrameAnimation(Application.gameFrame ,0 ,0 ,0 ,Constants.FRAME_BULLET_RESIZE,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
+            FrameAnimation frameAnimation = new FrameAnimation(gameFrame ,0 ,0 ,0 ,Constants.FRAME_BULLET_RESIZE,Constants.FRAME_BULLET_RESIZE_TIME);
             bullet.setHP(-1);
+            frameAnimation.StartAnimation();
             ///////todo
         }
-        else if (bullet.getPosition().x >= Application.gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width / 2d){
+        else if (bullet.getPosition().x >= gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width / 2d){
             ///////todo
-            new FrameAnimation(Application.gameFrame ,0 ,0 ,Constants.FRAME_BULLET_RESIZE ,0,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
+            new FrameAnimation(gameFrame ,0 ,0 ,Constants.FRAME_BULLET_RESIZE ,0,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
             bullet.setHP(-1);
             ///////todo
         }
         else if (bullet.getPosition().y <= Constants.EPSILON_DIMENSION.height / 2d){
             ///////todo
-            new FrameAnimation(Application.gameFrame ,Constants.FRAME_BULLET_RESIZE ,0 ,0 ,0,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
+            new FrameAnimation(gameFrame ,Constants.FRAME_BULLET_RESIZE ,0 ,0 ,0,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
             bullet.setHP(-1);
             ///////todo
         }
-        else if (bullet.getPosition().y >= Application.gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height / 2d){
+        else if (bullet.getPosition().y >= gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height / 2d){
             ///////todo
-            new FrameAnimation(Application.gameFrame ,0 ,Constants.FRAME_BULLET_RESIZE ,0 ,0,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
+            new FrameAnimation(gameFrame ,0 ,Constants.FRAME_BULLET_RESIZE ,0 ,0,Constants.FRAME_BULLET_RESIZE_TIME).StartAnimation();
             bullet.setHP(-1);
             ///////todo
         }

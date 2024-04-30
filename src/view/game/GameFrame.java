@@ -144,11 +144,14 @@ public class GameFrame extends JFrame implements MoveAble {
 
         Vector upDownMoved = new Vector((2 * getUpDownV().x - upDownA.x * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2 ,(2 * getUpDownV().y - upDownA.y * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2);
         Vector leftRightMoved = new Vector((2 * getLeftRightV().x - leftRightA.x * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2 ,(2 * getLeftRightV().y - leftRightA.y * Constants.FRAME_ANIMATION_REFRESH_RATE) * Constants.FRAME_ANIMATION_REFRESH_RATE / 2);
-
-        if (windowKill.getHeight() > Constants.MINIMUM_FRAME_DIMENSION.height)
-            setUpDownP(Utils.VectorAdd(upDownMoved ,getUpDownP()));
-        if (windowKill.getWidth() > Constants.MINIMUM_FRAME_DIMENSION.width)
-            setLeftRightP(Utils.VectorAdd(leftRightMoved ,getLeftRightP()));
+        setUpDownP(Utils.VectorAdd(upDownMoved ,getUpDownP()));
+        setLeftRightP(Utils.VectorAdd(leftRightMoved ,getLeftRightP()));
+        if (dimentionInit.y + upDownP.x + upDownP.y <= Constants.MINIMUM_FRAME_DIMENSION.height) {
+            setUpDownP(Utils.VectorAdd(Utils.ScalarInVector(-1, upDownMoved), getUpDownP()));
+        }
+        if (dimentionInit.x + leftRightP.x + leftRightP.y <= Constants.MINIMUM_FRAME_DIMENSION.width) {
+            setLeftRightP(Utils.VectorAdd(Utils.ScalarInVector(-1, leftRightMoved), getLeftRightP()));
+        }
     }
 
     public void Update(){
