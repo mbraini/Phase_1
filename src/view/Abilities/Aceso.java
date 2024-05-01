@@ -21,6 +21,9 @@ public class Aceso extends SpecialAbility{
                         heal.stop();
                     }
                     GameState.hp++;
+                    if (GameState.hp >= 100){
+                        GameState.hp = 100;
+                    }
                 }
             });
             heal.start();
