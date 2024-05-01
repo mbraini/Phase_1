@@ -99,6 +99,7 @@ public class GameLoop extends Thread{
         if (GameState.time >= 3)
             GameManager.CheckNewWave();
         Controller.CheckRegularAbilities();
+        Controller.CheckSpecialAbilities();
         Controller.CheckAddOrRemoveObjectRequest();
     }
 

@@ -11,6 +11,7 @@ public abstract class Controller {
     private static ArrayList<OIGModel> addedObjects = new ArrayList<>();
     private static ArrayList<OIGModel> removedObjects = new ArrayList<>();
     public static ArrayList<RegularAbilitiesEnum> regularAbility = new ArrayList<>();
+    private static ArrayList<SpecialAbilitiesEnum> specialAbility = new ArrayList<>();
     public static void startGame() {
         Controller.ResetModel();
         Controller.ResetView();
@@ -117,8 +118,25 @@ public abstract class Controller {
                     new Heal().performAbility();
             }
         }
-
         regularAbility = new ArrayList<>();
+    }
+
+    public static void CheckSpecialAbilities(){
+        if (specialAbility.isEmpty())
+            return;
+        for (int i = 0 ;i < specialAbility.size() ;i++) {
+            switch (specialAbility.get(i)) {
+                case ares:
+                    new Ares().performAbility();
+                    continue;
+                case aceso:
+                    new Aceso().performAbility();
+                    continue;
+                case proteus:
+                    new Proteus().performAbility();
+            }
+        }
+        specialAbility = new ArrayList<>();
     }
 
     public static void CheckAddOrRemoveObjectRequest(){
@@ -146,8 +164,12 @@ public abstract class Controller {
     public static void regularAbilityRequest(RegularAbilitiesEnum regularAbilitiesEnum){
         regularAbility.add(regularAbilitiesEnum);
     }
+    public static void specialAbilityRequest(SpecialAbilitiesEnum specialAbilitiesEnum) {
+        specialAbility.add(specialAbilitiesEnum);
+    }
 
     public static ArrayList<EpsilonVertex> getEpsilonVertices() {
         return getEpsilon().getVertices();
     }
+
 }

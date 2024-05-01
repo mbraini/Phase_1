@@ -51,6 +51,7 @@ public class SkillTreePanel extends PIG {
         ares.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                System.out.println("ares");
                 ////todo
             }
 
@@ -81,6 +82,7 @@ public class SkillTreePanel extends PIG {
         aceso.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                System.out.println("aceso");
                 ///todo
             }
 
@@ -110,6 +112,7 @@ public class SkillTreePanel extends PIG {
         proteus.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                System.out.println("proteus");
                 ///todo
             }
 
