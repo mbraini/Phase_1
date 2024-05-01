@@ -1,13 +1,14 @@
 package controller;
 
+import controller.Config.Configs;
 import controller.SoundEffects.Sound;
 import view.menu.MainFrame;
 import view.game.GameFrame;
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class Application implements Runnable {
     public static MainFrame mainFrame;
@@ -16,6 +17,7 @@ public class Application implements Runnable {
     @Override
     public void run() {
         getImages();
+        setConfigs();
         try {
             getAudios();
         }
@@ -23,6 +25,18 @@ public class Application implements Runnable {
             System.out.println("OH NO");
         }
         mainFrame = new MainFrame();
+    }
+
+    private void setConfigs() {
+        File file = new File("src/controller/Config/Configs.txt");
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            Scanner scanner = new Scanner(fileInputStream);
+            Configs.XP = Integer.valueOf(scanner.nextLine().substring(4));
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void getAudios() throws UnsupportedAudioFileException, LineUnavailableException, IOException {

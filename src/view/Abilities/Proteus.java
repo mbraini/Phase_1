@@ -1,6 +1,6 @@
 package view.Abilities;
 
-import controller.Configs;
+import controller.Config.Configs;
 import controller.Controller;
 import controller.GameState;
 

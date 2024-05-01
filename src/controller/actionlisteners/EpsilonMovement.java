@@ -1,7 +1,6 @@
 package controller.actionlisteners;
 
-import controller.Configs;
-import controller.Constants;
+import controller.Config.Configs;
 import controller.Controller;
 import controller.actionlisteners.EpsilonMovementALs.xStopperAL;
 import controller.actionlisteners.EpsilonMovementALs.yStopperAL;
@@ -10,8 +9,6 @@ import controller.helper.Vector;
 import model.objectsModel.EpsilonModel;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashSet;

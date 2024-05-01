@@ -1,6 +1,7 @@
 package controller.Spawn;
 
 import controller.*;
+import controller.Config.Configs;
 import controller.SoundEffects.Sound;
 import controller.helper.Helper;
 import controller.helper.Vector;

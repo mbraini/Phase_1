@@ -1,6 +1,6 @@
 package view.menu;
 
-import controller.Configs;
+import controller.Config.Configs;
 import controller.Constants;
 import controller.SoundEffects.Sound;
 import view.PIG;

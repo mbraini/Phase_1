@@ -1,6 +1,6 @@
 package view.Abilities;
 
-import controller.Configs;
+import controller.Config.Configs;
 import controller.GameState;
 
 public class Ares extends SpecialAbility{

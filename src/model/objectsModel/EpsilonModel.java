@@ -1,6 +1,6 @@
 package model.objectsModel;
 
-import controller.Configs;
+import controller.Config.Configs;
 import controller.Constants;
 import model.interfaces.HasVertices;
 import model.interfaces.ImpactAble;

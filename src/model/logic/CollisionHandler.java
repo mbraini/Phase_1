@@ -1,18 +1,15 @@
 package model.logic;
 
-import controller.Configs;
+import controller.Config.Configs;
 import controller.Constants;
 import controller.Controller;
 import controller.GameState;
-import controller.animations.DashAnimation;
 import controller.helper.Utils;
 import controller.helper.Vector;
 import model.interfaces.HasVertices;
 import model.interfaces.IsCircle;
 import model.interfaces.IsPolygon;
 import model.objectsModel.*;
-
-import java.util.ArrayList;
 
 public class CollisionHandler {
     Vector collisionPoint;
@@ -26,7 +23,7 @@ public class CollisionHandler {
                 break;
             }
         }
-        for (int i = 0 ;i < Controller.getEpsilonVertices().size() ;i++){
+        for (int i = 0; i < Controller.getEpsilonVertices().size() ; i++){
             if (Collision.IsColliding(Controller.getEpsilonVertices().get(i) ,enemy)){
                 enemy.setHP(enemy.getHP() - Constants.MELEI_ATTACK - Configs.EXTRA_DAMAGE);
                 break;

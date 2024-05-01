@@ -1,6 +1,6 @@
 package controller;
 
-import controller.Constants;
+import controller.Config.Configs;
 
 import javax.swing.*;
 import java.awt.*;
