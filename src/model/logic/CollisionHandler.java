@@ -1,5 +1,6 @@
 package model.logic;
 
+import controller.Configs;
 import controller.Constants;
 import controller.Controller;
 import controller.GameState;
@@ -27,7 +28,7 @@ public class CollisionHandler {
         }
         for (int i = 0 ;i < Controller.getEpsilonVertices().size() ;i++){
             if (Collision.IsColliding(Controller.getEpsilonVertices().get(i) ,enemy)){
-                enemy.setHP(enemy.getHP() - Constants.MELEI_ATTACK);
+                enemy.setHP(enemy.getHP() - Constants.MELEI_ATTACK - Configs.EXTRA_DAMAGE);
                 break;
             }
         }
@@ -49,7 +50,7 @@ public class CollisionHandler {
 
     public void EnemyBullet(EnemyModel enemy, BulletModel bullet) {
         bullet.setHP(-1);
-        enemy.setHP(enemy.getHP() - Constants.EPSILON_DAMAGE);
+        enemy.setHP(enemy.getHP() - Constants.EPSILON_DAMAGE - Configs.EXTRA_DAMAGE);
     }
 
 

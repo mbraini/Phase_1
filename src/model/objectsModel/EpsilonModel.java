@@ -20,7 +20,6 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
         this.id =  id;
         this.HP = 100;
         vertices = new ArrayList<>();
-        initVertices();
     }
 
     @Override
@@ -52,6 +51,7 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
     }
 
     public void addVertex(){
+        theta = 0;
         vertices = new ArrayList<>();
         double theta = 2 * Math.PI / Configs.VERTICES;
         for (int i = 0; i < Configs.VERTICES ;i++){

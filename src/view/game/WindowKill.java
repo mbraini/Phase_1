@@ -5,6 +5,8 @@ import controller.Threads.GameLoop;
 import controller.actionlisteners.EpsilonAiming;
 import controller.actionlisteners.EpsilonCirculation;
 import controller.actionlisteners.EpsilonMovement;
+import view.Abilities.RegularAbility;
+import view.Abilities.SpecialAbility;
 import view.PIG;
 import view.objectsView.OIGView;
 import java.awt.*;
@@ -58,6 +60,15 @@ public class WindowKill extends PIG {
                     GameFrame.gamePanel.add(shop);
                     GameState.isPause = true;
                     GameFrame.windowKill.setVisible(false);
+                }
+                else if (e.getKeyChar() == 'q' && !GameState.isPause){
+                    SpecialAbility.sendRequest(SpecialAbilitiesEnum.ares);
+                }
+                else if (e.getKeyChar() == 'w' && !GameState.isPause){
+                    SpecialAbility.sendRequest(SpecialAbilitiesEnum.aceso);
+                }
+                else if (e.getKeyChar() == 'e' && !GameState.isPause){
+                    SpecialAbility.sendRequest(SpecialAbilitiesEnum.proteus);
                 }
             }
 

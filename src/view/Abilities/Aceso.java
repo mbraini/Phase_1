@@ -8,18 +8,19 @@ import java.awt.event.ActionListener;
 
 public class Aceso extends SpecialAbility{
     public static Timer heal;
-    public static boolean available = true;
+    static double time = -300;
     @Override
     public void performAbility() {
-        heal = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GameState.hp ++;
-                if (GameState.hp == 100){
-                    heal.stop();
+        if ( GameState.time - time >= 300 && GameState.xp >= 100) {
+            heal = new Timer(1000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    GameState.hp++;
                 }
-            }
-        });
-        heal.start();
+            });
+            heal.start();
+            GameState.xp -= 100;
+            time = GameState.time;
+        }
     }
 }

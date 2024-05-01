@@ -26,6 +26,12 @@ public class GameState extends JPanel{
         timer = new Timer(100, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (isPause)
+                    return;
+                if (isOver){
+                    timer.stop();
+                    System.out.println("OVER");
+                }
                 time += 0.1;
             }
         });
