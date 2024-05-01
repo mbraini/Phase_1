@@ -24,12 +24,12 @@ public class EpsilonInControlAnimation extends Animation{
         deltaX = (Application.gameFrame.getWidth() - Constants.EPSILON_DIMENSION.width);
         deltaY = (Application.gameFrame.getHeight() - Constants.EPSILON_DIMENSION.height);
         ///////////////////////
-        deltaX = deltaX * Constants.WIN_ANIMATION_REFRESHRATE / Constants.WIN_ANIMATION_TIME;
-        deltaY = deltaY * Constants.WIN_ANIMATION_REFRESHRATE / Constants.WIN_ANIMATION_TIME;
+        deltaX = deltaX * Constants.WIN_ANIMATION_REFRESH_RATE / Constants.WIN_ANIMATION_TIME;
+        deltaY = deltaY * Constants.WIN_ANIMATION_REFRESH_RATE / Constants.WIN_ANIMATION_TIME;
         Application.gameFrame.setUpDownV(0 ,0);
         Application.gameFrame.setLeftRightV(0 ,0);
         //////////////////////
-        timer = new Timer(Constants.WIN_ANIMATION_REFRESHRATE, new ActionListener() {
+        timer = new Timer(Constants.WIN_ANIMATION_REFRESH_RATE, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 epsilonW += deltaX;

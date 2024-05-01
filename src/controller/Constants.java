@@ -48,6 +48,6 @@ public class Constants {
     public static String backGroundSound;
     public static String BulletFiredSound;
     public static String waveSpawnSound;
-    public static final int WIN_ANIMATION_TIME = 4000;
-    public static final int WIN_ANIMATION_REFRESHRATE = 20;
+    public static final int WIN_ANIMATION_TIME = 3000;
+    public static final int WIN_ANIMATION_REFRESH_RATE = 10;
 }
