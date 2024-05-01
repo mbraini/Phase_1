@@ -1,4 +1,5 @@
 package controller;
+import controller.Spawn.Spawn;
 import controller.animations.GameStartAnimation;
 import model.objectsModel.*;
 import view.Abilities.*;
@@ -73,7 +74,7 @@ public abstract class Controller {
     }
 
     public static void SpawnEnemyReq(){
-        Spawn.SpawnEnemy();
+        Spawn.SpawnWave();
     }
 
     public static void EndTheGame() {
@@ -108,15 +109,15 @@ public abstract class Controller {
             switch (regularAbility.get(i)) {
                 case banish:
                     new Banish().performAbility();
-                    break;
+                    continue;
                 case empower:
                     new Empower().performAbility();
-                    break;
+                    continue;
                 case heal:
                     new Heal().performAbility();
-                    break;
             }
         }
+
         regularAbility = new ArrayList<>();
     }
 

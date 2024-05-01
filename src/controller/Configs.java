@@ -7,5 +7,6 @@ public class Configs {
     public static int DIFFICULTY = 2;
     public static int EXTRA_DAMAGE = 0;
     public static int VERTICES = 0;
+    public static int XP = 1000;
 
 }

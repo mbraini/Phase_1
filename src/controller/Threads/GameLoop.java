@@ -90,15 +90,16 @@ public class GameLoop extends Thread{
         }
         CheckObjectDeath();
         EpsilonBorderCollision();
+        /////reqs
         CheckRequests();
-        //////reqs
-        Controller.CheckRegularAbilities();
-        Controller.CheckAddOrRemoveObjectRequest();
-        //////
+        /////
     }
 
     private void CheckRequests() {
-        GameManager.CheckNewWave();
+        if (GameState.time >= 3)
+            GameManager.CheckNewWave();
+        Controller.CheckRegularAbilities();
+        Controller.CheckAddOrRemoveObjectRequest();
     }
 
     private void CheckObjectDeath() {

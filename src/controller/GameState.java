@@ -32,6 +32,7 @@ public class GameState extends JPanel{
         time = 0;
         hp = 100;
         wave = 1;
+        xp = Configs.XP;
         InitTime();
         InitXP();
         InitWave();

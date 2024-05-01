@@ -1,13 +1,10 @@
 package controller.animations;
 
 import controller.Application;
-import controller.Constants;
 import controller.Controller;
-import controller.Spawn;
 import controller.helper.Utils;
 import controller.helper.Vector;
 import model.objectsModel.EpsilonModel;
-import model.objectsModel.OIGModel;
 import view.game.GameFrame;
 
 import javax.swing.*;
@@ -30,6 +27,7 @@ public class GameStartAnimation extends Animation{
                 centerEpsilon();
                 if (frameAnimation.isDone()){
                     GameFrame.windowKill.startGame();
+                    Controller.SpawnEnemyReq();
                     epsilonTaker.stop();
                 }
             }

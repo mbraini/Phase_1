@@ -4,12 +4,13 @@ import controller.*;
 import controller.Threads.FrameResizeThread;
 import controller.Threads.GameLoop;
 import view.Abilities.RegularAbility;
+import view.PIG;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Shop extends JPanel {
+public class Shop extends PIG {
     JButton next;
     JButton previous;
     JButton back;
@@ -33,16 +34,7 @@ public class Shop extends JPanel {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == 'p' && GameState.isPause){
-                    WindowKill.gameLoop = new GameLoop(Application.gameFrame);
-                    WindowKill.frameResizeThread = new FrameResizeThread(Application.gameFrame);
-                    WindowKill.shop.setVisible(false);
-                    GameFrame.gamePanel.remove(WindowKill.shop);
-                    GameState.isPause = false;
-                    GameFrame.windowKill.setVisible(true);
-                    GameFrame.windowKill.setFocusable(true);
-                    GameFrame.windowKill.grabFocus();
-                    WindowKill.gameLoop.start();
-                    WindowKill.frameResizeThread.start();
+                    end();
                 }
             }
 
@@ -235,14 +227,7 @@ public class Shop extends JPanel {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                WindowKill.gameLoop = new GameLoop(Application.gameFrame);
-                WindowKill.shop.setVisible(false);
-                GameFrame.gamePanel.remove(WindowKill.shop);
-                GameState.isPause = false;
-                GameFrame.windowKill.setVisible(true);
-                GameFrame.windowKill.setFocusable(true);
-                GameFrame.windowKill.grabFocus();
-                WindowKill.gameLoop.start();
+                end();
             }
         });
     }
@@ -254,5 +239,24 @@ public class Shop extends JPanel {
         g.drawImage(Constants.heal ,getWidth() / 10 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2 ,null);
         g.drawImage(Constants.empower ,getWidth() / 10 * 4 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2 ,null);
         g.drawImage(Constants.banish ,getWidth() / 10 * 7 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2 ,null);
+    }
+
+    @Override
+    public void start() {
+        setVisible(true);
+    }
+
+    @Override
+    public void end() {
+        WindowKill.gameLoop = new GameLoop(Application.gameFrame);
+        WindowKill.frameResizeThread = new FrameResizeThread(Application.gameFrame);
+        WindowKill.shop.setVisible(false);
+        GameFrame.gamePanel.remove(WindowKill.shop);
+        GameState.isPause = false;
+        GameFrame.windowKill.setVisible(true);
+        GameFrame.windowKill.setFocusable(true);
+        GameFrame.windowKill.grabFocus();
+        WindowKill.gameLoop.start();
+        WindowKill.frameResizeThread.start();
     }
 }

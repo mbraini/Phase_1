@@ -1,5 +1,6 @@
 package controller;
 
+import controller.Spawn.Spawn;
 import model.logic.Impact;
 import model.objectsModel.BulletModel;
 import model.objectsModel.CollectiveModel;
@@ -36,10 +37,6 @@ public class GameManager {
     }
 
     public static void CheckNewWave(){
-        if (GameState.wave == 3){
-            Controller.EndTheGame();
-            return;
-        }
         int count = 0;
         for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
             if (OIGModel.OIGs.get(i) instanceof EnemyModel){
@@ -47,7 +44,7 @@ public class GameManager {
             }
         }
         if (count <= 0)
-            Spawn.SpawnEnemy();
+            Controller.SpawnEnemyReq();
     }
 
 
