@@ -16,6 +16,9 @@ public abstract class Controller {
         Controller.ResetModel();
         Controller.ResetView();
         Controller.ResetController();
+        /////////////
+        SpecialAbility.reset();
+        /////////////
         Spawn.SpawnEpsilon();
     }
 

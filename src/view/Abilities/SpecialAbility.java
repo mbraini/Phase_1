@@ -20,4 +20,10 @@ public abstract class SpecialAbility extends Ability{
         }
     }
 
+    public static void reset(){
+        Ares.time = -300;
+        Aceso.time = -300;
+        Proteus.time = -300;
+    }
+
 }

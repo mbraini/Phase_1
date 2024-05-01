@@ -1,6 +1,7 @@
 package controller.animations;
 
 import controller.Constants;
+import controller.GameState;
 import controller.actionlisteners.EpsilonMovement;
 import controller.helper.Utils;
 import controller.helper.Vector;
@@ -57,6 +58,8 @@ public class DashAnimation extends Animation implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (GameState.isPause)
+            return;
         StopTimer(timer);
     }
 

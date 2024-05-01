@@ -30,7 +30,6 @@ public class GameState extends JPanel{
                     return;
                 if (isOver){
                     timer.stop();
-                    System.out.println("OVER");
                 }
                 time += 0.1;
             }
