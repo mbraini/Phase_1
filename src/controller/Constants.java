@@ -5,12 +5,8 @@ import java.awt.*;
 public class Constants {
     public static final int GAME_HEIGHT = 700;
     public static final int GAME_WIDTH = 700;
-    public static final double EPSILON_ACCELERATION = 0.0015;
-    public static final double EPSILON_DECELERATION = 0.002;
-    public static final double EPSILON_MAX_SPEED = 0.5;
     public static final int FPS = 10;
     public static final int UPS = 10;
-    public static final int EPSILON_DECELERATION_TIME = 10;
     public static final Dimension barD = new Dimension(14,37);
     public static final Dimension EPSILON_DIMENSION = new Dimension(25 ,25);
     public static final Dimension TRIGORATH_DIMENTION = new Dimension(50 ,50);
@@ -25,6 +21,7 @@ public class Constants {
     public static final int ENEMY_SPAWN_MARGIN = 500;
     public static final double DASH_DISTANCE = 100;
     public static final double DASH_ROTATION = Math.PI;
+    public static final double EPSILON_DECELERATION = 0.0001;
     public static Image epsilonImage;
     public static Image trigorathImage;
     public static Image squarantineImage;

@@ -35,8 +35,8 @@ public class EpsilonModel extends OIGModel implements MoveAble, IsCircle , Impac
     void checkMaxSpeed(){
         double currentSpeed = Math.sqrt(Math.pow(velocity.x ,2) + Math.pow(velocity.y ,2));
         assert currentSpeed != 0;
-        if (currentSpeed > Constants.EPSILON_MAX_SPEED){
-            setVelocity(getVelocity().x * Constants.EPSILON_MAX_SPEED / currentSpeed ,getVelocity().y * Constants.EPSILON_MAX_SPEED / currentSpeed);
+        if (currentSpeed > Configs.EPSILON_MAX_SPEED){
+            setVelocity(getVelocity().x * Configs.EPSILON_MAX_SPEED / currentSpeed ,getVelocity().y * Configs.EPSILON_MAX_SPEED / currentSpeed);
         }
     }
 

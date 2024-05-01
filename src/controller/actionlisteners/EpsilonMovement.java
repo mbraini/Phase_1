@@ -1,31 +1,32 @@
 package controller.actionlisteners;
 
+import controller.Configs;
 import controller.Constants;
+import controller.Controller;
+import controller.actionlisteners.EpsilonMovementALs.xStopperAL;
+import controller.actionlisteners.EpsilonMovementALs.yStopperAL;
 import controller.helper.Utils;
 import controller.helper.Vector;
 import model.objectsModel.EpsilonModel;
-import model.objectsModel.OIGModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
 
 public class EpsilonMovement implements KeyListener {
     HashSet<Integer> keys = new HashSet<>();
-    Timer upTimer;
-    Timer downTimer;
-    Timer leftTimer;
-    Timer rightTimer;
     EpsilonModel epsilon;
     Vector direction = new Vector(0 ,0);
+    public static Timer xStopper;
+    public static Timer yStopper;
 
     public EpsilonMovement(EpsilonModel epsilon){
         this.epsilon = epsilon;
+        xStopper = new Timer(Configs.EPSILON_DECELERATION_TIME, new xStopperAL(Controller.getEpsilon()));
+        yStopper = new Timer(Configs.EPSILON_DECELERATION_TIME, new yStopperAL(Controller.getEpsilon()));
     }
 
     @Override
@@ -36,76 +37,48 @@ public class EpsilonMovement implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         keys.add(e.getKeyCode());
-        direction.setX(0);
-        direction.setY(0);
+        CalculateDirection();
+        changeDirection();
+    }
+
+    private void CalculateDirection() {
+        Vector newDirection = new Vector(0 ,0);
         if (keys.contains(37)){
-            direction.setX(-1 + direction.getX());
+            newDirection.setX(newDirection.getX() - 1);
         }
         if (keys.contains(38)){
-            direction.setY(-1 + direction.getY());
+            newDirection.setY(newDirection.getY() - 1);
         }
         if (keys.contains(39)){
-            direction.setX(1 + direction.getX());
+            newDirection.setX(newDirection.getX() + 1);
         }
         if (keys.contains(40)){
-            direction.setY(1 + direction.getY());
+            newDirection.setY(newDirection.getY() + 1);
         }
+        direction = new Vector(newDirection.x ,newDirection.y);
+    }
+
+    private void changeDirection() {
         if (direction.Equals(new Vector(0 ,0))) {
+            epsilon.setAcceleration(0 ,0);
             return;
         }
-        epsilon.setAcceleration(Utils.VectorWithSize(direction ,Constants.EPSILON_ACCELERATION));
+        epsilon.setAcceleration(Utils.VectorWithSize(direction , Configs.EPSILON_ACCELERATION));
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         keys.remove(e.getKeyCode());
-        if (e.getKeyCode() == 37){
-            epsilon.getAcceleration().setX(Constants.EPSILON_DECELERATION);
-            leftTimer = new Timer((int)(-epsilon.getVelocity().x / Constants.EPSILON_DECELERATION), new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    epsilon.getAcceleration().setX(0);
-                    epsilon.getVelocity().setX(0);
-                    leftTimer.stop();
-                }
-            });
-            leftTimer.start();
+        CalculateDirection();
+        double xVelocity = epsilon.getVelocity().x;
+        double yVelocity = epsilon.getVelocity().y;
+        if (xVelocity != 0 && direction.x == 0){
+            epsilon.setAcceleration(-xVelocity / Configs.EPSILON_DECELERATION_TIME ,epsilon.getAcceleration().y);
+            xStopper.start();
         }
-        if (e.getKeyCode() == 38){
-            epsilon.getAcceleration().setY(Constants.EPSILON_DECELERATION);
-            upTimer = new Timer((int)(-epsilon.getVelocity().y / Constants.EPSILON_DECELERATION), new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    epsilon.getAcceleration().setY(0);
-                    epsilon.getVelocity().setY(0);
-                    upTimer.stop();
-                }
-            });
-            upTimer.start();
-        }
-        if (e.getKeyCode() == 39){
-            epsilon.getAcceleration().setX(-Constants.EPSILON_DECELERATION);
-            rightTimer = new Timer((int)(epsilon.getVelocity().x / Constants.EPSILON_DECELERATION), new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    epsilon.getAcceleration().setX(0);
-                    epsilon.getVelocity().setX(0);
-                    rightTimer.stop();
-                }
-            });
-            rightTimer.start();
-        }
-        if (e.getKeyCode() == 40){
-            epsilon.getAcceleration().setY(-Constants.EPSILON_DECELERATION);
-            downTimer = new Timer((int)(epsilon.getVelocity().y / Constants.EPSILON_DECELERATION), new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    epsilon.getAcceleration().setY(0);
-                    epsilon.getVelocity().setY(0);
-                    downTimer.stop();
-                }
-            });
-            downTimer.start();
+        if (yVelocity != 0 && direction.y == 0){
+            epsilon.setAcceleration(epsilon.getAcceleration().x ,-yVelocity / Configs.EPSILON_DECELERATION_TIME);
+            yStopper.start();
         }
     }
 }
