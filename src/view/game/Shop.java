@@ -248,14 +248,14 @@ public class Shop extends PIG {
 
     @Override
     public void end() {
-        WindowKill.gameLoop = new GameLoop(Application.gameFrame);
-        WindowKill.frameResizeThread = new FrameResizeThread(Application.gameFrame);
         WindowKill.shop.setVisible(false);
         GameFrame.gamePanel.remove(WindowKill.shop);
         GameState.isPause = false;
         GameFrame.windowKill.setVisible(true);
         GameFrame.windowKill.setFocusable(true);
         GameFrame.windowKill.grabFocus();
+        WindowKill.gameLoop = new GameLoop(Application.gameFrame);
+        WindowKill.frameResizeThread = new FrameResizeThread(Application.gameFrame);
         WindowKill.gameLoop.start();
         WindowKill.frameResizeThread.start();
     }

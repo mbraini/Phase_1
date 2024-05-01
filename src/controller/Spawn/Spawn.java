@@ -65,10 +65,10 @@ public class Spawn {
             enemyMaxCount = (int) (2 * GameState.wave);
         }
         else if (Configs.DIFFICULTY == 2){
-            enemyMaxCount =(int) (3 * GameState.wave);
+            enemyMaxCount =(int) (2.5 * GameState.wave);
         }
         else {
-            enemyMaxCount = (int) (4 * GameState.wave);
+            enemyMaxCount = (int) (3 * GameState.wave);
         }
     }
 
