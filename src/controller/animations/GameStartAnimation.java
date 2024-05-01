@@ -28,11 +28,13 @@ public class GameStartAnimation extends Animation{
                 if (frameAnimation.isDone()){
                     GameFrame.windowKill.startGame();
                     Controller.SpawnEnemyReq();
+                    Application.gameFrame.setLeftRightV(0 ,0);
+                    Application.gameFrame.setUpDownV(0 ,0);
                     epsilonTaker.stop();
                 }
             }
         });
-        frameAnimation = new FrameAnimation(Application.gameFrame ,-250 ,-250 ,-250 ,-250 ,1000);
+        frameAnimation = new FrameAnimation(Application.gameFrame ,-50 ,-50 ,-50 ,-50 ,1000);
         frameAnimation.StartAnimation();
         epsilonTaker.start();
     }

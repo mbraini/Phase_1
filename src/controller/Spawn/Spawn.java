@@ -43,21 +43,21 @@ public class Spawn {
         } catch (LineUnavailableException e) {
             throw new RuntimeException(e);
         }
-        setCounts();
-        SpawnEnemy();
-        enemySpawner = new Timer(100, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SpawnEnemy();
-                enemySpawned++;
-                if (enemySpawned >= enemyMaxCount){
-                    enemySpawner.stop();
-                    enemySpawned = 0;
-                }
-            }
-        });
-        enemySpawner.start();
-        GameState.wave++;
+//        setCounts();
+////        SpawnEnemy();
+////        enemySpawner = new Timer(100, new ActionListener() {
+////            @Override
+////            public void actionPerformed(ActionEvent e) {
+////                SpawnEnemy();
+////                enemySpawned++;
+////                if (enemySpawned >= enemyMaxCount){
+////                    enemySpawner.stop();
+////                    enemySpawned = 0;
+////                }
+////            }
+////        });
+////        enemySpawner.start();
+////        GameState.wave++;
     }
 
     private static void setCounts() {

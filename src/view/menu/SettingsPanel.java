@@ -70,6 +70,19 @@ public class SettingsPanel extends PIG {
             @Override
             public void stateChanged(ChangeEvent e) {
                 Configs.SENSITIVITY = sensitivitySlider.getValue();
+                if (Configs.SENSITIVITY == 3){
+                    Configs.EPSILON_ACCELERATION = 0.001;
+                    Configs.EPSILON_DECELERATION_TIME = 50;
+                }
+                else if (Configs.SENSITIVITY == 2){
+                    Configs.EPSILON_ACCELERATION = 0.0006;
+                    Configs.EPSILON_DECELERATION_TIME = 200;
+                }
+                else if (Configs.SENSITIVITY == 1){
+                    Configs.EPSILON_ACCELERATION = 0.0003;
+                    Configs.EPSILON_DECELERATION_TIME = 400;
+                    System.out.println("OH");
+                }
             }
         });
     }

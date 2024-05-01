@@ -30,7 +30,7 @@ public class FrameResizeThread extends Thread{
     }
 
     private void Resize() {
-        FramePressure();
+//        FramePressure();
         FrameResize();
     }
     private void FramePressure() {
