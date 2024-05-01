@@ -3,12 +3,15 @@ package model.logic;
 import controller.Constants;
 import controller.Controller;
 import controller.GameState;
+import controller.animations.DashAnimation;
 import controller.helper.Utils;
 import controller.helper.Vector;
 import model.interfaces.HasVertices;
 import model.interfaces.IsCircle;
 import model.interfaces.IsPolygon;
 import model.objectsModel.*;
+
+import java.util.ArrayList;
 
 public class CollisionHandler {
     Vector collisionPoint;
@@ -18,7 +21,7 @@ public class CollisionHandler {
     public void EpsilonEnemy(EpsilonModel epsilon ,EnemyModel enemy){
         for (int i = 0 ;i < ((IsPolygon)enemy).getVertices().size() ;i++){
             if (Collision.IsInCircle(epsilon ,((IsPolygon)enemy).getVertices().get(i))){
-                GameState.hp -= 10;
+                GameState.hp -= Constants.MELEI_ATTACK;
                 break;
             }
         }
@@ -29,8 +32,6 @@ public class CollisionHandler {
             }
         }
         PullOut(epsilon ,enemy);
-        epsilon.setVelocity(0 ,0);
-        epsilon.setAcceleration(0 ,0);
         new Impact(collisionPoint).MakeImpact();
     }
 
@@ -65,7 +66,7 @@ public class CollisionHandler {
         else if (attacker instanceof IsCircle && defender instanceof IsPolygon){
             Vector attackerP = Utils.VectorAdd(Utils.ScalarInVector(-1, collisionPoint), attacker.getPosition());
             attackerP = Utils.VectorWithSize(attackerP, 1);
-            while (Collision.IsColliding(attacker, defender)) {
+            while (Collision.IsColliding(attacker, defender)){
                 attacker.setPosition(Utils.VectorAdd(attacker.getPosition() ,attackerP));
                 collisionPoint = Utils.VectorAdd(collisionPoint ,attackerP);
                 if (attacker instanceof EpsilonModel)

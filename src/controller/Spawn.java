@@ -38,8 +38,8 @@ public class Spawn {
         } catch (LineUnavailableException e) {
             throw new RuntimeException(e);
         }
-        if (Constants.GAME_DIFFICULTY.equals("HARD")){
-            enemyCount = (int) 2;
+        if (Configs.DIFFICULTY == 2){
+            enemyCount = (int) 20;
         }
         for (int i = 0 ;i < enemyCount ;i++){
             int rand = random.nextInt(2);

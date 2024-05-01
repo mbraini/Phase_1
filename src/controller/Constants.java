@@ -23,6 +23,8 @@ public class Constants {
     public static final Dimension MINIMUM_FRAME_DIMENSION = new Dimension(200 ,200);
     public static final double IMPACT_AREA = 200;
     public static final int ENEMY_SPAWN_MARGIN = 500;
+    public static final double DASH_DISTANCE = 100;
+    public static final double DASH_ROTATION = Math.PI;
     public static Image epsilonImage;
     public static Image trigorathImage;
     public static Image squarantineImage;

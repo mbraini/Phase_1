@@ -25,13 +25,13 @@ public class Impact {
                 distance = Utils.VectorSize(direction);
                 //////////////////todo
                 if (distance >= Constants.IMPACT_AREA) {
-                    return;
+                    continue;
                 }
                 //////////////////todo
                 if (distance == 0)
-                    return;
+                    continue;
                 if (!(OIGModel.OIGs.get(i) instanceof EpsilonModel))
-                    new DashAnimation(OIGModel.OIGs.get(i), direction ,Constants.DASH_TIME  ,100 ,Math.PI).StartAnimation();
+                    new DashAnimation(OIGModel.OIGs.get(i), direction ,Constants.DASH_TIME  ,Constants.DASH_DISTANCE ,Constants.DASH_ROTATION).StartAnimation();
                 else
                     new DashAnimation(OIGModel.OIGs.get(i), direction ,Constants.DASH_TIME ,100 ,0).StartAnimation();
             }
