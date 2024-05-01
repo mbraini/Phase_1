@@ -91,7 +91,7 @@ public class GameLoop extends Thread{
         CheckObjectDeath();
         EpsilonBorderCollision();
         /////reqs
-//        CheckRequests();
+        CheckRequests();
         /////
     }
 
