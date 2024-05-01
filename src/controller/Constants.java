@@ -8,7 +8,8 @@ public class Constants {
     public static final int FPS = 10;
     public static final int UPS = 10;
     public static final Dimension barD = new Dimension(14,37);
-    public static final Dimension EPSILON_DIMENSION = new Dimension(25 ,25);
+    public static Dimension EPSILON_DIMENSION = new Dimension(25 ,25);
+    public static final Dimension EPSILON_FINAL_DIMENSION = new Dimension(25 ,25);
     public static final Dimension TRIGORATH_DIMENTION = new Dimension(50 ,50);
     public static final Dimension Squarantine_DIMENTION = new Dimension(50 ,50);
     public static final double BULLET_VELOCITY = 6;
@@ -47,4 +48,6 @@ public class Constants {
     public static String backGroundSound;
     public static String BulletFiredSound;
     public static String waveSpawnSound;
+    public static final int WIN_ANIMATION_TIME = 4000;
+    public static final int WIN_ANIMATION_REFRESHRATE = 20;
 }

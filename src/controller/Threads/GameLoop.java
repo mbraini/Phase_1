@@ -61,6 +61,8 @@ public class GameLoop extends Thread{
     }
 
     void UpdateModel(){
+        if (GameState.hasWon)
+            return;
         for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
             if (OIGModel.OIGs.get(i) instanceof MoveAble)
                 ((MoveAble) OIGModel.OIGs.get(i)).move();
@@ -96,8 +98,11 @@ public class GameLoop extends Thread{
     }
 
     private void CheckRequests() {
-        if (GameState.time >= 3)
+        if (GameState.hasWon)
+            return;
+        if (GameState.time >= 3) {
             GameManager.CheckNewWave();
+        }
         Controller.CheckRegularAbilities();
         Controller.CheckSpecialAbilities();
         Controller.CheckAddOrRemoveObjectRequest();

@@ -1,6 +1,7 @@
 package controller;
 
 import controller.Spawn.Spawn;
+import controller.animations.EpsilonInControlAnimation;
 import model.logic.Impact;
 import model.objectsModel.BulletModel;
 import model.objectsModel.CollectiveModel;
@@ -48,4 +49,8 @@ public class GameManager {
     }
 
 
+    public static void EpsilonWin() {
+        GameState.hasWon = true;
+        new EpsilonInControlAnimation(Controller.getEpsilon()).StartAnimation();
+    }
 }

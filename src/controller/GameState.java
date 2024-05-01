@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GameState extends JPanel{
+    public static boolean hasWon = false;
     Timer timer;
     public static double time;
     public static double xp;

@@ -29,8 +29,11 @@ public class Spawn {
     }
 
     public static void SpawnWave(){
-        if (GameState.wave == 4){
-            Controller.EndTheGame();
+        if (GameState.wave == 2){
+            //////
+            GameManager.EpsilonWin();
+            //////
+//            Controller.EndTheGame();
             return;
         }
         try {

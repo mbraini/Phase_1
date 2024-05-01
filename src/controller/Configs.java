@@ -1,5 +1,7 @@
 package controller;
 
+import java.awt.*;
+
 public class Configs {
 
     public static int SOUND = 5;
@@ -11,5 +13,4 @@ public class Configs {
     public static double EPSILON_ACCELERATION = 0.001;
     public static double EPSILON_MAX_SPEED = 1;
     public static int EPSILON_DECELERATION_TIME = 10;
-
 }

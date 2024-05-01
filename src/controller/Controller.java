@@ -6,6 +6,7 @@ import view.Abilities.*;
 import view.game.GameFrame;
 import view.objectsView.*;
 
+import java.awt.*;
 import java.util.ArrayList;
 public abstract class Controller {
     private static ArrayList<OIGModel> addedObjects = new ArrayList<>();
@@ -93,6 +94,8 @@ public abstract class Controller {
 
     private static void ResetController() {
         GameState.isOver = false;
+        GameState.hasWon = false;
+        Constants.EPSILON_DIMENSION = new Dimension(Constants.EPSILON_FINAL_DIMENSION.width ,Constants.EPSILON_FINAL_DIMENSION.height);
     }
 
     private static void ResetView() {
