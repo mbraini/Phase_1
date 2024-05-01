@@ -1,4 +1,5 @@
 package controller;
+import controller.Config.Configs;
 import controller.Spawn.Spawn;
 import controller.animations.GameStartAnimation;
 import model.objectsModel.*;
@@ -7,6 +8,10 @@ import view.game.GameFrame;
 import view.objectsView.*;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 public abstract class Controller {
     private static ArrayList<OIGModel> addedObjects = new ArrayList<>();
@@ -84,8 +89,20 @@ public abstract class Controller {
 
     public static void EndTheGame() {
         EndController();
+        updateConfigs();
         GameFrame.windowKill.end();
         GameFrame.endGame.start();
+    }
+
+    private static void updateConfigs() {
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(new File("src/controller/Config/Configs.txt"));
+            PrintStream printStream = new PrintStream(fileOutputStream);
+            printStream.println("XP: " + (int) GameState.xp);
+            Configs.XP = (int) GameState.xp;
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static void EndController() {
