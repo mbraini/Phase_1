@@ -231,9 +231,9 @@ public class SkillTreePanel extends PIG {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(Constants.heal ,getWidth() / 10 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3 ,null);
-        g.drawImage(Constants.empower ,getWidth() / 10 * 4 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3 ,null);
-        g.drawImage(Constants.banish ,getWidth() / 10 * 7 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3 ,null);
+        g.drawImage(Constants.ares ,getWidth() / 10 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3 ,null);
+        g.drawImage(Constants.aceso ,getWidth() / 10 * 4 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3 ,null);
+        g.drawImage(Constants.proteus ,getWidth() / 10 * 7 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3 ,null);
     }
 
     @Override

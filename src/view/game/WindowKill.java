@@ -45,13 +45,13 @@ public class WindowKill extends PIG {
         super.paintComponent(g);
         g.setColor(Color.MAGENTA);
         g.setFont(new Font(null,Font.BOLD ,10));
-        g.drawString("XP: " + (int)GameState.xp ,10 ,20);
+        g.drawString("XP: " + (int)GameState.xp ,3 ,20);
         g.setColor(Color.GREEN);
-        g.drawString("HP: " + (int)GameState.hp ,65 ,20);
+        g.drawString("HP: " + (int)GameState.hp ,58 ,20);
         g.setColor(Color.RED);
-        g.drawString("Wave: " +(int)GameState.wave ,110 ,20);
+        g.drawString("Wave: " +(int)GameState.wave ,103 ,20);
         g.setColor(Color.WHITE);
-        g.drawString("Time: " + (int)GameState.time ,158 ,20);
+        g.drawString("Time: " + (int)GameState.time ,151 ,20);
         Graphics2D g2d = (Graphics2D)g;
         for (int i = 0 ;i < OIGView.OIGs.size() ;i++){
             OIGView.OIGs.get(i).draw(g2d);

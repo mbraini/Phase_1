@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Constants {
     public static final int GAME_HEIGHT = 700;
@@ -53,4 +54,7 @@ public class Constants {
     public static String enemyOnDeathSound;
     public static String impactSound;
     public static Image endGameImage;
+    public static Image ares;
+    public static Image aceso;
+    public static Image proteus;
 }

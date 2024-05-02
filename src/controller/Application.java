@@ -67,6 +67,9 @@ public class Application implements Runnable {
             Constants.banish = ImageIO.read(new File("src/view/game/Banish.png"));
             Constants.empower = ImageIO.read(new File("src/view/game/Empower.png"));
             Constants.heal = ImageIO.read(new File("src/view/game/Heal.png"));
+            Constants.ares = ImageIO.read(new File("src/view/game/Ares.png"));
+            Constants.aceso = ImageIO.read(new File("src/view/game/Aceso.png"));
+            Constants.proteus = ImageIO.read(new File("src/view/game/Proteus.png"));
         }
         catch (Exception e){
             System.out.println("File Not Found!");

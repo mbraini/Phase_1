@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 
 public class Tutorial extends PIG {
 
-     JLabel shot;
-     JLabel shotGuide;
+     JLabel shoot;
+     JLabel shootGuide;
      JLabel movement;
      JLabel movementGuide1;
      JLabel movementGuide2;
@@ -23,6 +23,8 @@ public class Tutorial extends PIG {
      JLabel acesoGuide;
      JLabel proteus;
      JLabel proteusGuide;
+     JLabel shop;
+     JLabel shopGuide;
      JButton back;
      public Tutorial(){
          this.setLayout(null);
@@ -33,9 +35,34 @@ public class Tutorial extends PIG {
          initShot();
          initMovement();
          initAbilities();
+         initShop();
          initBack();
          initBackAL();
      }
+
+    private void initShop() {
+        shop = new JLabel();
+        shop.setBounds(Constants.GAME_WIDTH / 25 ,Constants.GAME_HEIGHT / 15 ,Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 15);
+        shop.setText("Shop");
+        shop.setBackground(Color.WHITE);
+        shop.setOpaque(true);
+        shop.setFont(new Font(null,Font.BOLD ,15));
+        shop.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        shop.setHorizontalAlignment(JLabel.CENTER);
+        shop.setVerticalAlignment(JLabel.CENTER);
+        this.add(shop);
+
+        shopGuide = new JLabel();
+        shopGuide.setBounds(Constants.GAME_WIDTH / 25 * 2 + Constants.GAME_WIDTH / 5,Constants.GAME_HEIGHT / 15 ,Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 15);
+        shopGuide.setText("P_KEY");
+        shopGuide.setBackground(Color.WHITE);
+        shopGuide.setOpaque(true);
+        shopGuide.setFont(new Font(null,Font.BOLD ,15));
+        shopGuide.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        shopGuide.setHorizontalAlignment(JLabel.CENTER);
+        shopGuide.setVerticalAlignment(JLabel.CENTER);
+        this.add(shopGuide);
+    }
 
     private void initBackAL() {
         back.addActionListener(new ActionListener() {
@@ -188,28 +215,29 @@ public class Tutorial extends PIG {
     }
 
     private void initShot() {
-        shot = new JLabel();
-        shot.setBounds(Constants.GAME_WIDTH / 5,Constants.GAME_HEIGHT / 15,Constants.GAME_WIDTH / 5,Constants.GAME_HEIGHT / 15);
-        shot.setText("Shoot");
-        shot.setBackground(Color.WHITE);
-        shot.setOpaque(true);
-        shot.setFont(new Font(null,Font.BOLD ,15));
-        shot.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
-        shot.setHorizontalAlignment(JLabel.CENTER);
-        shot.setVerticalAlignment(JLabel.CENTER);
-        this.add(shot);
+        shoot = new JLabel();
+        shoot.setBounds(Constants.GAME_WIDTH / 25 * 3 + Constants.GAME_WIDTH / 5 * 2 ,Constants.GAME_HEIGHT / 15 ,Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 15);
+        shoot.setText("Shoot");
+        shoot.setBackground(Color.WHITE);
+        shoot.setOpaque(true);
+        shoot.setFont(new Font(null,Font.BOLD ,15));
+        shoot.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        shoot.setHorizontalAlignment(JLabel.CENTER);
+        shoot.setVerticalAlignment(JLabel.CENTER);
+        this.add(shoot);
 
-        shotGuide = new JLabel();
-        shotGuide.setBounds(Constants.GAME_WIDTH / 5 * 3 ,Constants.GAME_HEIGHT / 15 ,Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 15);
-        shotGuide.setText("Mouse_Left_Click");
-        shotGuide.setBackground(Color.WHITE);
-        shotGuide.setOpaque(true);
-        shotGuide.setFont(new Font(null,Font.BOLD ,15));
-        shotGuide.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
-        shotGuide.setHorizontalAlignment(JLabel.CENTER);
-        shotGuide.setVerticalAlignment(JLabel.CENTER);
-        this.add(shotGuide);
+        shootGuide = new JLabel();
+        shootGuide.setBounds(Constants.GAME_WIDTH / 25 * 4 + Constants.GAME_WIDTH / 5 * 3 ,Constants.GAME_HEIGHT / 15 ,Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 15);
+        shootGuide.setText("Left_Mouse_Button");
+        shootGuide.setBackground(Color.WHITE);
+        shootGuide.setOpaque(true);
+        shootGuide.setFont(new Font(null,Font.BOLD ,14));
+        shootGuide.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        shootGuide.setHorizontalAlignment(JLabel.CENTER);
+        shootGuide.setVerticalAlignment(JLabel.CENTER);
+        this.add(shootGuide);
     }
+
 
     @Override
     public void start() {

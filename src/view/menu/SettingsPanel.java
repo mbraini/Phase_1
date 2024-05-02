@@ -69,6 +69,7 @@ public class SettingsPanel extends PIG {
         sensitivityGuide.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
         sensitivityGuide.setHorizontalAlignment(JLabel.CENTER);
         sensitivityGuide.setVerticalAlignment(JLabel.CENTER);
+        sensitivitySlider.setValue(3);
         this.add(sensitivityGuide);
     }
 
@@ -120,7 +121,6 @@ public class SettingsPanel extends PIG {
                 else if (Configs.SENSITIVITY == 1){
                     Configs.EPSILON_ACCELERATION = 0.0003;
                     Configs.EPSILON_DECELERATION_TIME = 400;
-                    System.out.println("OH");
                 }
             }
         });

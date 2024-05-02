@@ -70,6 +70,6 @@ public class SquarantineModel extends EnemyModel implements HasVertices, IsPolyg
 
     @Override
     public void ability() {
-        new DashAnimation(this ,Utils.VectorAdd(Utils.ScalarInVector(-1 ,position) , Controller.getEpsilon().getPosition()) ,600 ,100 ,Math.PI).StartAnimation();
+        new DashAnimation(this ,Utils.VectorAdd(Utils.ScalarInVector(-1 ,position) , Controller.getEpsilon().getPosition()) ,700 ,90 ,Math.PI).StartAnimation();
     }
 }

@@ -100,8 +100,8 @@ public abstract class Controller {
             PrintStream printStream = new PrintStream(fileOutputStream);
             printStream.println("XP: " + (int) GameState.xp);
             printStream.println("Ares: " + Ares.isAvailable);
-            printStream.println("Aceso: " + Ares.isAvailable);
-            printStream.println("Proteus: " + Ares.isAvailable);
+            printStream.println("Aceso: " + Aceso.isAvailable);
+            printStream.println("Proteus: " + Proteus.isAvailable);
             Configs.XP = (int) GameState.xp;
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

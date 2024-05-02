@@ -63,6 +63,7 @@ public class GameLoop extends Thread{
     void UpdateModel(){
         if (GameState.hasWon)
             return;
+        checkEpsilonDeath();
         for (int i = 0 ;i < OIGModel.OIGs.size() ;i++){
             if (OIGModel.OIGs.get(i) instanceof MoveAble)
                 ((MoveAble) OIGModel.OIGs.get(i)).move();
@@ -95,6 +96,12 @@ public class GameLoop extends Thread{
         /////reqs
         CheckRequests();
         /////
+    }
+
+    private void checkEpsilonDeath() {
+        if (GameState.hp <= 0){
+            Controller.EndTheGame();
+        }
     }
 
     private void CheckRequests() {
