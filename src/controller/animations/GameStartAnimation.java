@@ -34,7 +34,7 @@ public class GameStartAnimation extends Animation{
                 }
             }
         });
-        frameAnimation = new FrameAnimation(Application.gameFrame ,-50 ,-50 ,-50 ,-50 ,1000);
+        frameAnimation = new FrameAnimation(Application.gameFrame ,-250 ,-250 ,-250 ,-250 ,1000);
         frameAnimation.StartAnimation();
         epsilonTaker.start();
     }

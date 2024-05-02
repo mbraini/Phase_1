@@ -99,6 +99,9 @@ public abstract class Controller {
             FileOutputStream fileOutputStream = new FileOutputStream(new File("src/controller/Config/Configs.txt"));
             PrintStream printStream = new PrintStream(fileOutputStream);
             printStream.println("XP: " + (int) GameState.xp);
+            printStream.println("Ares: " + Ares.isAvailable);
+            printStream.println("Aceso: " + Ares.isAvailable);
+            printStream.println("Proteus: " + Ares.isAvailable);
             Configs.XP = (int) GameState.xp;
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -113,6 +116,8 @@ public abstract class Controller {
         GameState.isOver = false;
         GameState.hasWon = false;
         Constants.EPSILON_DIMENSION = new Dimension(Constants.EPSILON_FINAL_DIMENSION.width ,Constants.EPSILON_FINAL_DIMENSION.height);
+        Configs.VERTICES = 0;
+        Configs.EXTRA_DAMAGE = 0;
     }
 
     private static void ResetView() {
@@ -121,7 +126,7 @@ public abstract class Controller {
 
     private static void ResetModel() {
         OIGModel.OIGs = new ArrayList<>();
-        Configs.VERTICES = 0;
+        EpsilonModel.vertices = new ArrayList<>();
     }
 
     public static EpsilonModel getEpsilon() {

@@ -2,6 +2,9 @@ package controller;
 
 import controller.Config.Configs;
 import controller.SoundEffects.Sound;
+import view.Abilities.Aceso;
+import view.Abilities.Ares;
+import view.Abilities.Proteus;
 import view.menu.MainFrame;
 import view.game.GameFrame;
 
@@ -34,6 +37,9 @@ public class Application implements Runnable {
             Scanner scanner = new Scanner(fileInputStream);
             Configs.XP = Integer.valueOf(scanner.nextLine().substring(4));
             GameState.xp = Configs.XP;
+            Ares.isAvailable = Integer.valueOf(scanner.nextLine().substring(6));
+            Aceso.isAvailable = Integer.valueOf(scanner.nextLine().substring(7));
+            Proteus.isAvailable = Integer.valueOf(scanner.nextLine().substring(9));
             scanner.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -46,6 +52,7 @@ public class Application implements Runnable {
         Constants.waveSpawnSound = "src/controller/SoundEffects/Wave Spawn.wav";
         Constants.enemyOnDeathSound = "src/controller/SoundEffects/EnemyOnDeath.wav";
         Constants.impactSound = "src/controller/SoundEffects/ImpactSound.wav";
+        Constants.endGameImage = ImageIO.read(new File("src/view/game/GameOver.png"));
         Sound sound = new Sound(Constants.backGroundSound);
         Sound.volumeUp();
         Sound.volumeDown();

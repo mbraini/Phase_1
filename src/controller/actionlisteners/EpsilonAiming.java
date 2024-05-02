@@ -31,7 +31,7 @@ public class EpsilonAiming implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if ((GameState.time - timer) * 1000 >= Constants.AIMING_PAUSE_TIME){
+        if ((GameState.time - timer) * 1000 >= Constants.AIMING_PAUSE_TIME && !GameState.hasWon){
             timer = GameState.time;
             EpsilonModel epsilon = Controller.getEpsilon();
             Vector clickedPoint = new Vector(e.getX() ,e.getY());

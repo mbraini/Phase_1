@@ -32,7 +32,8 @@ public class FrameResizeThread extends Thread{
     private void Resize() {
         if (GameState.hasWon)
             return;
-        FramePressure();
+        if (GameState.time >= 10)
+            FramePressure();
         FrameResize();
     }
     private void FramePressure() {

@@ -16,8 +16,8 @@ public class Constants {
     public static final double BULLET_DIAMETER = 10;
     public static final int ID_SIZE = 10;
     public static final double EPSILON_DAMAGE = 5;
-    public static final int MELEI_ATTACK = 5;
-    public static final Dimension MINIMUM_FRAME_DIMENSION = new Dimension(200 ,200);
+    public static final int MELEI_ATTACK = 10;
+    public static final Dimension MINIMUM_FRAME_DIMENSION = new Dimension(200 + barD.width ,200 + barD.height);
     public static final double IMPACT_AREA = 200;
     public static final int ENEMY_SPAWN_MARGIN = 500;
     public static final double DASH_DISTANCE = 100;
@@ -41,7 +41,7 @@ public class Constants {
     public static final int FRAME_ANIMATION_REFRESH_RATE = 10;
     public static final int FRAME_BULLET_RESIZE = 50;
     public static final int FRAME_BULLET_RESIZE_TIME = 200;
-    public static final double FRAME_PRESSURE_VELOCITY = 0.02;
+    public static final double FRAME_PRESSURE_VELOCITY = 0.01;
     public static final Dimension COLLECTIVE_BOX_DIMENSION = new Dimension(100 ,100);
     public static final int EPSILON_VERTICES_RADIOS = 3;
     public static final String GAME_DIFFICULTY = "HARD";
@@ -52,4 +52,5 @@ public class Constants {
     public static final int WIN_ANIMATION_REFRESH_RATE = 10;
     public static String enemyOnDeathSound;
     public static String impactSound;
+    public static Image endGameImage;
 }

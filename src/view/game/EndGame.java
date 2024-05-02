@@ -17,7 +17,7 @@ public class EndGame extends PIG {
     public EndGame(){
         this.setLayout(null);
         this.setBounds(0,0,Constants.GAME_WIDTH, Constants.GAME_HEIGHT);
-        this.setBackground(Color.GRAY);
+        this.setBackground(Color.BLACK);
         initMenu();
         initXP();
         this.setVisible(false);
@@ -25,8 +25,9 @@ public class EndGame extends PIG {
 
     private void initXP() {
         xp = new JLabel();
-        xp.setBounds(getWidth() / 9 * 3 ,getHeight() / 10 ,getWidth() / 9 ,getHeight() / 10);
-        xp.setText("" + (int) GameState.xp);
+        xp.setBounds(getWidth() / 3 ,getHeight() / 10 * 6 ,getWidth() / 3 ,getHeight() / 10);
+        xp.setFont(new Font(null,Font.BOLD ,15));
+        xp.setText("XP: " + (int) GameState.xp);
         xp.setBackground(Color.WHITE);
         xp.setOpaque(true);
         xp.setHorizontalAlignment(JLabel.CENTER);
@@ -37,6 +38,7 @@ public class EndGame extends PIG {
     private void initMenu() {
         menu = new JButton();
         menu.setBounds(getWidth() / 3 ,getHeight() / 10 * 8 ,getWidth() / 3 ,getHeight() / 10);
+        menu.setFont(new Font(null,Font.BOLD ,15));
         menu.setText("menu");
         menu.setBackground(Color.WHITE);
         menu.setOpaque(true);
@@ -65,5 +67,11 @@ public class EndGame extends PIG {
     @Override
     public void end() {
         this.setVisible(false);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(Constants.endGameImage ,getWidth() / 3 ,getHeight() / 6 ,getWidth() / 3 ,getHeight() / 3 ,null);
     }
 }

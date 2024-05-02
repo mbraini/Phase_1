@@ -34,6 +34,7 @@ public class GameFrame extends JFrame implements MoveAble {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setSize(Constants.GAME_WIDTH + Constants.barD.width ,Constants.GAME_HEIGHT + Constants.barD.height);
         this.setLocationRelativeTo(null);
+        this.setType(Type.UTILITY);
 
         positionInit = new Vector(getLocation().getX() ,getLocation().y);
         dimentionInit = new Vector(getSize().width ,getSize().height);

@@ -1,1 +1,4 @@
-XP: 825
+XP: 2060
+Ares: 1
+Aceso: 1
+Proteus: 0

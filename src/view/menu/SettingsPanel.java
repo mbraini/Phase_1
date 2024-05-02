@@ -17,6 +17,9 @@ public class SettingsPanel extends PIG {
     JSlider soundSlider;
     JSlider difficultySlider;
     JSlider sensitivitySlider;
+    JLabel soundGuide;
+    JLabel difficultyGuide;
+    JLabel sensitivityGuide;
     JButton back;
 
     public SettingsPanel(){
@@ -28,9 +31,45 @@ public class SettingsPanel extends PIG {
         initSoundSlider();
         initDifficultySlider();
         initSensitivitySlider();
+        initGuides();
         initBack();
         initChangeListeners();
         initAL();
+    }
+
+    private void initGuides() {
+        soundGuide = new JLabel();
+        soundGuide.setBounds(Constants.GAME_WIDTH / 8 ,Constants.GAME_HEIGHT / 9 ,Constants.GAME_WIDTH / 8 ,Constants.GAME_HEIGHT / 9);
+        soundGuide.setText("Sound");
+        soundGuide.setBackground(Color.WHITE);
+        soundGuide.setOpaque(true);
+        soundGuide.setFont(new Font(null,Font.BOLD ,15));
+        soundGuide.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        soundGuide.setHorizontalAlignment(JLabel.CENTER);
+        soundGuide.setVerticalAlignment(JLabel.CENTER);
+        this.add(soundGuide);
+
+        difficultyGuide = new JLabel();
+        difficultyGuide.setBounds(Constants.GAME_WIDTH / 8 ,Constants.GAME_HEIGHT / 9 * 3 ,Constants.GAME_WIDTH / 8 ,Constants.GAME_HEIGHT / 9);
+        difficultyGuide.setText("Difficulty");
+        difficultyGuide.setBackground(Color.WHITE);
+        difficultyGuide.setOpaque(true);
+        difficultyGuide.setFont(new Font(null,Font.BOLD ,15));
+        difficultyGuide.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        difficultyGuide.setHorizontalAlignment(JLabel.CENTER);
+        difficultyGuide.setVerticalAlignment(JLabel.CENTER);
+        this.add(difficultyGuide);
+
+        sensitivityGuide = new JLabel();
+        sensitivityGuide.setBounds(Constants.GAME_WIDTH / 8 ,Constants.GAME_HEIGHT / 9 * 5 ,Constants.GAME_WIDTH / 8 ,Constants.GAME_HEIGHT / 9);
+        sensitivityGuide.setText("Sensitivity");
+        sensitivityGuide.setBackground(Color.WHITE);
+        sensitivityGuide.setOpaque(true);
+        sensitivityGuide.setFont(new Font(null,Font.BOLD ,15));
+        sensitivityGuide.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        sensitivityGuide.setHorizontalAlignment(JLabel.CENTER);
+        sensitivityGuide.setVerticalAlignment(JLabel.CENTER);
+        this.add(sensitivityGuide);
     }
 
     private void initAL() {
@@ -90,6 +129,7 @@ public class SettingsPanel extends PIG {
     private void initBack() {
         back = new JButton();
         back.setBounds(Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 9 * 7 ,Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 9);
+        back.setFont(new Font(null,Font.BOLD ,15));
         back.setText("back");
         back.setBackground(Color.WHITE);
         back.setOpaque(true);
@@ -102,7 +142,7 @@ public class SettingsPanel extends PIG {
 
     private void initSensitivitySlider() {
         sensitivitySlider = new JSlider(1 ,3);
-        sensitivitySlider.setBounds(Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 9 * 5 ,Constants.GAME_WIDTH / 5 * 3 ,Constants.GAME_HEIGHT / 9);
+        sensitivitySlider.setBounds(Constants.GAME_WIDTH / 8 * 3 ,Constants.GAME_HEIGHT / 9 * 5 ,Constants.GAME_WIDTH / 8 * 4 ,Constants.GAME_HEIGHT / 9);
         sensitivitySlider.setPaintTicks(true);
         sensitivitySlider.setMinorTickSpacing(1);
         sensitivitySlider.setPaintTrack(true);
@@ -116,7 +156,7 @@ public class SettingsPanel extends PIG {
 
     private void initDifficultySlider() {
         difficultySlider = new JSlider(1 ,3);
-        difficultySlider.setBounds(Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 9 * 3 ,Constants.GAME_WIDTH / 5 * 3 ,Constants.GAME_HEIGHT / 9);
+        difficultySlider.setBounds(Constants.GAME_WIDTH / 8 * 3 ,Constants.GAME_HEIGHT / 9 * 3 ,Constants.GAME_WIDTH / 8 * 4 ,Constants.GAME_HEIGHT / 9);
         difficultySlider.setPaintTicks(true);
         difficultySlider.setMinorTickSpacing(1);
         difficultySlider.setPaintTrack(true);
@@ -130,7 +170,7 @@ public class SettingsPanel extends PIG {
 
     private void initSoundSlider() {
         soundSlider = new JSlider(0 ,10);
-        soundSlider.setBounds(Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 9 ,Constants.GAME_WIDTH / 5 * 3 ,Constants.GAME_HEIGHT / 9);
+        soundSlider.setBounds(Constants.GAME_WIDTH / 8 * 3 ,Constants.GAME_HEIGHT / 9 ,Constants.GAME_WIDTH / 8 * 4 ,Constants.GAME_HEIGHT / 9);
         soundSlider.setPaintTicks(true);
         soundSlider.setMinorTickSpacing(1);
         soundSlider.setPaintTrack(true);

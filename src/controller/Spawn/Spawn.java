@@ -30,11 +30,10 @@ public class Spawn {
     }
 
     public static void SpawnWave(){
-        if (GameState.wave == 2){
+        GameState.wave++;
+        if (GameState.wave == 4){
             //////
             GameManager.EpsilonWin();
-            //////
-//            Controller.EndTheGame();
             return;
         }
         try {
@@ -61,7 +60,6 @@ public class Spawn {
             }
         });
         enemySpawner.start();
-        GameState.wave++;
     }
 
     private static void setCounts() {

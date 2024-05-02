@@ -43,6 +43,15 @@ public class WindowKill extends PIG {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.setColor(Color.MAGENTA);
+        g.setFont(new Font(null,Font.BOLD ,10));
+        g.drawString("XP: " + (int)GameState.xp ,10 ,20);
+        g.setColor(Color.GREEN);
+        g.drawString("HP: " + (int)GameState.hp ,65 ,20);
+        g.setColor(Color.RED);
+        g.drawString("Wave: " +(int)GameState.wave ,110 ,20);
+        g.setColor(Color.WHITE);
+        g.drawString("Time: " + (int)GameState.time ,158 ,20);
         Graphics2D g2d = (Graphics2D)g;
         for (int i = 0 ;i < OIGView.OIGs.size() ;i++){
             OIGView.OIGs.get(i).draw(g2d);
@@ -55,7 +64,7 @@ public class WindowKill extends PIG {
         GameFrame.windowKill.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if (e.getKeyChar() == 'p' && !GameState.isPause){
+                if (e.getKeyChar() == 'p' && !GameState.isPause && !GameState.hasWon){
                     ShopFrame shopFrame = new ShopFrame();
                     shop = new Shop(shopFrame);
                     shopFrame.add(shop);

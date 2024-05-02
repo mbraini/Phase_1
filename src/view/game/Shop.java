@@ -12,26 +12,25 @@ import java.awt.event.*;
 
 public class Shop extends PIG {
     ShopFrame shopFrame;
-    JButton next;
-    JButton previous;
     JButton back;
     JPanel banish;
     JPanel empower;
     JPanel heal;
-    JLabel hp;
     JLabel xp;
-    JLabel wave;
-    JLabel time;
+    JLabel healL;
+    JLabel banishL;
+    JLabel empowerL;
 
     public Shop(ShopFrame shopFrame){
         this.setLayout(null);
         this.setBounds(0,0, Constants.GAME_WIDTH, Constants.GAME_HEIGHT);
-        this.setBackground(Color.BLUE);
+        this.setBackground(Color.BLACK);
         this.shopFrame = shopFrame;
         initContainers();
         initBanish();
         initEmpower();
         initHeal();
+        initLabels();
         this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -52,12 +51,54 @@ public class Shop extends PIG {
         });
         this.grabFocus();
         this.setFocusable(true);
-        initHP();
-        initTime();
-        initWave();
-        initXP();
         initBack();
         this.setVisible(true);
+    }
+
+    private void initLabels() {
+        xp = new JLabel();
+        xp.setBounds(Constants.GAME_WIDTH / 5 * 2 ,Constants.GAME_HEIGHT / 12 ,Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT / 12);
+        xp.setText("XP :" +(int) GameState.xp);
+        xp.setBackground(Color.WHITE);
+        xp.setOpaque(true);
+        xp.setFont(new Font(null,Font.BOLD ,15));
+        xp.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        xp.setHorizontalAlignment(JLabel.CENTER);
+        xp.setVerticalAlignment(JLabel.CENTER);
+        this.add(xp);
+
+        healL = new JLabel();
+        healL.setBounds(Constants.GAME_WIDTH / 10 ,Constants.GAME_HEIGHT / 12 * 7 ,Constants.GAME_WIDTH / 10 * 2 ,Constants.GAME_HEIGHT / 12);
+        healL.setText("Ares");
+        healL.setBackground(Color.WHITE);
+        healL.setOpaque(true);
+        healL.setFont(new Font(null,Font.BOLD ,15));
+        healL.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        healL.setHorizontalAlignment(JLabel.CENTER);
+        healL.setVerticalAlignment(JLabel.CENTER);
+        this.add(healL);
+
+        banishL = new JLabel();
+        banishL.setBounds(Constants.GAME_WIDTH / 10 * 4 ,Constants.GAME_HEIGHT / 12 * 7 ,Constants.GAME_WIDTH / 10 * 2 ,Constants.GAME_HEIGHT / 12);
+        banishL.setText("Aceso");
+        banishL.setBackground(Color.WHITE);
+        banishL.setOpaque(true);
+        banishL.setFont(new Font(null,Font.BOLD ,15));
+        banishL.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        banishL.setHorizontalAlignment(JLabel.CENTER);
+        banishL.setVerticalAlignment(JLabel.CENTER);
+        this.add(banishL);
+
+        empowerL = new JLabel();
+        empowerL.setBounds(Constants.GAME_WIDTH / 10 * 7 ,Constants.GAME_HEIGHT / 12 * 7 ,Constants.GAME_WIDTH / 10 * 2 ,Constants.GAME_HEIGHT / 12);
+        empowerL.setText("Proteus");
+        empowerL.setBackground(Color.WHITE);
+        empowerL.setOpaque(true);
+        empowerL.setFont(new Font(null,Font.BOLD ,15));
+        empowerL.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        empowerL.setHorizontalAlignment(JLabel.CENTER);
+        empowerL.setVerticalAlignment(JLabel.CENTER);
+        this.add(empowerL);
     }
 
     private void initContainers() {
@@ -80,6 +121,7 @@ public class Shop extends PIG {
                 if (GameState.xp >= 50) {
                     RegularAbility.sendRequest(RegularAbilitiesEnum.heal);
                     GameState.xp -= 50;
+                    xp.setText("XP :" +(int) GameState.xp);
                 }
             }
 
@@ -113,6 +155,7 @@ public class Shop extends PIG {
                 if (GameState.xp >= 75) {
                     RegularAbility.sendRequest(RegularAbilitiesEnum.empower);
                     GameState.xp -= 75;
+                    xp.setText("XP :" +(int) GameState.xp);
                 }
             }
 
@@ -146,6 +189,7 @@ public class Shop extends PIG {
                 if (GameState.xp >= 100) {
                     RegularAbility.sendRequest(RegularAbilitiesEnum.banish);
                     GameState.xp -= 100;
+                    xp.setText("XP :" + (int)GameState.xp);
                 }
             }
 
@@ -169,50 +213,6 @@ public class Shop extends PIG {
 
             }
         });
-    }
-
-    void initHP(){
-        hp = new JLabel();
-        hp.setBounds(getWidth() / 9 ,getHeight() / 10 ,getWidth() / 9 ,getHeight() / 10);
-        hp.setText("" + (int)GameState.hp);
-        hp.setBackground(Color.WHITE);
-        hp.setOpaque(true);
-        hp.setHorizontalAlignment(JLabel.CENTER);
-        hp.setVerticalAlignment(JLabel.CENTER);
-        this.add(hp);
-    }
-
-    void initXP(){
-        xp = new JLabel();
-        xp.setBounds(getWidth() / 9 * 3 ,getHeight() / 10 ,getWidth() / 9 ,getHeight() / 10);
-        xp.setText("" + (int)GameState.xp);
-        xp.setBackground(Color.WHITE);
-        xp.setOpaque(true);
-        xp.setHorizontalAlignment(JLabel.CENTER);
-        xp.setVerticalAlignment(JLabel.CENTER);
-        this.add(xp);
-    }
-
-    void initWave(){
-        wave = new JLabel();
-        wave.setBounds(getWidth() / 9 * 5,getHeight() / 10 ,getWidth() / 9 ,getHeight() / 10);
-        wave.setText("" + (int)GameState.wave);
-        wave.setBackground(Color.WHITE);
-        wave.setOpaque(true);
-        wave.setHorizontalAlignment(JLabel.CENTER);
-        wave.setVerticalAlignment(JLabel.CENTER);
-        this.add(wave);
-    }
-
-    void initTime(){
-        time = new JLabel();
-        time.setBounds(getWidth() / 9 * 7 ,getHeight() / 10 ,getWidth() / 9 ,getHeight() / 10);
-        time.setText("" + (int)GameState.time);
-        time.setBackground(Color.WHITE);
-        time.setOpaque(true);
-        time.setHorizontalAlignment(JLabel.CENTER);
-        time.setVerticalAlignment(JLabel.CENTER);
-        this.add(time);
     }
 
     void initBack(){

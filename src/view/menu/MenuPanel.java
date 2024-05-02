@@ -2,6 +2,7 @@ package view.menu;
 
 import controller.Application;
 import controller.Constants;
+import controller.Controller;
 import view.PIG;
 import view.game.GameFrame;
 import view.game.WindowKill;
@@ -35,6 +36,7 @@ public class MenuPanel extends PIG {
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Controller.updateConfigs();
                 System.exit(0);
             }
         });
@@ -82,7 +84,8 @@ public class MenuPanel extends PIG {
 
     private void initExit(){
         exit = new JButton();
-        exit.setBounds(0 ,Constants.GAME_HEIGHT - Constants.GAME_HEIGHT / 5 ,Constants.GAME_WIDTH/5,Constants.GAME_HEIGHT / 5);
+        exit.setBounds(Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 11 * 9 ,Constants.GAME_WIDTH / 3,Constants.GAME_HEIGHT / 11);
+        exit.setFont(new Font(null,Font.BOLD ,15));
         exit.setText("exit");
         exit.setBackground(Color.WHITE);
         exit.setOpaque(true);
@@ -95,7 +98,8 @@ public class MenuPanel extends PIG {
 
     private void initStart(){
         start = new JButton();
-        start.setBounds(Constants.GAME_WIDTH / 5 ,Constants.GAME_HEIGHT - Constants.GAME_HEIGHT / 5 ,Constants.GAME_WIDTH/5,Constants.GAME_HEIGHT / 5);
+        start.setBounds(Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 11 ,Constants.GAME_WIDTH / 3,Constants.GAME_HEIGHT / 11);
+        start.setFont(new Font(null,Font.BOLD ,15));
         start.setText("start");
         start.setBackground(Color.WHITE);
         start.setOpaque(true);
@@ -108,7 +112,8 @@ public class MenuPanel extends PIG {
 
     private void initSettings(){
         settings = new JButton();
-        settings.setBounds(Constants.GAME_WIDTH / 5 * 2 ,Constants.GAME_HEIGHT - Constants.GAME_HEIGHT / 5 ,Constants.GAME_WIDTH/5,Constants.GAME_HEIGHT / 5);
+        settings.setBounds(Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 11 * 3 ,Constants.GAME_WIDTH / 3,Constants.GAME_HEIGHT / 11);
+        settings.setFont(new Font(null,Font.BOLD ,15));
         settings.setText("settings");
         settings.setBackground(Color.WHITE);
         settings.setOpaque(true);
@@ -121,7 +126,8 @@ public class MenuPanel extends PIG {
 
     private void initTutorial(){
         tutorial = new JButton();
-        tutorial.setBounds(Constants.GAME_WIDTH / 5 * 3 ,Constants.GAME_HEIGHT - Constants.GAME_HEIGHT / 5 ,Constants.GAME_WIDTH/5,Constants.GAME_HEIGHT / 5);
+        tutorial.setBounds(Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 11 * 7 ,Constants.GAME_WIDTH / 3,Constants.GAME_HEIGHT / 11);
+        tutorial.setFont(new Font(null,Font.BOLD ,15));
         tutorial.setText("tutorial");
         tutorial.setBackground(Color.WHITE);
         tutorial.setOpaque(true);
@@ -134,7 +140,8 @@ public class MenuPanel extends PIG {
 
     private void initSkillTree(){
         skillTree = new JButton();
-        skillTree.setBounds(Constants.GAME_WIDTH / 5 * 4 ,Constants.GAME_HEIGHT - Constants.GAME_HEIGHT / 5 ,Constants.GAME_WIDTH/5,Constants.GAME_HEIGHT / 5);
+        skillTree.setBounds(Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 11 * 5 ,Constants.GAME_WIDTH / 3,Constants.GAME_HEIGHT / 11);
+        skillTree.setFont(new Font(null,Font.BOLD ,15));
         skillTree.setText("skillTree");
         skillTree.setBackground(Color.WHITE);
         skillTree.setOpaque(true);

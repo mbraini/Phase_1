@@ -22,6 +22,10 @@ public class SkillTreePanel extends PIG {
     JPanel ares;
     JPanel aceso;
     JPanel proteus;
+    JLabel aresL;
+    JLabel acesoL;
+    JLabel proteusL;
+    JLabel xp;
 
     public SkillTreePanel(){
         this.setLayout(null);
@@ -35,7 +39,54 @@ public class SkillTreePanel extends PIG {
         initAceso();
         initProteus();
         initBack();
+        initLables();
         initAL();
+    }
+
+    private void initLables() {
+        xp = new JLabel();
+        xp.setBounds(Constants.GAME_WIDTH / 7 * 3 ,Constants.GAME_HEIGHT / 12 ,Constants.GAME_WIDTH / 7 ,Constants.GAME_HEIGHT / 12);
+        xp.setText("XP :" +(int) GameState.xp);
+        xp.setBackground(Color.WHITE);
+        xp.setOpaque(true);
+        xp.setFont(new Font(null,Font.BOLD ,15));
+        xp.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        xp.setHorizontalAlignment(JLabel.CENTER);
+        xp.setVerticalAlignment(JLabel.CENTER);
+        this.add(xp);
+
+        aresL = new JLabel();
+        aresL.setBounds(Constants.GAME_WIDTH / 10 ,Constants.GAME_HEIGHT / 12 * 7 ,Constants.GAME_WIDTH / 10 * 2 ,Constants.GAME_HEIGHT / 12);
+        aresL.setText("Ares");
+        aresL.setBackground(Color.WHITE);
+        aresL.setOpaque(true);
+        aresL.setFont(new Font(null,Font.BOLD ,15));
+        aresL.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        aresL.setHorizontalAlignment(JLabel.CENTER);
+        aresL.setVerticalAlignment(JLabel.CENTER);
+        this.add(aresL);
+
+        acesoL = new JLabel();
+        acesoL.setBounds(Constants.GAME_WIDTH / 10 * 4 ,Constants.GAME_HEIGHT / 12 * 7 ,Constants.GAME_WIDTH / 10 * 2 ,Constants.GAME_HEIGHT / 12);
+        acesoL.setText("Aceso");
+        acesoL.setBackground(Color.WHITE);
+        acesoL.setOpaque(true);
+        acesoL.setFont(new Font(null,Font.BOLD ,15));
+        acesoL.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        acesoL.setHorizontalAlignment(JLabel.CENTER);
+        acesoL.setVerticalAlignment(JLabel.CENTER);
+        this.add(acesoL);
+
+        proteusL = new JLabel();
+        proteusL.setBounds(Constants.GAME_WIDTH / 10 * 7 ,Constants.GAME_HEIGHT / 12 * 7 ,Constants.GAME_WIDTH / 10 * 2 ,Constants.GAME_HEIGHT / 12);
+        proteusL.setText("Proteus");
+        proteusL.setBackground(Color.WHITE);
+        proteusL.setOpaque(true);
+        proteusL.setFont(new Font(null,Font.BOLD ,15));
+        proteusL.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
+        proteusL.setHorizontalAlignment(JLabel.CENTER);
+        proteusL.setVerticalAlignment(JLabel.CENTER);
+        this.add(proteusL);
     }
 
     private void initContainers() {
@@ -51,14 +102,15 @@ public class SkillTreePanel extends PIG {
     }
 
     private void initAres() {
-        ares.setBounds(getWidth() / 10 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2);
+        ares.setBounds(getWidth() / 10 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3);
         ares.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (GameState.xp >= 750) {
                     GameState.xp -= 750;
                     Controller.updateConfigs();
-                    Ares.isAvailable = true;
+                    Ares.isAvailable ++;
+                    xp.setText("XP :" +(int) GameState.xp);
                 }
             }
 
@@ -85,14 +137,15 @@ public class SkillTreePanel extends PIG {
     }
 
     private void initAceso() {
-        aceso.setBounds(getWidth() / 10 * 4 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2);
+        aceso.setBounds(getWidth() / 10 * 4 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3);
         aceso.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (GameState.xp >= 500) {
                     GameState.xp -= 500;
                     Controller.updateConfigs();
-                    Aceso.isAvailable = true;
+                    Aceso.isAvailable ++;
+                    xp.setText("XP :" +(int) GameState.xp);
                 }
             }
 
@@ -118,14 +171,15 @@ public class SkillTreePanel extends PIG {
         });
     }
     private void initProteus() {
-        proteus.setBounds(getWidth() / 10 * 7 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2);
+        proteus.setBounds(getWidth() / 10 * 7 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3);
         proteus.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (GameState.xp >= 1000) {
                     GameState.xp -= 1000;
                     Controller.updateConfigs();
-                    Proteus.isAvailable = true;
+                    Proteus.isAvailable ++;
+                    xp.setText("XP :" +(int) GameState.xp);
                 }
             }
 
@@ -153,10 +207,11 @@ public class SkillTreePanel extends PIG {
 
     private void initBack() {
         back = new JButton();
-        back.setBounds(Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 9 * 7 ,Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 9);
+        back.setBounds(Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 12 * 10 ,Constants.GAME_WIDTH / 3 ,Constants.GAME_HEIGHT / 12);
         back.setText("back");
         back.setBackground(Color.WHITE);
         back.setOpaque(true);
+        back.setFont(new Font(null,Font.BOLD ,15));
         back.setHorizontalTextPosition(JLabel.RIGHT);
         back.setVerticalTextPosition(JLabel.TOP);
         back.setBorder(BorderFactory.createLineBorder(Color.CYAN,2));
@@ -176,14 +231,15 @@ public class SkillTreePanel extends PIG {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(Constants.heal ,getWidth() / 10 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2 ,null);
-        g.drawImage(Constants.empower ,getWidth() / 10 * 4 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2 ,null);
-        g.drawImage(Constants.banish ,getWidth() / 10 * 7 ,getHeight() / 10 * 3 ,getWidth() / 10 * 2 ,getHeight() / 10 * 2 ,null);
+        g.drawImage(Constants.heal ,getWidth() / 10 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3 ,null);
+        g.drawImage(Constants.empower ,getWidth() / 10 * 4 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3 ,null);
+        g.drawImage(Constants.banish ,getWidth() / 10 * 7 ,getHeight() / 12 * 3 ,getWidth() / 10 * 2 ,getHeight() / 12 * 3 ,null);
     }
 
     @Override
     public void start() {
         this.setVisible(true);
+        xp.setText("XP :" +(int) GameState.xp);
     }
 
     @Override

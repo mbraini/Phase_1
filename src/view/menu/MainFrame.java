@@ -13,9 +13,10 @@ public class MainFrame extends JFrame {
     public MainFrame(){
         this.setLayout(null);
         this.setResizable(false);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(700 + Constants.barD.width ,700 + Constants.barD.height);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        this.setSize(Constants.GAME_WIDTH + Constants.barD.width ,Constants.GAME_HEIGHT + Constants.barD.height);
         this.setLocationRelativeTo(null);
+        this.setType(Type.UTILITY);
 
         mainPanel = new MainPanel();
         this.setContentPane(mainPanel);
