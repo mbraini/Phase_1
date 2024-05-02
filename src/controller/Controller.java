@@ -121,6 +121,7 @@ public abstract class Controller {
 
     private static void ResetModel() {
         OIGModel.OIGs = new ArrayList<>();
+        Configs.VERTICES = 0;
     }
 
     public static EpsilonModel getEpsilon() {

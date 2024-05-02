@@ -50,4 +50,6 @@ public class Constants {
     public static String waveSpawnSound;
     public static final int WIN_ANIMATION_TIME = 3000;
     public static final int WIN_ANIMATION_REFRESH_RATE = 10;
+    public static String enemyOnDeathSound;
+    public static String impactSound;
 }
