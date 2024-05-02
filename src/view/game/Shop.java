@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Shop extends PIG {
+    ShopFrame shopFrame;
     JButton next;
     JButton previous;
     JButton back;
@@ -22,10 +23,11 @@ public class Shop extends PIG {
     JLabel wave;
     JLabel time;
 
-    public Shop(){
+    public Shop(ShopFrame shopFrame){
         this.setLayout(null);
-        this.setBounds(0,0, Application.gameFrame.getWidth() - Constants.barD.width, Application.gameFrame.getHeight() - Constants.barD.height);
+        this.setBounds(0,0, Constants.GAME_WIDTH, Constants.GAME_HEIGHT);
         this.setBackground(Color.BLUE);
+        this.shopFrame = shopFrame;
         initContainers();
         initBanish();
         initEmpower();
@@ -258,5 +260,6 @@ public class Shop extends PIG {
         WindowKill.frameResizeThread = new FrameResizeThread(Application.gameFrame);
         WindowKill.gameLoop.start();
         WindowKill.frameResizeThread.start();
+        shopFrame.dispose();
     }
 }

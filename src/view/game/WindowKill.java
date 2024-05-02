@@ -56,10 +56,10 @@ public class WindowKill extends PIG {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == 'p' && !GameState.isPause){
-                    shop = new Shop();
-                    GameFrame.gamePanel.add(shop);
+                    ShopFrame shopFrame = new ShopFrame();
+                    shop = new Shop(shopFrame);
+                    shopFrame.add(shop);
                     GameState.isPause = true;
-                    GameFrame.windowKill.setVisible(false);
                 }
                 else if (e.getKeyChar() == 'q' && !GameState.isPause){
                     SpecialAbility.sendRequest(SpecialAbilitiesEnum.ares);
