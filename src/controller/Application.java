@@ -33,6 +33,7 @@ public class Application implements Runnable {
             FileInputStream fileInputStream = new FileInputStream(file);
             Scanner scanner = new Scanner(fileInputStream);
             Configs.XP = Integer.valueOf(scanner.nextLine().substring(4));
+            GameState.xp = Configs.XP;
             scanner.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

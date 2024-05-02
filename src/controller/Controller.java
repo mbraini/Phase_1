@@ -94,7 +94,7 @@ public abstract class Controller {
         GameFrame.endGame.start();
     }
 
-    private static void updateConfigs() {
+    public static void updateConfigs() {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(new File("src/controller/Config/Configs.txt"));
             PrintStream printStream = new PrintStream(fileOutputStream);

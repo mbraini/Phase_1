@@ -1,8 +1,12 @@
 package view.menu;
 
 import controller.Constants;
+import controller.Controller;
 import controller.GameState;
 import controller.RegularAbilitiesEnum;
+import view.Abilities.Aceso;
+import view.Abilities.Ares;
+import view.Abilities.Proteus;
 import view.Abilities.RegularAbility;
 import view.PIG;
 
@@ -51,8 +55,11 @@ public class SkillTreePanel extends PIG {
         ares.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("ares");
-                ////todo
+                if (GameState.xp >= 750) {
+                    GameState.xp -= 750;
+                    Controller.updateConfigs();
+                    Ares.isAvailable = true;
+                }
             }
 
             @Override
@@ -82,8 +89,11 @@ public class SkillTreePanel extends PIG {
         aceso.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("aceso");
-                ///todo
+                if (GameState.xp >= 500) {
+                    GameState.xp -= 500;
+                    Controller.updateConfigs();
+                    Aceso.isAvailable = true;
+                }
             }
 
             @Override
@@ -112,8 +122,11 @@ public class SkillTreePanel extends PIG {
         proteus.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("proteus");
-                ///todo
+                if (GameState.xp >= 1000) {
+                    GameState.xp -= 1000;
+                    Controller.updateConfigs();
+                    Proteus.isAvailable = true;
+                }
             }
 
             @Override

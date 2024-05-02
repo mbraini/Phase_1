@@ -8,10 +8,11 @@ import java.awt.event.ActionListener;
 
 public class Aceso extends SpecialAbility{
     public static Timer heal;
+    public static boolean isAvailable;
     static double time = -300;
     @Override
     public void performAbility() {
-        if ( GameState.time - time >= 300 && GameState.xp >= 100) {
+        if ( GameState.time - time >= 300 && GameState.xp >= 100 && isAvailable) {
             heal = new Timer(1000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
