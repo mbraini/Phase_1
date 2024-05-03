@@ -13,8 +13,8 @@ public class Constants {
     public static final int SQURANTINE_DAMAGE = 10;
     public static Dimension EPSILON_DIMENSION = new Dimension(25 ,25);
     public static final Dimension EPSILON_FINAL_DIMENSION = new Dimension(25 ,25);
-    public static final Dimension TRIGORATH_DIMENTION = new Dimension(50 ,50);
-    public static final Dimension Squarantine_DIMENTION = new Dimension(50 ,50);
+    public static Dimension TRIGORATH_DIMENTION = new Dimension(50 ,50);
+    public static Dimension Squarantine_DIMENTION = new Dimension(50 ,50);
     public static final double BULLET_VELOCITY = 6;
     public static final double BULLET_DIAMETER = 10;
     public static final int ID_SIZE = 10;
