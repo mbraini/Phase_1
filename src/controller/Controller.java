@@ -132,12 +132,12 @@ public abstract class Controller {
             Constants.Squarantine_DIMENTION = new Dimension(50 ,50);
         }
         else if (Configs.DIFFICULTY == 2){
-            Constants.TRIGORATH_DIMENTION = new Dimension(70 ,70);
-            Constants.Squarantine_DIMENTION = new Dimension(70 ,70);
+            Constants.TRIGORATH_DIMENTION = new Dimension(60 ,60);
+            Constants.Squarantine_DIMENTION = new Dimension(60 ,60);
         }
         else if (Configs.DIFFICULTY == 1){
-            Constants.TRIGORATH_DIMENTION = new Dimension(90 ,90);
-            Constants.Squarantine_DIMENTION = new Dimension(90 ,90);
+            Constants.TRIGORATH_DIMENTION = new Dimension(70 ,70);
+            Constants.Squarantine_DIMENTION = new Dimension(70 ,70);
         }
     }
 
