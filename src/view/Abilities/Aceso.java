@@ -13,6 +13,9 @@ public class Aceso extends SpecialAbility{
     static double time = -300;
     @Override
     public void performAbility() {
+        if (heal != null){
+            heal.stop();
+        }
         if ( GameState.time - time >= 300 && GameState.xp >= 100 && isAvailable > 0) {
             isAvailable --;
             Configs.EXTRA_HEAL ++;
