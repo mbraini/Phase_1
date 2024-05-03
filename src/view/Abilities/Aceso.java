@@ -1,5 +1,6 @@
 package view.Abilities;
 
+import controller.Config.Configs;
 import controller.GameState;
 
 import javax.swing.*;
@@ -14,6 +15,7 @@ public class Aceso extends SpecialAbility{
     public void performAbility() {
         if ( GameState.time - time >= 300 && GameState.xp >= 100 && isAvailable > 0) {
             isAvailable --;
+            Configs.EXTRA_HEAL ++;
             heal = new Timer(1000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -22,7 +24,7 @@ public class Aceso extends SpecialAbility{
                     if (GameState.isOver){
                         heal.stop();
                     }
-                    GameState.hp++;
+                    GameState.hp += Configs.EXTRA_HEAL;
                     if (GameState.hp >= 100){
                         GameState.hp = 100;
                     }

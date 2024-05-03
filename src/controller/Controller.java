@@ -127,6 +127,7 @@ public abstract class Controller {
         Constants.EPSILON_DIMENSION = new Dimension(Constants.EPSILON_FINAL_DIMENSION.width ,Constants.EPSILON_FINAL_DIMENSION.height);
         Configs.VERTICES = 0;
         Configs.EXTRA_DAMAGE = 0;
+        Configs.EXTRA_HEAL = 0;
         if (Configs.DIFFICULTY == 3){
             Constants.TRIGORATH_DIMENTION = new Dimension(50 ,50);
             Constants.Squarantine_DIMENTION = new Dimension(50 ,50);

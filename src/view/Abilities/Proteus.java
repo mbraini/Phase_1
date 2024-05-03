@@ -9,7 +9,7 @@ public class Proteus extends SpecialAbility{
     static double time = -300;
     @Override
     public void performAbility() {
-        if (GameState.time - time >= 20 && GameState.xp >= 100 && isAvailable > 0){
+        if (GameState.time - time >= 300 && GameState.xp >= 100 && isAvailable > 0){
             isAvailable --;
             Configs.VERTICES += 1;
             Controller.getEpsilon().addVertex();
