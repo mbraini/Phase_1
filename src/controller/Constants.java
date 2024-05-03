@@ -9,6 +9,8 @@ public class Constants {
     public static final int FPS = 10;
     public static final int UPS = 10;
     public static final Dimension barD = new Dimension(14,37);
+    public static final int TRIGORATH_DAMAGE = 15;
+    public static final int SQURANTINE_DAMAGE = 10;
     public static Dimension EPSILON_DIMENSION = new Dimension(25 ,25);
     public static final Dimension EPSILON_FINAL_DIMENSION = new Dimension(25 ,25);
     public static final Dimension TRIGORATH_DIMENTION = new Dimension(50 ,50);
@@ -57,4 +59,6 @@ public class Constants {
     public static Image ares;
     public static Image aceso;
     public static Image proteus;
+    public static String winSound;
+    public static String endSound;
 }

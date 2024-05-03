@@ -19,7 +19,10 @@ public class CollisionHandler {
     public void EpsilonEnemy(EpsilonModel epsilon ,EnemyModel enemy){
         for (int i = 0 ;i < ((IsPolygon)enemy).getVertices().size() ;i++){
             if (Collision.IsInCircle(epsilon ,((IsPolygon)enemy).getVertices().get(i))){
-                GameState.hp -= Constants.MELEI_ATTACK;
+                if (enemy instanceof TrigorathModel)
+                    GameState.hp -= Constants.TRIGORATH_DAMAGE;
+                else if (enemy instanceof SquarantineModel)
+                    GameState.hp -= Constants.SQURANTINE_DAMAGE;
                 break;
             }
         }

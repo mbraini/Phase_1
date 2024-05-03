@@ -33,6 +33,7 @@ public class WindowKill extends PIG {
         frameResizeThread = new FrameResizeThread(Application.gameFrame);
         frameResizeThread.start();
         Controller.gameStartAnimation();
+        this.grabFocus();
     }
 
     @Override

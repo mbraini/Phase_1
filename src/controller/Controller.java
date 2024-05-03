@@ -1,5 +1,6 @@
 package controller;
 import controller.Config.Configs;
+import controller.SoundEffects.Sound;
 import controller.Spawn.Spawn;
 import controller.animations.GameStartAnimation;
 import model.objectsModel.*;
@@ -7,11 +8,10 @@ import view.Abilities.*;
 import view.game.GameFrame;
 import view.objectsView.*;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 public abstract class Controller {
     private static ArrayList<OIGModel> addedObjects = new ArrayList<>();
@@ -88,6 +88,15 @@ public abstract class Controller {
     }
 
     public static void EndTheGame() {
+        try {
+            new Sound(Constants.endSound).play();
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
         EndController();
         updateConfigs();
         GameFrame.windowKill.end();

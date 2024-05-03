@@ -52,7 +52,8 @@ public class Application implements Runnable {
         Constants.waveSpawnSound = "src/controller/SoundEffects/Wave Spawn.wav";
         Constants.enemyOnDeathSound = "src/controller/SoundEffects/EnemyOnDeath.wav";
         Constants.impactSound = "src/controller/SoundEffects/ImpactSound.wav";
-        Constants.endGameImage = ImageIO.read(new File("src/view/game/GameOver.png"));
+        Constants.endSound = "src/controller/SoundEffects/endSound.wav";
+        Constants.winSound = "src/controller/SoundEffects/winSound.wav";
         Sound sound = new Sound(Constants.backGroundSound);
         Sound.volumeUp();
         Sound.volumeDown();
@@ -70,6 +71,7 @@ public class Application implements Runnable {
             Constants.ares = ImageIO.read(new File("src/view/game/Ares.png"));
             Constants.aceso = ImageIO.read(new File("src/view/game/Aceso.png"));
             Constants.proteus = ImageIO.read(new File("src/view/game/Proteus.png"));
+            Constants.endGameImage = ImageIO.read(new File("src/view/game/GameOver.png"));
         }
         catch (Exception e){
             System.out.println("File Not Found!");

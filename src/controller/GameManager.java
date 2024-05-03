@@ -64,6 +64,15 @@ public class GameManager {
 
 
     public static void EpsilonWin() {
+        try {
+            new Sound(Constants.winSound).play();
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
         GameState.hasWon = true;
         new EpsilonInControlAnimation(Controller.getEpsilon()).StartAnimation();
     }

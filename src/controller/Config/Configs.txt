@@ -1,4 +1,4 @@
-XP: 20005
+XP: 18310
 Ares: 0
 Aceso: 0
 Proteus: 0
